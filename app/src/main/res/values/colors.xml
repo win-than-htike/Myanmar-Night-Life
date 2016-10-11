@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#20212D</color> <!--7F5CE6-->
+    <color name="colorPrimaryDark">#1E2230</color> <!--20212D-->
+    <color name="colorAccent">#7F5CE6</color>
+
+    <color name="status_bar_color">#000</color>
+
+    <color name="nav_bg_color">#fff</color>
+
+    <color name="bg">#0C8399</color>
+</resources>
