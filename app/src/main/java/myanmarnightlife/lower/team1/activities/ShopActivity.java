@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 
 import java.util.List;
 
@@ -98,12 +99,9 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
     }
 
     @Override
-    public void onClick(View view, int position) {
-
-        Places places = mAdapter.getSelectedPlace(position);
+    public void onTapShop(Places places, ImageView imageView) {
         Intent intent = DetailActivity.newInstance(places);
         startActivity(intent);
-
     }
 
     @Override

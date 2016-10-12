@@ -87,6 +87,8 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
 
         private Realm realm;
 
+        private Places places;
+
         private ItemClickListener itemClickListener;
 
         public PlcacesShopViewHolder(View itemView, ItemClickListener itemClickListener) {
@@ -99,6 +101,8 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
         }
 
         public void setData(final Places places){
+
+            this.places = places;
 
             shopRatingBar.setRating(Float.parseFloat(places.getRating()));
 
@@ -151,7 +155,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
 
         @Override
         public void onClick(View view) {
-            if (itemClickListener != null) itemClickListener.onClick(view,getAdapterPosition());
+            if (itemClickListener != null) itemClickListener.onTapShop(places,imgShop);
         }
     }
 }

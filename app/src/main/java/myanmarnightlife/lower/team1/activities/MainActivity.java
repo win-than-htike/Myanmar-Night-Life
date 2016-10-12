@@ -1,5 +1,6 @@
 package myanmarnightlife.lower.team1.activities;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,17 +15,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
+import myanmarnightlife.lower.team1.data.Places;
+import myanmarnightlife.lower.team1.fragments.FavouriteFragment;
 import myanmarnightlife.lower.team1.fragments.FragmentMain;
+import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,ItemClickListener{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,7 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null){
             FragmentMain homeFragment = new FragmentMain();
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, homeFragment).commit();
+            toolbar.setTitle("Myanmar Night Life");
         }
 
     }
@@ -106,9 +114,13 @@ public class MainActivity extends AppCompatActivity
 
             FragmentMain homeFragment = new FragmentMain();
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, homeFragment).commit();
-            toolbar.setTitle("Night Out");
+            toolbar.setTitle("Myanmar Night Out");
 
         } else if (id == R.id.nav_favourite) {
+
+            FavouriteFragment favouriteFragment = new FavouriteFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,favouriteFragment).commit();
+            toolbar.setTitle("Favourite");
 
         } else if (id == R.id.nav_about_us) {
 
@@ -117,5 +129,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    public void onTapShop(Places places, ImageView imageView) {
+        Intent intent = DetailActivity.newInstance(places);
+        startActivity(intent);
     }
 }
