@@ -9,12 +9,15 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -29,6 +32,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.activities.DetailPagerActivity;
 import myanmarnightlife.lower.team1.data.Places;
 
 /**
@@ -68,6 +72,9 @@ public class DetailFragment extends Fragment {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+    @BindView(R.id.tv_rating)
+    RatingBar ratingBar;
+
     private Places mPlaces;
 
     public static DetailFragment INSTANCE;
@@ -98,6 +105,13 @@ public class DetailFragment extends Fragment {
 
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
+        }
+
         fabMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,7 +127,7 @@ public class DetailFragment extends Fragment {
         });
 
         toolbar.setTitle(mPlaces.getShopName());
-
+        ratingBar.setRating(Float.parseFloat(mPlaces.getRating()));
         tvReview.setText(mPlaces.getShopReview());
         tvPhone.setText(mPlaces.getShopPhoneNumber());
         tvWebsite.setText(mPlaces.getShopWebsite());
@@ -178,4 +192,18 @@ public class DetailFragment extends Fragment {
         }
     }
 
+    
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == android.R.id.home) {
+//            this.getActivity().onBackPressed();
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 }
