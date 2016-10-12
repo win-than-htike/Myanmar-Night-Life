@@ -22,16 +22,17 @@ import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.data.PlacesData;
+import myanmarnightlife.lower.team1.fragments.ShopFragment;
 import myanmarnightlife.lower.team1.helper.PlacesRealmHelper;
 import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 
-public class ShopActivity extends AppCompatActivity implements ItemClickListener{
+public class ShopActivity extends AppCompatActivity implements ItemClickListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-
-    @BindView(R.id.rv_beer_shop)
-    RecyclerView rvBeerShop;
+//
+//    @BindView(R.id.rv_beer_shop)
+//    RecyclerView rvBeerShop;
 
     private List<Places> mPlaces;
     private PlacesRVAdapter mAdapter;
@@ -40,10 +41,10 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
 
     private static final String IE_TYPE = "TYPE";
 
-    public static Intent newInstance(String type){
+    public static Intent newInstance(String type) {
 
-        Intent intent = new Intent(MyanmarNightLifeApp.getContext(),ShopActivity.class);
-        intent.putExtra(IE_TYPE,type);
+        Intent intent = new Intent(MyanmarNightLifeApp.getContext(), ShopActivity.class);
+        intent.putExtra(IE_TYPE, type);
         return intent;
 
     }
@@ -52,7 +53,7 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beer_shop);
-        ButterKnife.bind(this,this);
+        ButterKnife.bind(this, this);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -70,37 +71,48 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
             actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
         }
 
-        if (getIntent().getExtras() != null){
+
+        ShopFragment shopFragment = new ShopFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_shop, shopFragment).commit();
+
+        if (getIntent().getExtras() != null) {
 
             TYPE = getIntent().getStringExtra(IE_TYPE);
 
         }
 
-        toolbar.setTitle("Beer Shop");
+        if (TYPE.equals("Beer")) {
 
-        rvBeerShop.setHasFixedSize(true);
+            toolbar.setTitle("Beer Shop");
 
-        int gridColumn = getResources().getInteger(R.integer.list_grid);
-        rvBeerShop.setLayoutManager(new GridLayoutManager(MyanmarNightLifeApp.getContext(),gridColumn));
+        } else if (TYPE.equals("Bar")) {
 
-        PlacesRealmHelper helper = PlacesRealmHelper.getInstance();
+            toolbar.setTitle("Bar");
 
+        } else if (TYPE.equals("Karaoke")) {
 
-        mPlaces = helper.getBarList(TYPE);
+            toolbar.setTitle("Karaoke");
 
-        if (mPlaces.size() <= 0){
-            PlacesData.getData();
-            mPlaces = helper.getBarList(TYPE);
+        }else if (TYPE.equals("Club")){
+
+            toolbar.setTitle("Night Club");
+
+        }else if (TYPE.equals("Restaurant")){
+
+            toolbar.setTitle("Restaurant");
+
+        }else if (TYPE.equals("Massage")){
+
+            toolbar.setTitle("Massage");
+
         }
-
-        mAdapter = new PlacesRVAdapter(mPlaces, this);
-        rvBeerShop.setAdapter(mAdapter);
 
     }
 
+
     @Override
     public void onTapShop(Places places, ImageView imageView) {
-        Intent intent = DetailActivity.newInstance(places);
+        Intent intent = DetailPagerActivity.newInstance(places,TYPE);
         startActivity(intent);
     }
 
@@ -110,7 +122,7 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home){
+        if (id == android.R.id.home) {
             onBackPressed();
         }
 

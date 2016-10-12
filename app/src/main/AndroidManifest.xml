@@ -25,6 +25,7 @@
         </activity>
         <activity android:name=".activities.ShopActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activities.DetailActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activities.DetailPagerActivity" android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

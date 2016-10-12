@@ -11,7 +11,7 @@ import io.realm.annotations.PrimaryKey;
 /**
  * Created by winthanhtike on 10/11/16.
  */
-@Parcel(implementations = { PlacesRealmProxy.class },
+@Parcel(implementations = {PlacesRealmProxy.class},
         value = Parcel.Serialization.BEAN,
         analyze = { Places.class })
 

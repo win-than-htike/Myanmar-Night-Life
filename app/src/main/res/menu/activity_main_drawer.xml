@@ -6,15 +6,15 @@
             android:id="@+id/nav_home"
             android:checked="true"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_favourite"
             android:icon="@drawable/ic_favorite_white_24dp"
-            android:title="Gallery" />
+            android:title="Favourite" />
         <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_group_black_24dp"
-            android:title="Slideshow" />
+            android:title="About Us" />
 
     </group>
 
