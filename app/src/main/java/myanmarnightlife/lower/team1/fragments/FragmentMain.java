@@ -1,5 +1,6 @@
 package myanmarnightlife.lower.team1.fragments;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +13,9 @@ import android.view.ViewGroup;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.activities.ShopActivity;
 import myanmarnightlife.lower.team1.activities.MainActivity;
 import myanmarnightlife.lower.team1.adapters.ImagePagerAdapter;
 import myanmarnightlife.lower.team1.views.PageIndicatorView;
@@ -99,21 +102,33 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
         switch (view.getId()){
 
             case R.id.beer:
+                Intent beerIntent = ShopActivity.newInstance("Beer");
+                startActivity(beerIntent);
                 break;
 
             case R.id.karaoke:
+                Intent karaokeIntent = ShopActivity.newInstance("Karaoke");
+                startActivity(karaokeIntent);
                 break;
 
             case R.id.night_club:
+                Intent clubIntent = ShopActivity.newInstance("Club");
+                startActivity(clubIntent);
                 break;
 
             case R.id.bar:
+                Intent barIntent = ShopActivity.newInstance("Bar");
+                startActivity(barIntent);
                 break;
 
             case R.id.massage:
+                Intent massageIntent = ShopActivity.newInstance("Massage");
+                startActivity(massageIntent);
                 break;
 
             case R.id.restaurant:
+                Intent restaurantIntent = ShopActivity.newInstance("Restaurant");
+                startActivity(restaurantIntent);
                 break;
 
         }

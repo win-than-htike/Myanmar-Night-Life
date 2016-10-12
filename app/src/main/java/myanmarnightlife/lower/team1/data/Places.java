@@ -1,31 +1,47 @@
 package myanmarnightlife.lower.team1.data;
 
+import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
+import org.parceler.ParcelProperty;
+
+import io.realm.PlacesRealmProxy;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by winthanhtike on 10/11/16.
  */
-public class Places extends RealmObject{
+@Parcel(implementations = { PlacesRealmProxy.class },
+        value = Parcel.Serialization.BEAN,
+        analyze = { Places.class })
+
+public class Places extends RealmObject {
 
 
     @PrimaryKey
-    private int _id;
-    private String shopName;
-    private String shopReview;
-    private String[] shopPhoneNumber;
-    private String shopWebsite;
-    private String shopAddress;
-    private String shopTime;
-    private String shopRoute;
-    private String shopCity;
-    private String shopType;
+    int _id;
+    @ParcelProperty("shopName")
+    String shopName;
+    String shopImage;
+    String shopReview;
+    String shopPhoneNumber;
+    String shopWebsite;
+    String shopAddress;
+    String shopTime;
+    String shopRoute;
+    String shopCity;
+    String shopType;
+    String rating;
+    int isSaved;
 
     public Places() {
     }
 
-    public Places(String shopName, String shopReview, String[] shopPhoneNumber, String shopWebsite, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType) {
+
+    @ParcelConstructor
+    public Places(@ParcelProperty("shopName") String shopName, String shopImage, String shopReview, String shopPhoneNumber, String shopWebsite, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType, String rating) {
         this.shopName = shopName;
+        this.shopImage = shopImage;
         this.shopReview = shopReview;
         this.shopPhoneNumber = shopPhoneNumber;
         this.shopWebsite = shopWebsite;
@@ -34,6 +50,7 @@ public class Places extends RealmObject{
         this.shopRoute = shopRoute;
         this.shopCity = shopCity;
         this.shopType = shopType;
+        this.rating = rating;
     }
 
     public int get_id() {
@@ -44,6 +61,7 @@ public class Places extends RealmObject{
         this._id = _id;
     }
 
+    @ParcelProperty("shopName")
     public String getShopName() {
         return shopName;
     }
@@ -52,7 +70,7 @@ public class Places extends RealmObject{
         return shopReview;
     }
 
-    public String[] getShopPhoneNumber() {
+    public String getShopPhoneNumber() {
         return shopPhoneNumber;
     }
 
@@ -79,4 +97,22 @@ public class Places extends RealmObject{
     public String getShopType() {
         return shopType;
     }
+
+    public int getIsSaved() {
+        return isSaved;
+    }
+
+    public void setIsSaved(int isSaved) {
+        this.isSaved = isSaved;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getShopImage() {
+        return shopImage;
+    }
+
+
 }

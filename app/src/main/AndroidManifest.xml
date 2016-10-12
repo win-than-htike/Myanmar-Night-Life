@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="myanmarnightlife.lower.team1">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
     <application
         android:name=".MyanmarNightLifeApp"
         android:allowBackup="true"
@@ -19,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.BeerShopActivity"></activity>
+        <activity android:name=".activities.ShopActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activities.DetailActivity" android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
