@@ -23,7 +23,8 @@
                 android:fontFamily="sans-serif"
                 android:paddingLeft="@dimen/margin_medium_2"
                 android:text="Rating"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
 
 
@@ -58,21 +59,22 @@
                 android:fontFamily="sans-serif"
                 android:paddingLeft="@dimen/margin_medium_2"
                 android:text="Review"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
 
 
-            <TextView
+            <myanmarnightlife.lower.team1.components.textviews.MMTextView
                 android:id="@+id/tv_review"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium_2"
                 android:layout_marginTop="4dp"
-                android:lineSpacingMultiplier="1.3"
+                android:lineSpacingMultiplier="1.4"
                 android:padding="@dimen/margin_medium"
                 android:text="#ကြ်န္ေတာ္တို႕ခ်စ္တဲ႕လြယ္အိပ္ႀကီးနဲဲ႔အတူဝုန္းျကဆို႕……"
                 android:textColor="#000"
-                android:textSize="@dimen/text_regular_2" />
+                android:textSize="@dimen/text_regular_3"/>
 
         </LinearLayout>
 
@@ -95,7 +97,8 @@
                 android:fontFamily="sans-serif"
                 android:paddingLeft="@dimen/margin_medium_2"
                 android:text="Phone"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
 
             <RelativeLayout
@@ -103,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_medium">
 
-                <TextView
+                <myanmarnightlife.lower.team1.components.textviews.MMTextView
                     android:id="@+id/tv_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,7 +116,7 @@
                     android:padding="@dimen/margin_medium"
                     android:text="09-123123123123"
                     android:textColor="#000"
-                    android:textSize="@dimen/text_regular_2" />
+                    android:textSize="@dimen/text_regular_3" />
 
                 <ImageView
                     android:id="@+id/iv_phone"
@@ -149,11 +152,12 @@
                 android:fontFamily="sans-serif"
                 android:paddingLeft="@dimen/margin_medium_2"
                 android:text="Website"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
 
 
-            <TextView
+            <myanmarnightlife.lower.team1.components.textviews.MMTextView
                 android:id="@+id/tv_website"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,7 +167,7 @@
                 android:padding="@dimen/margin_medium"
                 android:text="http://www.google.com"
                 android:textColor="#4c76ff"
-                android:textSize="@dimen/text_regular_2" />
+                android:textSize="@dimen/text_regular_3"/>
 
         </LinearLayout>
 
@@ -186,11 +190,12 @@
                 android:fontFamily="sans-serif"
                 android:paddingLeft="@dimen/margin_medium_2"
                 android:text="Open Time"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
 
 
-            <TextView
+            <myanmarnightlife.lower.team1.components.textviews.MMTextView
                 android:id="@+id/tv_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,7 +205,7 @@
                 android:padding="@dimen/margin_medium"
                 android:text="8 PM - 1 AM"
                 android:textColor="#000"
-                android:textSize="@dimen/text_regular_2" />
+                android:textSize="@dimen/text_regular_3" />
 
         </LinearLayout>
 
@@ -223,11 +228,12 @@
                 android:fontFamily="sans-serif"
                 android:paddingLeft="@dimen/margin_medium_2"
                 android:text="Address"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
 
 
-            <TextView
+            <myanmarnightlife.lower.team1.components.textviews.MMTextView
                 android:id="@+id/tv_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -237,7 +243,8 @@
                 android:padding="@dimen/margin_medium"
                 android:text="Shwedagon Pagoda Road, Yangon Myanmar"
                 android:textColor="#000"
-                android:textSize="@dimen/text_regular_2" />
+                android:textSize="@dimen/text_regular_3"
+                />
 
         </LinearLayout>
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
@@ -31,17 +32,19 @@ import myanmarnightlife.lower.team1.fragments.FragmentMain;
 import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,ItemClickListener{
+        implements NavigationView.OnNavigationItemSelectedListener, ItemClickListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    static String sate;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this,this);
+        ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
 
@@ -61,7 +64,24 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        if (savedInstanceState == null){
+        if (savedInstanceState != null){
+
+            sate = savedInstanceState.getString("state");
+
+            if(sate.equals("Myanmar Night Out")){
+
+                FragmentMain fragmentMain = new FragmentMain();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,fragmentMain).commit();
+
+            }else if (sate.equals("Favourite")){
+
+                FavouriteFragment favouriteFragment = new FavouriteFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,favouriteFragment).commit();
+
+            }
+        }
+
+        if (savedInstanceState == null) {
             FragmentMain homeFragment = new FragmentMain();
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, homeFragment).commit();
             toolbar.setTitle("Myanmar Night Life");
@@ -72,8 +92,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        FragmentMain homeFragment = new FragmentMain();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, homeFragment).commit();
     }
 
     @Override
@@ -84,6 +102,8 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+
+
     }
 
     @Override
@@ -123,8 +143,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_favourite) {
 
             FavouriteFragment favouriteFragment = new FavouriteFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,favouriteFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, favouriteFragment).commit();
             toolbar.setTitle("Favourite");
+
 
         } else if (id == R.id.nav_about_us) {
 
@@ -141,4 +162,12 @@ public class MainActivity extends AppCompatActivity
         Intent intent = DetailActivity.newInstance(places);
         startActivity(intent);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("state",toolbar.getTitle().toString());
+    }
+
+
 }

@@ -4,6 +4,7 @@ package myanmarnightlife.lower.team1.fragments;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +33,8 @@ public class FavouriteFragment extends Fragment {
     RecyclerView rvFavourite;
 
     private List<Places> mPlaces;
+
+    String state;
 
     private ItemClickListener itemClickListener;
 

@@ -1,9 +1,11 @@
 package myanmarnightlife.lower.team1.activities;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
@@ -20,6 +22,7 @@ import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.adapters.DetailPagerAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.fragments.DetailFragment;
+import myanmarnightlife.lower.team1.fragments.FavouriteFragment;
 import myanmarnightlife.lower.team1.helper.PlacesRealmHelper;
 
 /**
@@ -101,18 +104,4 @@ public class DetailPagerActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-
-        int count = getFragmentManager().getBackStackEntryCount();
-
-        if (count == 0) {
-            super.onBackPressed();
-            //additional code
-        } else {
-            getFragmentManager().popBackStack();
-        }
-
-        super.onBackPressed();
-    }
 }

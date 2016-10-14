@@ -4,6 +4,7 @@ package myanmarnightlife.lower.team1.helper;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
@@ -91,14 +92,20 @@ public class PlacesRealmHelper {
 
     }
 
-    public List<Places> queryedBooks(String placeType) {
+    public List<Places> queryedShops(String placeQuery,String type) {
 
         List<Places> placesList = new ArrayList<>();
+
+        String upperString = placeQuery.substring(0,1).toUpperCase() + placeQuery.substring(1);
 
         try {
 
             RealmResults<Places> results = mRealm.where(Places.class)
-                    .contains("placeType", placeType)
+                    .equalTo("shopType",type)
+                    .contains("shopCity",upperString,Case.INSENSITIVE)
+                    .or()
+                    .equalTo("shopType",type)
+                    .contains("shopName",upperString, Case.INSENSITIVE)
                     .findAll();
 
             placesList = results;

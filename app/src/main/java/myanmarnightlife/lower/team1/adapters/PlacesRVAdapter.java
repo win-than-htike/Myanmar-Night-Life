@@ -148,7 +148,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
                     .load(places.getShopImage())
                     .centerCrop()
                     .crossFade()
-                    .error(R.drawable.night)
+                    .error(R.mipmap.ic_launcher)
                     .placeholder(R.drawable.night)
                     .into((imgShop));
         }

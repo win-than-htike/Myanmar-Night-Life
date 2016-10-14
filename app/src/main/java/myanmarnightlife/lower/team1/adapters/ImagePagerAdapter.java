@@ -52,7 +52,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 .centerCrop()
                 .crossFade()
                 .placeholder(R.drawable.night)
-                .error(R.drawable.night)
+                .error(R.mipmap.ic_launcher)
                 .into(imageView);
 
         ((ViewPager) container).addView(imageView);

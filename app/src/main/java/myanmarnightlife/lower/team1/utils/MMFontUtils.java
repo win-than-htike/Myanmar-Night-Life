@@ -19,7 +19,7 @@ public class MMFontUtils {
     private static Typeface mmTypeFace;
     static {
         Context context = MyanmarNightLifeApp.getContext();
-        mmTypeFace = Typeface.createFromAsset(context.getAssets(), "fonts/zawgyi.ttf");
+        mmTypeFace = Typeface.createFromAsset(context.getAssets(), "zawgyi.ttf");
     }
 
     public static void setMMFont(TextView view) {
