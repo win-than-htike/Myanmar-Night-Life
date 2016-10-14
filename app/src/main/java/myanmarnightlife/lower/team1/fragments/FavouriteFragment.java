@@ -34,7 +34,6 @@ public class FavouriteFragment extends Fragment {
 
     private List<Places> mPlaces;
 
-    String state;
 
     private ItemClickListener itemClickListener;
 

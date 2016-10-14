@@ -90,7 +90,7 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            //actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
         }
 
 
@@ -114,22 +114,22 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
         } else if (TYPE.equals("Karaoke")) {
 
             toolbar.setTitle("Karaoke");
-            state = "karaoke";
+            state = "bar";
 
         }else if (TYPE.equals("Club")){
 
             toolbar.setTitle("Night Club");
-            state = "club";
+            state = "br";
 
         }else if (TYPE.equals("Restaurant")){
 
             toolbar.setTitle("Restaurant");
-            state = "restaurant";
+            state = "beer";
 
         }else if (TYPE.equals("Massage")){
 
             toolbar.setTitle("Massage");
-            state = "massage";
+            state = "beer";
 
         }
 

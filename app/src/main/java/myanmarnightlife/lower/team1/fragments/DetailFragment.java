@@ -9,10 +9,14 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,19 +102,21 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_detail, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
 
         Bundle bundle = getArguments();
         mPlaces = Parcels.unwrap(bundle.getParcelable(PLACES));
 
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((DetailPagerActivity) getActivity()).setSupportActionBar(toolbar);
 
-        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
         }
+
+        setHasOptionsMenu(true);
 
         fabMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,18 +198,22 @@ public class DetailFragment extends Fragment {
         }
     }
 
-    
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        Log.i("CREATE MENU :", "WORKED");
+        //inflater.inflate(R.menu.itemlistactivity_menu, menu);
+    }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == android.R.id.home) {
-//            this.getActivity().onBackPressed();
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                getActivity().onBackPressed();
+                getActivity().finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

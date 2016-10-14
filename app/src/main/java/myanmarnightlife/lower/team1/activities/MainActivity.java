@@ -29,6 +29,7 @@ import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.fragments.FavouriteFragment;
 import myanmarnightlife.lower.team1.fragments.FragmentMain;
+import myanmarnightlife.lower.team1.fragments.SuggestFragment;
 import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 
 public class MainActivity extends AppCompatActivity
@@ -149,6 +150,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_about_us) {
 
+        } else if (id == R.id.nav_suggest) {
+
+            SuggestFragment suggestFragment = new SuggestFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,suggestFragment).commit();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -159,7 +165,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onTapShop(Places places, ImageView imageView) {
-        Intent intent = DetailActivity.newInstance(places);
+        Intent intent = DetailPagerActivity.newInstance(places,places.getShopType());
         startActivity(intent);
     }
 

@@ -6,9 +6,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.MenuItem;
 
 import org.parceler.Parcels;
 
@@ -61,6 +65,7 @@ public class DetailPagerActivity extends AppCompatActivity {
         setContentView(R.layout.detail_activity_pager);
         ButterKnife.bind(this,this);
 
+
         if (getIntent().getExtras() != null){
             Bundle bundle = getIntent().getExtras();
             mPlaces = Parcels.unwrap(bundle.getParcelable(PLACES));
@@ -101,6 +106,22 @@ public class DetailPagerActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        Log.i("Activity : ", "WORKED");
+        //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
 
     }
 

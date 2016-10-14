@@ -5,12 +5,19 @@
         <item
             android:id="@+id/nav_home"
             android:checked="true"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="Home" />
+
         <item
             android:id="@+id/nav_favourite"
             android:icon="@drawable/ic_favorite_white_24dp"
             android:title="Favourite" />
+
+        <item
+            android:id="@+id/nav_suggest"
+            android:icon="@drawable/ic_assignment_late_black_24dp"
+            android:title="Favourite" />
+
         <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_group_black_24dp"
