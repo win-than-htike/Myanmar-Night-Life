@@ -1,101 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/white"
-    android:orientation="vertical"
-    android:padding="16dp">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Myanmar Night Life"
-        android:textColor="@color/bg"
-        android:textSize="33dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/full_name"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Myanmar Night Life"
+            android:textColor="@color/bg"
+            android:textSize="33dp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/your_full_name"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/full_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Shop Name"
-            android:inputType="textPersonName" />
+            android:layout_marginTop="10dp">
 
-    </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/your_full_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Shop Name"
+                android:inputType="textPersonName" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/email_address"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/your_email_address"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/email_address"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Shop Phone"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="10dp">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/your_email_address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Shop Phone"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/create_new_password"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Shop Open Hours (eg.8AM-10PM)"
-            android:inputType="text" />
+            android:layout_marginTop="10dp">
 
-    </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/create_new_password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Shop Open Hours (eg.8AM-10PM)"
+                android:inputType="text" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/address"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_address"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/address"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Shop Address"
-            android:inputType="text" />
+            android:layout_marginTop="10dp">
 
-    </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/et_address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Shop Address"
+                android:inputType="text" />
 
-    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-        android:id="@+id/android_material_design_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium_2"
-        android:hint="Choose Shop Type"
-        android:textColor="@android:color/black"
-        android:textColorHint="#05ab9a"
-        app:met_floatingLabel="normal" />
+        </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#dc4e41"
-        android:text="Send Suggestion"
-        android:layout_marginTop="@dimen/margin_medium_2"
-        android:textAllCaps="false"
-        android:textColor="#fff" />
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/android_material_design_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:hint="Choose Shop Type"
+            android:textColor="@android:color/black"
+            android:textColorHint="#05ab9a"
+            app:met_floatingLabel="normal" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_choose_shop_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Shop Image"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:textAllCaps="false"/>
+
+        <ImageView
+            android:id="@+id/img_shop"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="@dimen/margin_medium"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#dc4e41"
+            android:text="Send Suggestion"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
+
+
+
+    </LinearLayout>
+
+</ScrollView>
