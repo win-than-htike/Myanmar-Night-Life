@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
@@ -70,9 +71,9 @@ public class DetailActivity extends AppCompatActivity {
 
     private Places mPlaces;
 
-    public static Intent newInstance(Places places){
+    public static Intent newInstance(Places places) {
 
-        Intent intent = new Intent(MyanmarNightLifeApp.getContext(),DetailActivity.class);
+        Intent intent = new Intent(MyanmarNightLifeApp.getContext(), DetailActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(PLACES, Parcels.wrap(places));
         intent.putExtras(bundle);
@@ -84,7 +85,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        ButterKnife.bind(this,this);
+        ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -94,7 +95,7 @@ public class DetailActivity extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
         }
 
-        if (getIntent().getExtras() != null){
+        if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             mPlaces = Parcels.unwrap(bundle.getParcelable(PLACES));
         }
@@ -132,6 +133,20 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // this takes the user 'back', as if they pressed the left-facing triangle icon on the main android toolbar.
+                // if this doesn't work as desired, another possibility is to call `finish()` here.
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     protected void navigateInMap(String uriToOpen) {
         Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?daddr=" + uriToOpen));

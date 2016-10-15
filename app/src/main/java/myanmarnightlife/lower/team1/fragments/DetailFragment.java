@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -79,6 +80,12 @@ public class DetailFragment extends Fragment {
     @BindView(R.id.tv_rating)
     RatingBar ratingBar;
 
+    @BindView(R.id.toolbar_title)
+    TextView tvToolbarTitle;
+
+    @BindView(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout collapsingToolbarLayout;
+
     private Places mPlaces;
 
     public static DetailFragment INSTANCE;
@@ -111,12 +118,12 @@ public class DetailFragment extends Fragment {
 
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(false);
             actionBar.setDisplayShowTitleEnabled(false);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
         }
 
-        setHasOptionsMenu(true);
+        collapsingToolbarLayout.setTitleEnabled(false);
+
 
         fabMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +139,7 @@ public class DetailFragment extends Fragment {
             }
         });
 
-        toolbar.setTitle(mPlaces.getShopName());
+        tvToolbarTitle.setText(mPlaces.getShopName());
         ratingBar.setRating(Float.parseFloat(mPlaces.getRating()));
         tvReview.setText(mPlaces.getShopReview());
         tvPhone.setText(mPlaces.getShopPhoneNumber());
@@ -175,6 +182,19 @@ public class DetailFragment extends Fragment {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // this takes the user 'back', as if they pressed the left-facing triangle icon on the main android toolbar.
+                // if this doesn't work as desired, another possibility is to call `finish()` here.
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_CALL_PHONE: {
@@ -198,22 +218,7 @@ public class DetailFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        Log.i("CREATE MENU :", "WORKED");
-        //inflater.inflate(R.menu.itemlistactivity_menu, menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                getActivity().onBackPressed();
-                getActivity().finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
+
 }

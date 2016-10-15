@@ -27,5 +27,6 @@
     <dimen name="text_big">40sp</dimen>
     <dimen name="text_big_2x">60sp</dimen>
     <dimen name="text_big_3x">80sp</dimen>
+    <dimen name="toolbar_margin">16dp</dimen>
 
 </resources>

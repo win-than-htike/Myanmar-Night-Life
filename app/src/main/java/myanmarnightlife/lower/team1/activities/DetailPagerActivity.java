@@ -13,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import org.parceler.Parcels;
 
@@ -40,17 +42,20 @@ public class DetailPagerActivity extends AppCompatActivity {
 
     private static String TYPE;
 
+    @BindView(R.id.action_up)
+    ImageButton upButton;
+
     List<Integer> fragmentMap = new ArrayList<>();
 
     private Places mPlaces;
 
 
-    public static Intent newInstance(Places places,String type){
+    public static Intent newInstance(Places places, String type) {
 
-        Intent intent = new Intent(MyanmarNightLifeApp.getContext(),DetailPagerActivity.class);
+        Intent intent = new Intent(MyanmarNightLifeApp.getContext(), DetailPagerActivity.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(PLACES, Parcels.wrap(places));
-        bundle.putString(IE_TYPE,type);
+        bundle.putString(IE_TYPE, type);
         intent.putExtras(bundle);
         return intent;
 
@@ -63,21 +68,28 @@ public class DetailPagerActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_activity_pager);
-        ButterKnife.bind(this,this);
+        ButterKnife.bind(this, this);
 
 
-        if (getIntent().getExtras() != null){
+        if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             mPlaces = Parcels.unwrap(bundle.getParcelable(PLACES));
             TYPE = bundle.getString(IE_TYPE);
         }
 
 
+        upButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSupportNavigateUp();
+            }
+        });
+
         DetailPagerAdapter mAdapter = new DetailPagerAdapter(getSupportFragmentManager());
 
         PlacesRealmHelper helper = PlacesRealmHelper.getInstance();
         viewPager.setAdapter(mAdapter);
-        for (Places places : helper.getBarList(TYPE)){
+        for (Places places : helper.getBarList(TYPE)) {
             fragmentMap.add(places.get_id());
             mAdapter.add(DetailFragment.newInstance(places));
         }
@@ -108,21 +120,5 @@ public class DetailPagerActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        Log.i("Activity : ", "WORKED");
-        //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
-            NavUtils.navigateUpFromSameTask(this);
-            return true;
-        }
-
-
-        return super.onOptionsItemSelected(item);
-
-    }
 
 }
