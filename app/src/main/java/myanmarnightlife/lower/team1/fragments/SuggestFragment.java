@@ -4,6 +4,7 @@ package myanmarnightlife.lower.team1.fragments;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
@@ -26,6 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.activities.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,10 +46,29 @@ public class SuggestFragment extends Fragment {
     @BindView(R.id.img_shop)
     ImageView imgShop;
 
+    @BindView(R.id.btn_send_mail)
+    Button btnSendEmail;
+
+    @BindView(R.id.et_shop_name)
+    EditText etShopName;
+
+    @BindView(R.id.et_shop_phone)
+    EditText etShopPhone;
+
+    @BindView(R.id.et_shop_open_time)
+    EditText etShopOpenTime;
+
+    @BindView(R.id.et_address)
+    EditText etAddress;
+
+    @BindView(R.id.sp_shop_type)
+    Spinner spShopType;
+
     public SuggestFragment() {
         // Required empty public constructor
     }
 
+    Uri imageUri;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,14 +77,29 @@ public class SuggestFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_suggest, container, false);
         ButterKnife.bind(this,view);
 
+        ((MainActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(), android.R.layout.simple_spinner_item, type);
-        MaterialBetterSpinner materialDesignSpinner = (MaterialBetterSpinner) view.findViewById(R.id.android_material_design_spinner);
-        materialDesignSpinner.setAdapter(arrayAdapter);
+        spShopType.setAdapter(arrayAdapter);
 
         btnChooseShopImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openImageGalleryClicked(view);
+            }
+        });
+
+        btnSendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,"Shop Name : " + etShopName.getText().toString()+"\n"+"Shop Phone : "+etShopPhone.getText().toString()+"\n"+"Shop Open Hour : "+etShopOpenTime.getText().toString()+"\n"+"Shop Address : "+etAddress.getText().toString()+"\n"+"Shop Type : "+spShopType.getSelectedItem().toString());
+                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                shareIntent.setType("image/*");
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(shareIntent, "Share..."));
+
             }
         });
 
@@ -95,7 +133,7 @@ public class SuggestFragment extends Fragment {
                 // if we are here, we are hearing back from the image gallery.
 
                 // the address of the image on the SD Card.
-                Uri imageUri = data.getData();
+                imageUri = data.getData();
 
                 // declare a stream to read the image data from the SD Card.
                 InputStream inputStream;
