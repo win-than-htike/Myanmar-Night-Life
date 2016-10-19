@@ -14,12 +14,30 @@
         android:background="#182634"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/iv_beer_shop"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/night"
-            android:scaleType="centerCrop"/>
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/iv_beer_shop"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/night"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/iv_fav"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:src="@drawable/ic_favorite_border_white_24dp"
+                android:layout_marginBottom="@dimen/margin_medium_2"/>
+
+
+        </FrameLayout>
+
 
             <TextView
                 android:id="@+id/tv_shop_name"
@@ -48,19 +66,9 @@
             android:layout_height="wrap_content"
             android:numStars="5"
             android:isIndicator="true"
-            style="?android:attr/ratingBarStyleSmall"
+            style="?android:attr/ratingBarStyleIndicator"
             android:layout_gravity="center" />
 
-
-            <ImageView
-                android:id="@+id/iv_fav"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:src="@drawable/ic_favorite_border_white_24dp"
-                android:layout_marginBottom="@dimen/margin_medium_2"/>
 
 
     </LinearLayout>

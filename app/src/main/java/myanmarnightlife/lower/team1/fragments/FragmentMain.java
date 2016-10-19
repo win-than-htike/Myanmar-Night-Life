@@ -50,9 +50,10 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
     CardView restaurantCard;
 
     private String[] images = {
-            "http://www.madridchow.com/wp-content/uploads/2012/08/La-Buena-Pinta-Madrid-craft-beer-shop.jpg",
-            "http://warsawfoodie.pl/wp-content/uploads/2012/12/The_Beer_Store.jpg",
-            "http://i2.getbucks.co.uk/incoming/article9139373.ece/ALTERNATES/s615/craft-beer.jpg"
+            "http://myanmarbeer.com/wp-content/uploads/2016/07/Home-Banner-New2.jpg",
+            "https://www.myanmore.com/yangon/wp-content/uploads/sites/2/2016/05/fuse-logo.jpg",
+            "http://www.hardrockhotelpuntacana.com/files/1431/LADIESNIGHThotelwww-banner.jpg",
+            "http://myanmarbeer.com/wp-content/uploads/2016/07/Home-Banner-New2.jpg"
     };
 
     @Nullable
@@ -102,27 +103,27 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
         switch (view.getId()){
 
             case R.id.beer:
-                Intent beerIntent = ShopActivity.newInstance("Beer");
+                Intent beerIntent = ShopActivity.newInstance("beer");
                 startActivity(beerIntent);
                 break;
 
             case R.id.karaoke:
-                Intent karaokeIntent = ShopActivity.newInstance("Karaoke");
+                Intent karaokeIntent = ShopActivity.newInstance("ktv");
                 startActivity(karaokeIntent);
                 break;
 
             case R.id.night_club:
-                Intent clubIntent = ShopActivity.newInstance("Club");
+                Intent clubIntent = ShopActivity.newInstance("club");
                 startActivity(clubIntent);
                 break;
 
             case R.id.bar:
-                Intent barIntent = ShopActivity.newInstance("Bar");
+                Intent barIntent = ShopActivity.newInstance("bar");
                 startActivity(barIntent);
                 break;
 
             case R.id.massage:
-                Intent massageIntent = ShopActivity.newInstance("Massage");
+                Intent massageIntent = ShopActivity.newInstance("massage");
                 startActivity(massageIntent);
                 break;
 

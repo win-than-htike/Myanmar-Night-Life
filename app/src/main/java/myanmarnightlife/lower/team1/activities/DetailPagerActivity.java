@@ -1,8 +1,10 @@
 package myanmarnightlife.lower.team1.activities;
 
+import android.annotation.TargetApi;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowInsets;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import org.parceler.Parcels;
@@ -44,6 +48,9 @@ public class DetailPagerActivity extends AppCompatActivity {
 
     @BindView(R.id.action_up)
     ImageButton upButton;
+
+    @BindView(R.id.up_container)
+    FrameLayout upContainer;
 
     List<Integer> fragmentMap = new ArrayList<>();
 
@@ -81,7 +88,7 @@ public class DetailPagerActivity extends AppCompatActivity {
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSupportNavigateUp();
+                onBackPressed();
             }
         });
 

@@ -4,7 +4,10 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.util.Pair;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -101,35 +104,29 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
 
         }
 
-        if (TYPE.equals("Beer")) {
+        if (TYPE.equals("beer")) {
 
             toolbar.setTitle("Beer Shop");
-            state = "beer";
 
-        } else if (TYPE.equals("Bar")) {
+        } else if (TYPE.equals("bar")) {
 
             toolbar.setTitle("Bar");
-            state = "bar";
 
-        } else if (TYPE.equals("Karaoke")) {
+        } else if (TYPE.equals("ktv")) {
 
             toolbar.setTitle("Karaoke");
-            state = "bar";
 
-        }else if (TYPE.equals("Club")){
+        }else if (TYPE.equals("club")){
 
             toolbar.setTitle("Night Club");
-            state = "br";
 
         }else if (TYPE.equals("Restaurant")){
 
             toolbar.setTitle("Restaurant");
-            state = "beer";
 
-        }else if (TYPE.equals("Massage")){
+        }else if (TYPE.equals("massage")){
 
             toolbar.setTitle("Massage");
-            state = "beer";
 
         }
 
@@ -139,7 +136,8 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
     @Override
     public void onTapShop(Places places, ImageView imageView) {
         Intent intent = DetailPagerActivity.newInstance(places,TYPE);
-        startActivity(intent);
+        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this,new Pair(imageView,getString(R.string.share_image_transition)));
+        ActivityCompat.startActivity(this,intent,activityOptions.toBundle());
     }
 
     @Override

@@ -17,6 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmList;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.activities.MainActivity;
@@ -24,6 +25,7 @@ import myanmarnightlife.lower.team1.activities.ShopActivity;
 import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.data.PlacesData;
+import myanmarnightlife.lower.team1.data.PlacesModel;
 import myanmarnightlife.lower.team1.helper.PlacesRealmHelper;
 import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 

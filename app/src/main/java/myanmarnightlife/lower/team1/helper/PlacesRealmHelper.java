@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.realm.Case;
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 import io.realm.Sort;
 import io.realm.exceptions.RealmException;
@@ -32,19 +33,15 @@ public class PlacesRealmHelper {
         return objInstance;
     }
 
-    public void addPlaces(Places places){
+    public void addPlaces(RealmList<Places> places){
 
         try {
 
             mRealm.beginTransaction();
 
-            places.set_id(id);
-
             mRealm.copyToRealmOrUpdate(places);
 
             mRealm.commitTransaction();
-
-            id++;
 
 
         }catch (RealmException e){

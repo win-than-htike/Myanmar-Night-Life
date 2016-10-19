@@ -50,7 +50,6 @@ public class ImagePagerAdapter extends PagerAdapter {
         Glide.with(imageView.getContext())
                 .load(imageUrl)
                 .centerCrop()
-                .crossFade()
                 .placeholder(R.drawable.night)
                 .error(R.mipmap.ic_launcher)
                 .into(imageView);

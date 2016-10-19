@@ -1,5 +1,7 @@
 package myanmarnightlife.lower.team1.data;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 import org.parceler.ParcelProperty;
@@ -19,32 +21,51 @@ public class Places extends RealmObject {
 
 
     @PrimaryKey
+    @SerializedName("_id")
     int _id;
+
     @ParcelProperty("shopName")
+    @SerializedName("shopName")
     String shopName;
+
+    @SerializedName("shopImage")
     String shopImage;
+
+    @SerializedName("shopReview")
     String shopReview;
+
+    @SerializedName("shopPhoneNumber")
     String shopPhoneNumber;
-    String shopWebsite;
+
+    @SerializedName("shopAddress")
     String shopAddress;
+
+    @SerializedName("shopTime")
     String shopTime;
+
+    @SerializedName("shopRoute")
     String shopRoute;
+
+    @SerializedName("shopCity")
     String shopCity;
+
+    @SerializedName("shopType")
     String shopType;
+
+    @SerializedName("rating")
     String rating;
     int isSaved;
 
     public Places() {
     }
 
-
     @ParcelConstructor
-    public Places(@ParcelProperty("shopName") String shopName, String shopImage, String shopReview, String shopPhoneNumber, String shopWebsite, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType, String rating) {
+    public Places(int _id, @ParcelProperty("shopName") String shopName, String shopImage, String shopReview, String shopPhoneNumber, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType, String rating) {
+        this._id = _id;
         this.shopName = shopName;
         this.shopImage = shopImage;
         this.shopReview = shopReview;
         this.shopPhoneNumber = shopPhoneNumber;
-        this.shopWebsite = shopWebsite;
         this.shopAddress = shopAddress;
         this.shopTime = shopTime;
         this.shopRoute = shopRoute;
@@ -52,6 +73,20 @@ public class Places extends RealmObject {
         this.shopType = shopType;
         this.rating = rating;
     }
+
+//    @ParcelConstructor
+//    public Places(@ParcelProperty("shopName") String shopName, String shopImage, String shopReview, String shopPhoneNumber, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType, String rating) {
+//        this.shopName = shopName;
+//        this.shopImage = shopImage;
+//        this.shopReview = shopReview;
+//        this.shopPhoneNumber = shopPhoneNumber;
+//        this.shopAddress = shopAddress;
+//        this.shopTime = shopTime;
+//        this.shopRoute = shopRoute;
+//        this.shopCity = shopCity;
+//        this.shopType = shopType;
+//        this.rating = rating;
+//    }
 
     public int get_id() {
         return _id;
@@ -72,10 +107,6 @@ public class Places extends RealmObject {
 
     public String getShopPhoneNumber() {
         return shopPhoneNumber;
-    }
-
-    public String getShopWebsite() {
-        return shopWebsite;
     }
 
     public String getShopAddress() {
