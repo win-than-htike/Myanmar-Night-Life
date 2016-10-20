@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.transition.ChangeBounds;
@@ -76,10 +79,10 @@ public class MainActivity extends AppCompatActivity
 
             sate = savedInstanceState.getString("state");
 
-            if(sate.equals("Myanmar Night Out")){
+            if(sate.equals("Myanmar Night Life")){
 
                 FragmentMain fragmentMain = new FragmentMain();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,fragmentMain).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,fragmentMain,"home").commit();
 
             }else if (sate.equals("Favourite")){
 
@@ -91,9 +94,11 @@ public class MainActivity extends AppCompatActivity
 
         if (savedInstanceState == null) {
             FragmentMain homeFragment = new FragmentMain();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, homeFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, homeFragment,"home").commit();
             toolbar.setTitle("Myanmar Night Life");
         }
+
+
 
     }
 
@@ -107,9 +112,19 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        }else {
+
+            if (toolbar.getTitle().toString().equals("Myanmar Night Life")){
+                finish();
+            }else {
+                FragmentMain fragmentMain = new FragmentMain();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,fragmentMain).commit();
+                toolbar.setTitle("Myanmar Night Life");
+            }
+
         }
+
+
 
 
     }
@@ -148,14 +163,14 @@ public class MainActivity extends AppCompatActivity
             FragmentMain homeFragment = new FragmentMain();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fl_container, homeFragment)
+                    .replace(R.id.fl_container, homeFragment,"home")
                     .commit();
             toolbar.setTitle("Myanmar Night Out");
 
         } else if (id == R.id.nav_favourite) {
 
             FavouriteFragment favouriteFragment = new FavouriteFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, favouriteFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, favouriteFragment).addToBackStack("Myanmar Night Life").commit();
             toolbar.setTitle("Favourite");
 
 
@@ -165,6 +180,7 @@ public class MainActivity extends AppCompatActivity
 
             SuggestFragment suggestFragment = new SuggestFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,suggestFragment).commit();
+            toolbar.setTitle("Suggestion");
 
         }
 
@@ -185,6 +201,7 @@ public class MainActivity extends AppCompatActivity
         super.onSaveInstanceState(outState);
         outState.putString("state",toolbar.getTitle().toString());
     }
+
 
 
 }

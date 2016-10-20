@@ -14,6 +14,11 @@
             android:title="Favourite" />
 
         <item
+            android:id="@+id/nav_emergency"
+            android:icon="@drawable/emcall"
+            android:title="Emergency Call" />
+
+        <item
             android:id="@+id/nav_suggest"
             android:icon="@drawable/ic_assignment_late_black_24dp"
             android:title="Suggestion" />

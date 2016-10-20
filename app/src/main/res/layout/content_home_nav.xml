@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v4.view.ViewPager
+            <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
                 android:id="@+id/pager_shop_images"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"

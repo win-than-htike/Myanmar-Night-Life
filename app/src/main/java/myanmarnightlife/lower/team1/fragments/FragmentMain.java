@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.activities.ShopActivity;
@@ -26,7 +27,7 @@ import myanmarnightlife.lower.team1.views.PageIndicatorView;
 public class FragmentMain extends Fragment implements View.OnClickListener {
 
     @BindView(R.id.pager_shop_images)
-    ViewPager viewPager;
+    AutoScrollViewPager viewPager;
 
     @BindView(R.id.pi_shop_image_slider)
     PageIndicatorView imageSlider;
@@ -73,8 +74,9 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
         restaurantCard.setOnClickListener(this);
 
         imageSlider.setNumPage(images.length);
-        ImagePagerAdapter mAdapter = new ImagePagerAdapter(images);
-        viewPager.setAdapter(mAdapter);
+        viewPager.setAdapter(new ImagePagerAdapter(images));
+        viewPager.setInterval(2000);
+        viewPager.startAutoScroll();
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -134,5 +136,17 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
 
         }
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        viewPager.stopAutoScroll();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewPager.startAutoScroll();
     }
 }

@@ -50,9 +50,6 @@ public class DetailFragment extends Fragment {
     @BindView(R.id.tv_phone)
     TextView tvPhone;
 
-    @BindView(R.id.tv_website)
-    TextView tvWebsite;
-
     @BindView(R.id.tv_time)
     TextView tvTime;
 

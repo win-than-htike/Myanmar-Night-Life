@@ -15,7 +15,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
+            android:layout_height="270dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="@dimen/margin_medium_2"
@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/night"
+                android:background="@color/colorPrimary"
                 android:scaleType="centerCrop"/>
 
             <android.support.v7.widget.Toolbar

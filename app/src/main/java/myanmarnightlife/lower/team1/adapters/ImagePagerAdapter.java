@@ -23,6 +23,7 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     private List<String> mImages;
     private LayoutInflater inflater;
+    private ImageView imageView;
 
     public ImagePagerAdapter(String[] images) {
 
@@ -43,7 +44,7 @@ public class ImagePagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
-        ImageView imageView = (ImageView) inflater.inflate(R.layout.view_item_shop_images,container,false);
+        imageView = (ImageView) inflater.inflate(R.layout.view_item_shop_images,container,false);
 
         String imageUrl = mImages.get(position);
 
