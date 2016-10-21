@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.activities.MainActivity;
+import myanmarnightlife.lower.team1.activities.ShopActivity;
 import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.helper.PlacesRealmHelper;
@@ -68,7 +70,7 @@ public class FavouriteFragment extends Fragment {
             mPlaces = helper.getFavouriteList();
         }
 
-        PlacesRVAdapter mAdapter = new PlacesRVAdapter(mPlaces,itemClickListener);
+        PlacesRVAdapter mAdapter = new PlacesRVAdapter(mPlaces,itemClickListener,(AppCompatActivity)getActivity());
         rvFavourite.setAdapter(mAdapter);
 
         return view;

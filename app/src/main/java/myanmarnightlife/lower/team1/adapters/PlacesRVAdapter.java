@@ -1,5 +1,9 @@
 package myanmarnightlife.lower.team1.adapters;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +23,7 @@ import io.realm.Realm;
 import io.realm.exceptions.RealmException;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.activities.ShopActivity;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 import myanmarnightlife.lower.team1.utils.Constants;
@@ -31,10 +36,12 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
     private LayoutInflater inflater;
     private List<Places> mPlacesLists;
     private ItemClickListener itemClickListener;
+    private Context context;
 
-    public PlacesRVAdapter(List<Places> mPlacesLists, ItemClickListener itemClickListener) {
+    public PlacesRVAdapter(List<Places> mPlacesLists, ItemClickListener itemClickListener, Context context) {
         this.mPlacesLists = mPlacesLists;
         this.itemClickListener = itemClickListener;
+        this.context = context;
         inflater = LayoutInflater.from(MyanmarNightLifeApp.getContext());
     }
 
@@ -52,11 +59,11 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
 
         if (places.getIsSaved() == Constants.SAVED){
 
-            holder.fav.setImageResource(R.drawable.ic_favorite_white_24dp);
+            holder.fav.setBackgroundResource(R.drawable.ic_favorite_white_24dp);
 
         }else {
 
-            holder.fav.setImageResource(R.drawable.ic_favorite_border_white_24dp);
+            holder.fav.setBackgroundResource(R.drawable.ic_favorite_border_white_24dp);
 
         }
 
@@ -94,7 +101,6 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
         public PlcacesShopViewHolder(View itemView, ItemClickListener itemClickListener) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-
             this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);
 
@@ -107,6 +113,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
             shopRatingBar.setRating(Float.parseFloat(places.getRating()));
 
             tvShopName.setText(places.getShopName());
+
 
             fav.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -121,11 +128,11 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
 
                         if(places.getIsSaved() == Constants.SAVED) {
                             places.setIsSaved(Constants.UNSAVED);
-                            fav.setImageResource(R.drawable.ic_favorite_border_white_24dp);
+                            fav.setBackgroundResource(R.drawable.ic_favorite_border_white_24dp);
                         }
                         else {
                             places.setIsSaved(Constants.SAVED);
-                            fav.setImageResource(R.drawable.ic_favorite_white_24dp);
+                            fav.setBackgroundResource(R.drawable.ic_favorite_white_24dp);
                         }
 
                         realm.copyToRealmOrUpdate(places);

@@ -10,25 +10,25 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical">
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+            <com.daimajia.slider.library.SliderLayout
                 android:id="@+id/pager_shop_images"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax"/>
 
-            <myanmarnightlife.lower.team1.views.PageIndicatorView
+            <com.daimajia.slider.library.Indicators.PagerIndicator
                 android:id="@+id/pi_shop_image_slider"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_gravity="bottom"
+                style="@style/AndroidImageSlider_Corner_Oval_Orange"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/margin_medium_2"/>
 
-        </FrameLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

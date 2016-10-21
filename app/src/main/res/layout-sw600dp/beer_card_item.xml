@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <FrameLayout
+            android:id="@+id/fav_container"
             android:layout_width="match_parent"
             android:layout_height="250dp">
 
@@ -27,14 +28,13 @@
 
             <ImageView
                 android:id="@+id/iv_fav"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:layout_gravity="right|top"
+                android:layout_marginRight="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:src="@drawable/ic_favorite_border_white_24dp"
                 android:layout_marginBottom="@dimen/margin_medium_2"/>
-
 
         </FrameLayout>
 

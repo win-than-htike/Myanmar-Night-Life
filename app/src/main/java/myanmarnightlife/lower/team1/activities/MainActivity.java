@@ -37,6 +37,7 @@ import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
+import myanmarnightlife.lower.team1.fragments.EmergencyFragment;
 import myanmarnightlife.lower.team1.fragments.FavouriteFragment;
 import myanmarnightlife.lower.team1.fragments.FragmentMain;
 import myanmarnightlife.lower.team1.fragments.SuggestFragment;
@@ -176,11 +177,19 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_about_us) {
 
+            startActivity(new Intent(this,AboutUsActivity.class));
+
         } else if (id == R.id.nav_suggest) {
 
             SuggestFragment suggestFragment = new SuggestFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,suggestFragment).commit();
             toolbar.setTitle("Suggestion");
+
+        }else if (id == R.id.nav_emergency){
+
+            EmergencyFragment emergencyFragment = new EmergencyFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,emergencyFragment).commit();
+            toolbar.setTitle("Emergency");
 
         }
 

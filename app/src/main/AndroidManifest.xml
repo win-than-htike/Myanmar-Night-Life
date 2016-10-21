@@ -36,7 +36,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ShopActivity" />
         </activity>
-        <activity android:name=".activities.MainActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.AboutUsActivity"></activity>
     </application>
 
 </manifest>

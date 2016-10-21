@@ -11,6 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.daimajia.slider.library.Tricks.ViewPagerEx;
+
+import java.util.HashMap;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
@@ -24,13 +32,10 @@ import myanmarnightlife.lower.team1.views.PageIndicatorView;
 /**
  * Created by winthanhtike on 10/11/16.
  */
-public class FragmentMain extends Fragment implements View.OnClickListener {
+public class FragmentMain extends Fragment implements View.OnClickListener,BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     @BindView(R.id.pager_shop_images)
-    AutoScrollViewPager viewPager;
-
-    @BindView(R.id.pi_shop_image_slider)
-    PageIndicatorView imageSlider;
+    SliderLayout viewPager;
 
     @BindView(R.id.beer)
     CardView beerCard;
@@ -73,27 +78,31 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
         massageCard.setOnClickListener(this);
         restaurantCard.setOnClickListener(this);
 
-        imageSlider.setNumPage(images.length);
-        viewPager.setAdapter(new ImagePagerAdapter(images));
-        viewPager.setInterval(2000);
-        viewPager.startAutoScroll();
+        HashMap<String,String> url_maps = new HashMap<String, String>();
+        url_maps.put("Fuse Bar", "https://www.myanmore.com/yangon/wp-content/uploads/sites/2/2016/05/fuse-logo.jpg");
+        url_maps.put("Lady Night Event", "http://www.hardrockhotelpuntacana.com/files/1431/LADIESNIGHThotelwww-banner.jpg");
+        url_maps.put("Myanmar Beer", "http://myanmarbeer.com/wp-content/uploads/2016/07/Home-Banner-New2.jpg");
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                imageSlider.setCurrentPage(position);
-            }
+        for(String name : url_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(MyanmarNightLifeApp.getContext());
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(url_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.Fit);
 
-            @Override
-            public void onPageSelected(int position) {
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra",name);
 
-            }
+            viewPager.addSlider(textSliderView);
+        }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        viewPager.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
+        viewPager.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        viewPager.setCustomAnimation(new DescriptionAnimation());
+        viewPager.setDuration(4000);
 
         return view;
 
@@ -141,12 +150,37 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
     @Override
     public void onPause() {
         super.onPause();
-        viewPager.stopAutoScroll();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        viewPager.startAutoScroll();
+        viewPager.startAutoCycle();
+    }
+
+    @Override
+    public void onStop() {
+        viewPager.stopAutoCycle();
+        super.onStop();
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onSliderClick(BaseSliderView slider) {
+
     }
 }

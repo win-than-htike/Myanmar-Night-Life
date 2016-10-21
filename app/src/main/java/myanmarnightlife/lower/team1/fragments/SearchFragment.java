@@ -4,6 +4,7 @@ package myanmarnightlife.lower.team1.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.activities.ShopActivity;
 import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.data.PlacesData;
@@ -96,7 +98,7 @@ public class SearchFragment extends Fragment {
             tvEmpty.setVisibility(View.GONE);
         }
 
-        mAdapter = new PlacesRVAdapter(mPlaces, itemClickListener);
+        mAdapter = new PlacesRVAdapter(mPlaces, itemClickListener,(AppCompatActivity)getActivity());
         rvBeerShop.setAdapter(mAdapter);
 
         return view;
