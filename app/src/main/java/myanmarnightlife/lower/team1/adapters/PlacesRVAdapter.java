@@ -59,11 +59,11 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
 
         if (places.getIsSaved() == Constants.SAVED){
 
-            holder.fav.setBackgroundResource(R.drawable.ic_favorite_white_24dp);
+            holder.fav.setImageResource(R.drawable.ic_favorite_white_24dp);
 
         }else {
 
-            holder.fav.setBackgroundResource(R.drawable.ic_favorite_border_white_24dp);
+            holder.fav.setImageResource(R.drawable.ic_favorite_border_white_24dp);
 
         }
 
@@ -128,11 +128,11 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
 
                         if(places.getIsSaved() == Constants.SAVED) {
                             places.setIsSaved(Constants.UNSAVED);
-                            fav.setBackgroundResource(R.drawable.ic_favorite_border_white_24dp);
+                            fav.setImageResource(R.drawable.ic_favorite_border_white_24dp);
                         }
                         else {
                             places.setIsSaved(Constants.SAVED);
-                            fav.setBackgroundResource(R.drawable.ic_favorite_white_24dp);
+                            fav.setImageResource(R.drawable.ic_favorite_white_24dp);
                         }
 
                         realm.copyToRealmOrUpdate(places);

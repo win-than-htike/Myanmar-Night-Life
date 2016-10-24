@@ -30,7 +30,7 @@
                 android:scaleType="centerCrop"
                 android:transitionName="@string/share_image_transition"/>
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/iv_fav"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
