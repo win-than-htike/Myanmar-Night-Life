@@ -24,11 +24,11 @@
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/iv_col_shop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/night"
+                app:srcCompat="@drawable/night"
                 android:background="@color/colorPrimary"
                 android:scaleType="centerCrop"/>
 

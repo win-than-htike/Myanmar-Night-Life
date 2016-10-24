@@ -24,7 +24,7 @@
             android:layout_marginRight="@dimen/margin_medium"
             android:layout_marginBottom="@dimen/margin_medium"
             android:background="?selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_arrow_back_black_24dp"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp"
             android:contentDescription="back"
             android:tint="@android:color/white"/>
 
