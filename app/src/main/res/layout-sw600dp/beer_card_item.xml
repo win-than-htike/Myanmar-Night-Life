@@ -26,7 +26,7 @@
                 android:src="@drawable/night"
                 android:scaleType="centerCrop"/>
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/iv_fav"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
