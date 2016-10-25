@@ -1,45 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="myanmarnightlife.lower.team1">
+<manifest
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		package="myanmarnightlife.lower.team1">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.CALL_PHONE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-    <application
-        android:name=".MyanmarNightLifeApp"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".activities.WelcomeActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+	<application
+			android:name=".MyanmarNightLifeApp"
+			android:allowBackup="true"
+			android:icon="@mipmap/ic_launcher"
+			android:label="@string/app_name"
+			android:supportsRtl="true"
+			android:theme="@style/AppTheme">
+		<activity
+				android:name=".activities.WelcomeActivity"
+				android:label="@string/app_name"
+				android:theme="@style/Splash">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activities.ShopActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.DetailPagerActivity"
-            android:launchMode="singleTask"
-            android:parentActivityName=".activities.ShopActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.ShopActivity" />
-        </activity>
-        <activity
-            android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.AboutUsActivity"></activity>
-    </application>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".activities.ShopActivity"
+				android:theme="@style/AppTheme.NoActionBar"/>
+		<activity
+				android:name=".activities.DetailPagerActivity"
+				android:launchMode="singleTask"
+				android:parentActivityName=".activities.ShopActivity"
+				android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+					android:name="android.support.PARENT_ACTIVITY"
+					android:value=".activities.ShopActivity"/>
+		</activity>
+		<activity
+				android:name=".activities.MainActivity"
+				android:theme="@style/AppTheme.NoActionBar"/>
+		<activity android:name=".activities.AboutUsActivity"></activity>
+
+		<service
+				android:name=".services.NotificationService">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT"/>
+			</intent-filter>
+		</service>
+
+		<meta-data
+				android:name="com.google.firebase.messaging.default_notification_icon"
+				android:resource="@drawable/ic_beer" />
+		<meta-data
+				android:name="com.google.firebase.messaging.default_notification_color"
+				android:resource="@color/colorAccent" />
+
+
+
+	</application>
 
 </manifest>
