@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -27,6 +28,8 @@
                 android:textColor="#000"
                 android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
+
+            <requestFocus/>
 
 
             <RatingBar
@@ -247,7 +250,6 @@
                 android:hint="Your Opinion"
                 android:fitsSystemWindows="true"
                 android:breakStrategy="balanced"
-                android:focusableInTouchMode="true"
                 android:inputType="textMultiLine"
                 android:singleLine="false"
                 android:padding="5dp"

@@ -39,7 +39,8 @@
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.AboutUsActivity"></activity>
+        <activity android:name=".activities.AboutUsActivity" />
+        <activity android:name=".activities.TaxiServiceActivity"></activity>
     </application>
 
 </manifest>
