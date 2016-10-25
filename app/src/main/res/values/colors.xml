@@ -10,5 +10,9 @@
 
     <color name="bg">#0C8399</color>
     <color name="color_concrete">#F44336</color>
-    <color name="color_asbestos">#ae3328</color> <!--#0C8399-->
+    <color name="color_asbestos">#ae3328</color>
+
+    <color name="post">#03A9F4</color>
+    <color name="post_dark">#0288D1</color>
+
 </resources>
