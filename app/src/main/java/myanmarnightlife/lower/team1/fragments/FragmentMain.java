@@ -78,6 +78,8 @@ public class FragmentMain extends Fragment implements View.OnClickListener,BaseS
         massageCard.setOnClickListener(this);
         restaurantCard.setOnClickListener(this);
 
+
+
         HashMap<String,String> url_maps = new HashMap<String, String>();
         url_maps.put("Fuse Bar", "https://www.myanmore.com/yangon/wp-content/uploads/sites/2/2016/05/fuse-logo.jpg");
         url_maps.put("Lady Night Event", "http://www.hardrockhotelpuntacana.com/files/1431/LADIESNIGHThotelwww-banner.jpg");

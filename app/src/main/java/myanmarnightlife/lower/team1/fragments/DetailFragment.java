@@ -162,16 +162,7 @@ public class DetailFragment extends Fragment {
 
     protected void makeCall(String numberToCall) {
         numberToCall.replaceAll(" ", "");
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numberToCall));
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            this.numberToCall = numberToCall;
-
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{Manifest.permission.CALL_PHONE},
-                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
-
-            return;
-        }
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + numberToCall));
         startActivity(intent);
     }
 
@@ -188,29 +179,6 @@ public class DetailFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_CALL_PHONE: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    // permission was granted, yay!
-                    makeCall(numberToCall);
-
-                } else {
-
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
-                }
-                return;
-            }
-
-            // other 'case' lines to check for other
-            // permissions this app might request
-        }
-    }
 
 
 

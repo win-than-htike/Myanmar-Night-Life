@@ -165,7 +165,7 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         MenuItemCompat.setOnActionExpandListener(searchViewMenuItem, new SearchViewExpandListener());
         searchView.setOnQueryTextListener(new SearchQueryListener());
-        searchView.setQueryHint("Search...");
+        searchView.setQueryHint("Search by Name or City...");
 
         return true;
     }

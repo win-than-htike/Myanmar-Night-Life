@@ -1,9 +1,6 @@
 package myanmarnightlife.lower.team1.adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,7 +20,6 @@ import io.realm.Realm;
 import io.realm.exceptions.RealmException;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
-import myanmarnightlife.lower.team1.activities.ShopActivity;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 import myanmarnightlife.lower.team1.utils.Constants;
