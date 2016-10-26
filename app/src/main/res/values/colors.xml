@@ -15,4 +15,10 @@
     <color name="post">#03A9F4</color>
     <color name="post_dark">#0288D1</color>
 
+    <color name="facebook">#3b5998</color>
+    <color name="facebook_dark">#334c81</color>
+
+    <color name="googleplus">#db4a39</color>
+    <color name="googleplus_dark">#a44237</color>
+
 </resources>

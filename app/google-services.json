@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1060525645837",
+    "firebase_url": "https://myanmar-night-life.firebaseio.com",
+    "project_id": "myanmar-night-life",
+    "storage_bucket": "myanmar-night-life.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060525645837:android:4ae2b39ca78fa440",
+        "android_client_info": {
+          "package_name": "myanmarnightlife.lower.team1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060525645837-ug0uub49l54pilk1onph4ljp6d5n5dei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "myanmarnightlife.lower.team1",
+            "certificate_hash": "741A44496426FDFA465BC4A28B73415D3F3C2ADC"
+          }
+        },
+        {
+          "client_id": "1060525645837-bmjbm26mifivfbun1bpla0li7te1ed61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6TRelSRJJbml0hm-QkHdF2imjlcwnjOw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060525645837-bmjbm26mifivfbun1bpla0li7te1ed61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

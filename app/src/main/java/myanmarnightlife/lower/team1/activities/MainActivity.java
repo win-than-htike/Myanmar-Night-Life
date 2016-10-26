@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -159,44 +160,50 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        final int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
-            FragmentMain homeFragment = new FragmentMain();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fl_container, homeFragment,"home")
-                    .commit();
-            toolbar.setTitle("Myanmar Night Out");
+                if (id == R.id.nav_home) {
 
-        } else if (id == R.id.nav_favourite) {
+                    FragmentMain homeFragment = new FragmentMain();
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fl_container, homeFragment,"home")
+                            .commit();
+                    toolbar.setTitle("Myanmar Night Out");
 
-            FavouriteFragment favouriteFragment = new FavouriteFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, favouriteFragment).addToBackStack("Myanmar Night Life").commit();
-            toolbar.setTitle("Favourite");
+                } else if (id == R.id.nav_favourite) {
+
+                    FavouriteFragment favouriteFragment = new FavouriteFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, favouriteFragment).addToBackStack("Myanmar Night Life").commit();
+                    toolbar.setTitle("Favourite");
 
 
-        } else if (id == R.id.nav_about_us) {
+                } else if (id == R.id.nav_about_us) {
 
-            startActivity(new Intent(this,AboutUsActivity.class));
+                    startActivity(new Intent(MyanmarNightLifeApp.getContext(),AboutUsActivity.class));
 
-        } else if (id == R.id.nav_suggest) {
+                } else if (id == R.id.nav_suggest) {
 
-            SuggestFragment suggestFragment = new SuggestFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,suggestFragment).commit();
-            toolbar.setTitle("Suggestion");
+                    SuggestFragment suggestFragment = new SuggestFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,suggestFragment).commit();
+                    toolbar.setTitle("Suggestion");
 
-        }else if (id == R.id.nav_emergency){
+                }else if (id == R.id.nav_emergency){
 
-            EmergencyFragment emergencyFragment = new EmergencyFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,emergencyFragment).commit();
-            toolbar.setTitle("Emergency");
+                    EmergencyFragment emergencyFragment = new EmergencyFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,emergencyFragment).commit();
+                    toolbar.setTitle("Emergency");
 
-        }
+                }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        },300);
         return true;
     }
 
