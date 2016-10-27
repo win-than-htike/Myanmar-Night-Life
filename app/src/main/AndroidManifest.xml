@@ -41,6 +41,7 @@
 				android:name=".activities.MainActivity"
 				android:theme="@style/AppTheme.NoActionBar"/>
 		<activity android:name=".activities.AboutUsActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+		<activity android:name=".activities.TaxiServiceActivity" android:label="Taxi Service"/>
 
 		<service
 				android:name=".services.NotificationService">

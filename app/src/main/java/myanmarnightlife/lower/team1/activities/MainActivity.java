@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_taxi) {
-            Toast.makeText(MyanmarNightLifeApp.getContext(),"Taxi",Toast.LENGTH_SHORT);
+            startActivity(new Intent(this,TaxiServiceActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
