@@ -117,14 +117,12 @@ public class DetailFragment extends Fragment {
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowTitleEnabled(false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ivShopImage.setTransitionName(getString(R.string.share_image_transition));
         }
 
-        collapsingToolbarLayout.setTitleEnabled(true);
 
 
         fabMap.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +139,7 @@ public class DetailFragment extends Fragment {
             }
         });
 
+        toolbar.setTitle(mPlaces.getShopName());
         ratingBar.setRating(Float.parseFloat(mPlaces.getRating()));
         tvReview.setText(mPlaces.getShopReview());
         tvPhone.setText(mPlaces.getShopPhoneNumber());
