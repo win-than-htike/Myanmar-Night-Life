@@ -1,16 +1,20 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg"
-    android:layout_marginTop="?android:actionBarSize"
-    tools:context="myanmarnightlife.lower.team1.fragments.FavouriteFragment">
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/bg"
+		android:orientation="vertical"
+		android:layout_marginTop="?android:actionBarSize"
+		tools:context="myanmarnightlife.lower.team1.fragments.FavouriteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_favourite"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_medium"/>
+	<!-- TODO: Update blank fragment layout -->
+	<android.support.v7.widget.RecyclerView
+			android:id="@+id/rv_favourite"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="@dimen/margin_medium"
+			/>
 
-</FrameLayout>
+
+</LinearLayout>

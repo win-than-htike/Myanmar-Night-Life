@@ -33,9 +33,11 @@
 				android:name=".activities.DetailPagerActivity"
 				android:launchMode="singleTask"
 				android:parentActivityName=".activities.ShopActivity"
-				android:theme="@style/detail_dialog"
+				android:theme="@style/AppTheme.NoActionBar"
 				android:screenOrientation="portrait"
 				android:configChanges="orientation">
+			<!--android:theme="@style/detail_dialog"-->
+
 			<meta-data
 					android:name="android.support.PARENT_ACTIVITY"
 					android:value=".activities.ShopActivity"/>

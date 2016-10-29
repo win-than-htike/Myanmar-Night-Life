@@ -101,7 +101,6 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
 
       shopRatingBar.setRating(Float.parseFloat(places.getRating()));
 
-
       tvShopName.setText(places.getShopName());
 
       fav.setOnClickListener(new View.OnClickListener() {
