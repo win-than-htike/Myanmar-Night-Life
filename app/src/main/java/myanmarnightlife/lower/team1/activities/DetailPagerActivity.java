@@ -46,11 +46,11 @@ public class DetailPagerActivity extends AppCompatActivity {
 
     private static String TYPE;
 
-    @BindView(R.id.action_up)
-    ImageButton upButton;
-
-    @BindView(R.id.up_container)
-    FrameLayout upContainer;
+//    @BindView(R.id.action_up)
+//    ImageButton upButton;
+//
+//    @BindView(R.id.up_container)
+//    FrameLayout upContainer;
 
     List<Integer> fragmentMap = new ArrayList<>();
 
@@ -85,12 +85,12 @@ public class DetailPagerActivity extends AppCompatActivity {
         }
 
 
-        upButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+//        upButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onBackPressed();
+//            }
+//        });
 
         DetailPagerAdapter mAdapter = new DetailPagerAdapter(getSupportFragmentManager());
 

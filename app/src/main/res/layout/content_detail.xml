@@ -118,7 +118,7 @@
                     android:textColor="#000"
                     android:textSize="@dimen/text_regular_2" />
 
-                <ImageView
+                <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/iv_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                     android:layout_marginRight="@dimen/margin_medium_3"
                     android:layout_marginTop="8dp"
                     android:padding="@dimen/margin_medium"
-                    android:src="@drawable/ic_local_phone_black_24dp" />
+                    app:srcCompat="@drawable/ic_local_phone_black_24dp" />
 
             </RelativeLayout>
 

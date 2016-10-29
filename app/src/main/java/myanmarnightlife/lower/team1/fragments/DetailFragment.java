@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -15,12 +16,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -71,9 +75,6 @@ public class DetailFragment extends Fragment {
     @BindView(R.id.tv_rating)
     RatingBar ratingBar;
 
-    @BindView(R.id.toolbar_title)
-    TextView tvToolbarTitle;
-
     @BindView(R.id.collapsing_toolbar)
     CollapsingToolbarLayout collapsingToolbarLayout;
 
@@ -96,6 +97,12 @@ public class DetailFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -109,7 +116,7 @@ public class DetailFragment extends Fragment {
 
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
         }
 
@@ -117,7 +124,7 @@ public class DetailFragment extends Fragment {
             ivShopImage.setTransitionName(getString(R.string.share_image_transition));
         }
 
-        collapsingToolbarLayout.setTitleEnabled(false);
+        collapsingToolbarLayout.setTitleEnabled(true);
 
 
         fabMap.setOnClickListener(new View.OnClickListener() {
@@ -134,7 +141,6 @@ public class DetailFragment extends Fragment {
             }
         });
 
-        tvToolbarTitle.setText(mPlaces.getShopName());
         ratingBar.setRating(Float.parseFloat(mPlaces.getRating()));
         tvReview.setText(mPlaces.getShopReview());
         tvPhone.setText(mPlaces.getShopPhoneNumber());
@@ -167,6 +173,16 @@ public class DetailFragment extends Fragment {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        inflater.inflate(R.menu.detail_menu,menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -174,6 +190,11 @@ public class DetailFragment extends Fragment {
                 // if this doesn't work as desired, another possibility is to call `finish()` here.
                 getActivity().onBackPressed();
                 return true;
+
+            case R.id.action_share:
+                Toast.makeText(MyanmarNightLifeApp.getContext(),"Share",Toast.LENGTH_SHORT).show();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
