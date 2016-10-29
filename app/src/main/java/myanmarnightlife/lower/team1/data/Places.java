@@ -74,19 +74,7 @@ public class Places extends RealmObject {
         this.rating = rating;
     }
 
-//    @ParcelConstructor
-//    public Places(@ParcelProperty("shopName") String shopName, String shopImage, String shopReview, String shopPhoneNumber, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType, String rating) {
-//        this.shopName = shopName;
-//        this.shopImage = shopImage;
-//        this.shopReview = shopReview;
-//        this.shopPhoneNumber = shopPhoneNumber;
-//        this.shopAddress = shopAddress;
-//        this.shopTime = shopTime;
-//        this.shopRoute = shopRoute;
-//        this.shopCity = shopCity;
-//        this.shopType = shopType;
-//        this.rating = rating;
-//    }
+
 
     public int get_id() {
         return _id;

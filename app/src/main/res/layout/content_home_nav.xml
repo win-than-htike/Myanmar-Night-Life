@@ -1,289 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-		xmlns:app="http://schemas.android.com/apk/res-auto"
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		>
+<layout>
 
-	<LinearLayout
-			xmlns:android="http://schemas.android.com/apk/res/android"
+
+	<ScrollView
 			xmlns:app="http://schemas.android.com/apk/res-auto"
+			xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
-
-		<RelativeLayout
-				android:layout_width="match_parent"
-				android:layout_height="match_parent">
-
-			<com.daimajia.slider.library.SliderLayout
-					android:id="@+id/pager_shop_images"
-					android:layout_width="match_parent"
-					android:layout_height="200dp"
-					android:fitsSystemWindows="true"
-					app:layout_collapseMode="parallax"/>
-
-			<com.daimajia.slider.library.Indicators.PagerIndicator
-					android:id="@+id/pi_shop_image_slider"
-					style="@style/AndroidImageSlider_Corner_Oval_Orange"
-					android:layout_centerHorizontal="true"
-					android:layout_alignParentBottom="true"
-					android:layout_marginBottom="@dimen/margin_medium_2"/>
-
-		</RelativeLayout>
+			android:layout_height="match_parent"
+			>
 
 		<LinearLayout
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:app="http://schemas.android.com/apk/res-auto"
 				android:layout_width="match_parent"
-				android:layout_height="180dp"
-				android:layout_weight="1"
-				android:background="@color/bg"
-				android:weightSum="2">
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
 
-			<android.support.v7.widget.CardView
-					android:id="@+id/beer"
+			<RelativeLayout
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					app:cardElevation="2dp"
-					app:cardCornerRadius="2dp"
-					android:layout_marginLeft="2dp"
-					android:layout_marginRight="2dp"
-					android:layout_marginTop="2dp"
-					app:cardBackgroundColor="#182634">
+					android:layout_height="match_parent">
 
-				<LinearLayout
+				<com.daimajia.slider.library.SliderLayout
+						android:id="@+id/pager_shop_images"
 						android:layout_width="match_parent"
-						android:layout_height="180dp"
-						android:orientation="vertical">
+						android:layout_height="200dp"
+						android:fitsSystemWindows="true"
+						app:layout_collapseMode="parallax"/>
 
-					<ImageView
-							android:layout_width="100dp"
-							android:layout_height="100dp"
-							app:srcCompat="@drawable/ic_beer"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:layout_gravity="center"/>
+				<com.daimajia.slider.library.Indicators.PagerIndicator
+						android:id="@+id/pi_shop_image_slider"
+						style="@style/AndroidImageSlider_Corner_Oval_Orange"
+						android:layout_centerHorizontal="true"
+						android:layout_alignParentBottom="true"
+						android:layout_marginBottom="@dimen/margin_medium_2"/>
 
-					<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="bottom|center"
-							android:textSize="20sp"
-							android:textColor="#fff"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:text="Beer"/>
+			</RelativeLayout>
 
-				</LinearLayout>
-
-			</android.support.v7.widget.CardView>
-
-			<android.support.v7.widget.CardView
-					android:id="@+id/karaoke"
+			<LinearLayout
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
+					android:layout_height="180dp"
 					android:layout_weight="1"
-					app:cardElevation="2dp"
-					app:cardCornerRadius="2dp"
-					android:layout_marginLeft="2dp"
-					android:layout_marginRight="2dp"
-					android:layout_marginTop="2dp"
-					app:cardBackgroundColor="#182634">
+					android:background="@color/bg"
+					android:weightSum="2">
 
-				<LinearLayout
+				<android.support.v7.widget.CardView
+						android:id="@+id/beer"
 						android:layout_width="match_parent"
-						android:layout_height="180dp"
-						android:orientation="vertical">
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						app:cardElevation="2dp"
+						app:cardCornerRadius="2dp"
+						android:layout_marginLeft="2dp"
+						android:layout_marginRight="2dp"
+						android:layout_marginTop="2dp"
+						app:cardBackgroundColor="#182634">
 
-					<ImageView
-							android:layout_width="100dp"
-							android:layout_height="100dp"
-							app:srcCompat="@drawable/ic_karaoke"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:layout_gravity="center"/>
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="180dp"
+							android:orientation="vertical">
 
-					<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="bottom|center"
-							android:textSize="20sp"
-							android:textColor="#fff"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:text="Karaoke"/>
+						<ImageView
+								android:layout_width="100dp"
+								android:layout_height="100dp"
+								app:srcCompat="@drawable/ic_beer"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:layout_gravity="center"/>
 
-				</LinearLayout>
+						<TextView
+								android:id="@+id/beer_text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="bottom|center"
+								android:textSize="20sp"
+								android:textColor="#fff"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:text="Beer"
+								app:bind_font='@{"bold"}'
+								/>
 
-			</android.support.v7.widget.CardView>
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+
+				<android.support.v7.widget.CardView
+						android:id="@+id/karaoke"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						app:cardElevation="2dp"
+						app:cardCornerRadius="2dp"
+						android:layout_marginLeft="2dp"
+						android:layout_marginRight="2dp"
+						android:layout_marginTop="2dp"
+						app:cardBackgroundColor="#182634">
+
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="180dp"
+							android:orientation="vertical">
+
+						<ImageView
+								android:layout_width="100dp"
+								android:layout_height="100dp"
+								app:srcCompat="@drawable/ic_karaoke"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:layout_gravity="center"/>
+
+						<TextView
+								android:id="@+id/karaoke_text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="bottom|center"
+								android:textSize="20sp"
+								android:textColor="#fff"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:text="Karaoke"
+								app:bind_font='@{"bold"}'/>
+
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+
+			</LinearLayout>
+
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="180dp"
+					android:layout_weight="1"
+					android:background="@color/bg"
+					android:weightSum="2">
+
+				<android.support.v7.widget.CardView
+						android:id="@+id/night_club"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						app:cardElevation="2dp"
+						app:cardCornerRadius="2dp"
+						android:layout_marginLeft="2dp"
+						android:layout_marginRight="2dp"
+						android:layout_marginTop="2dp"
+						app:cardBackgroundColor="#182634">
+
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="180dp"
+							android:orientation="vertical">
+
+						<ImageView
+								android:layout_width="100dp"
+								android:layout_height="100dp"
+								app:srcCompat="@drawable/ic_mirror_ball"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:layout_gravity="center"/>
+
+						<TextView
+								android:id="@+id/night_text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="bottom|center"
+								android:textSize="20sp"
+								android:textColor="#fff"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:text="Night Club"
+								app:bind_font='@{"bold"}'/>
+
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+
+				<android.support.v7.widget.CardView
+						android:id="@+id/bar"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						app:cardElevation="2dp"
+						app:cardCornerRadius="2dp"
+						android:layout_marginLeft="2dp"
+						android:layout_marginRight="2dp"
+						android:layout_marginTop="2dp"
+						app:cardBackgroundColor="#182634">
+
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="180dp"
+							android:orientation="vertical">
+
+						<ImageView
+								android:layout_width="100dp"
+								android:layout_height="100dp"
+								app:srcCompat="@drawable/ic_whiskey_one"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:layout_gravity="center"/>
+
+						<TextView
+								android:id="@+id/whiskey_text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="bottom|center"
+								android:textSize="20sp"
+								android:textColor="#fff"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:text="Bar"
+								app:bind_font='@{"bold"}'/>
+
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+
+			</LinearLayout>
+
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="180dp"
+					android:layout_weight="1"
+					android:background="@color/bg"
+					android:weightSum="2">
+
+				<android.support.v7.widget.CardView
+						android:id="@+id/massage"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						app:cardElevation="2dp"
+						app:cardCornerRadius="2dp"
+						android:layout_marginLeft="2dp"
+						android:layout_marginRight="2dp"
+						android:layout_marginTop="2dp"
+						app:cardBackgroundColor="#182634">
+
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="180dp"
+							android:orientation="vertical">
+
+						<ImageView
+								android:layout_width="100dp"
+								android:layout_height="100dp"
+								app:srcCompat="@drawable/ic_massage_one"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:layout_gravity="center"/>
+
+						<TextView
+								android:id="@+id/massage_text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="bottom|center"
+								android:textSize="20sp"
+								android:textColor="#fff"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:text="Massage"
+								app:bind_font='@{"bold"}'/>
+
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+
+				<android.support.v7.widget.CardView
+						android:id="@+id/restaurant"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						app:cardElevation="2dp"
+						app:cardCornerRadius="2dp"
+						android:layout_marginLeft="2dp"
+						android:layout_marginRight="2dp"
+						android:layout_marginTop="2dp"
+						app:cardBackgroundColor="#182634">
+
+					<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="180dp"
+							android:orientation="vertical">
+
+						<ImageView
+								android:layout_width="100dp"
+								android:layout_height="100dp"
+								app:srcCompat="@drawable/ic_pizzeria"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:layout_gravity="center"/>
+
+						<TextView
+								android:id="@+id/pizza_text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_gravity="bottom|center"
+								android:textSize="20sp"
+								android:textColor="#fff"
+								android:layout_marginTop="@dimen/margin_medium_3"
+								android:text="Restaurant"
+								app:bind_font='@{"bold"}'/>
+
+					</LinearLayout>
+
+				</android.support.v7.widget.CardView>
+
+			</LinearLayout>
 
 		</LinearLayout>
 
-		<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="180dp"
-				android:layout_weight="1"
-				android:background="@color/bg"
-				android:weightSum="2">
 
-			<android.support.v7.widget.CardView
-					android:id="@+id/night_club"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					app:cardElevation="2dp"
-					app:cardCornerRadius="2dp"
-					android:layout_marginLeft="2dp"
-					android:layout_marginRight="2dp"
-					android:layout_marginTop="2dp"
-					app:cardBackgroundColor="#182634">
-
-				<LinearLayout
-						android:layout_width="match_parent"
-						android:layout_height="180dp"
-						android:orientation="vertical">
-
-					<ImageView
-							android:layout_width="100dp"
-							android:layout_height="100dp"
-							app:srcCompat="@drawable/ic_mirror_ball"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:layout_gravity="center"/>
-
-					<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="bottom|center"
-							android:textSize="20sp"
-							android:textColor="#fff"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:text="Night Club"/>
-
-				</LinearLayout>
-
-			</android.support.v7.widget.CardView>
-
-			<android.support.v7.widget.CardView
-					android:id="@+id/bar"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					app:cardElevation="2dp"
-					app:cardCornerRadius="2dp"
-					android:layout_marginLeft="2dp"
-					android:layout_marginRight="2dp"
-					android:layout_marginTop="2dp"
-					app:cardBackgroundColor="#182634">
-
-				<LinearLayout
-						android:layout_width="match_parent"
-						android:layout_height="180dp"
-						android:orientation="vertical">
-
-					<ImageView
-							android:layout_width="100dp"
-							android:layout_height="100dp"
-							app:srcCompat="@drawable/ic_whiskey_one"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:layout_gravity="center"/>
-
-					<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="bottom|center"
-							android:textSize="20sp"
-							android:textColor="#fff"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:text="Bar"/>
-
-				</LinearLayout>
-
-			</android.support.v7.widget.CardView>
-
-		</LinearLayout>
-
-		<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="180dp"
-				android:layout_weight="1"
-				android:background="@color/bg"
-				android:weightSum="2">
-
-			<android.support.v7.widget.CardView
-					android:id="@+id/massage"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					app:cardElevation="2dp"
-					app:cardCornerRadius="2dp"
-					android:layout_marginLeft="2dp"
-					android:layout_marginRight="2dp"
-					android:layout_marginTop="2dp"
-					app:cardBackgroundColor="#182634">
-
-				<LinearLayout
-						android:layout_width="match_parent"
-						android:layout_height="180dp"
-						android:orientation="vertical">
-
-					<ImageView
-							android:layout_width="100dp"
-							android:layout_height="100dp"
-							app:srcCompat="@drawable/ic_massage_one"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:layout_gravity="center"/>
-
-					<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="bottom|center"
-							android:textSize="20sp"
-							android:textColor="#fff"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:text="Massage"/>
-
-				</LinearLayout>
-
-			</android.support.v7.widget.CardView>
-
-			<android.support.v7.widget.CardView
-					android:id="@+id/restaurant"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					app:cardElevation="2dp"
-					app:cardCornerRadius="2dp"
-					android:layout_marginLeft="2dp"
-					android:layout_marginRight="2dp"
-					android:layout_marginTop="2dp"
-					app:cardBackgroundColor="#182634">
-
-				<LinearLayout
-						android:layout_width="match_parent"
-						android:layout_height="180dp"
-						android:orientation="vertical">
-
-					<ImageView
-							android:layout_width="100dp"
-							android:layout_height="100dp"
-							app:srcCompat="@drawable/ic_pizzeria"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:layout_gravity="center"/>
-
-					<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="bottom|center"
-							android:textSize="20sp"
-							android:textColor="#fff"
-							android:layout_marginTop="@dimen/margin_medium_3"
-							android:text="Restaurant"/>
-
-				</LinearLayout>
-
-			</android.support.v7.widget.CardView>
-
-		</LinearLayout>
-
-	</LinearLayout>
-
-
-</ScrollView>
+	</ScrollView>
+</layout>
 
