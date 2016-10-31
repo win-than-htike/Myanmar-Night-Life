@@ -21,4 +21,8 @@
     <color name="googleplus">#db4a39</color>
     <color name="googleplus_dark">#a44237</color>
 
+    <color name="website">#1DE9B6</color>
+    <color name="website_dark">#1da683</color>
+
+
 </resources>

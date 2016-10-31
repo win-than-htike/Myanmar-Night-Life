@@ -2,13 +2,14 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="?android:actionBarSize"
+    android:background="@color/bg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
+        android:background="@color/bg"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -17,8 +18,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Myanmar Night Life"
-            android:textColor="@color/bg"
-            android:textSize="33dp"
+            android:textColor="@android:color/white"
+            android:textSize="33sp"
             android:textStyle="bold" />
 
         <android.support.design.widget.TextInputLayout
@@ -32,6 +33,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textColorHint="@android:color/white"
                 android:hint="Shop Name"
                 android:inputType="textPersonName" />
 
@@ -48,6 +50,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textColorHint="@android:color/white"
                 android:hint="Shop Phone"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
@@ -63,6 +66,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textColorHint="@android:color/white"
                 android:hint="Shop Open Hours (eg.8AM-10PM)"
                 android:inputType="text" />
 
@@ -79,6 +83,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textColorHint="@android:color/white"
                 android:hint="Shop Address"
                 android:inputType="text" />
 

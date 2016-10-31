@@ -79,7 +79,7 @@ public class SuggestFragment extends Fragment {
 
         ((MainActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(), android.R.layout.simple_spinner_item, type);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(), R.layout.spinner_item, type);
         spShopType.setAdapter(arrayAdapter);
 
         btnChooseShopImage.setOnClickListener(new View.OnClickListener() {

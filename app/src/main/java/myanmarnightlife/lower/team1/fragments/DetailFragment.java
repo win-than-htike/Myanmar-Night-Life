@@ -25,11 +25,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import io.realm.Realm;
+import io.realm.exceptions.RealmException;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.activities.DetailPagerActivity;
+import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.databinding.FragmentDetailBinding;
+import myanmarnightlife.lower.team1.utils.Constants;
+
 import org.parceler.Parcels;
 
 /**
@@ -67,6 +73,10 @@ public class DetailFragment extends Fragment {
   public static DetailFragment INSTANCE;
 
   public static final String BUNDLE_EXTRA = "place";
+
+  private Realm realm;
+
+  private Menu menu;
 
   public DetailFragment() {
     // Required empty public constructor
@@ -134,6 +144,8 @@ public class DetailFragment extends Fragment {
         .error(R.drawable.night)
         .into(ivShopImage);
 
+
+
     return view;
   }
 
@@ -153,19 +165,58 @@ public class DetailFragment extends Fragment {
 
     inflater.inflate(R.menu.detail_menu, menu);
 
+    this.menu = menu;
+
+    if (mPlaces.getIsSaved() == Constants.SAVED) {
+
+      menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_favorite_white_24dp));
+
+    } else {
+
+      menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_white_24dp));
+
+    }
+
     super.onCreateOptionsMenu(menu, inflater);
   }
 
   @Override public boolean onOptionsItemSelected(MenuItem item) {
+
     switch (item.getItemId()) {
+
       case android.R.id.home:
-        // this takes the user 'back', as if they pressed the left-facing triangle icon on the main android toolbar.
-        // if this doesn't work as desired, another possibility is to call `finish()` here.
         getActivity().onBackPressed();
         return true;
 
       case R.id.action_share:
         Toast.makeText(MyanmarNightLifeApp.getContext(), "Share", Toast.LENGTH_SHORT).show();
+        return true;
+
+      case R.id.action_fav:
+        try {
+
+          realm = Realm.getDefaultInstance();
+
+          realm.beginTransaction();
+
+          if (mPlaces.getIsSaved() == Constants.SAVED) {
+            mPlaces.setIsSaved(Constants.UNSAVED);
+            item.setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_white_24dp));
+          } else {
+            mPlaces.setIsSaved(Constants.SAVED);
+            item.setIcon(getResources().getDrawable(R.drawable.ic_favorite_white_24dp));
+          }
+
+          realm.copyToRealmOrUpdate(mPlaces);
+
+          realm.commitTransaction();
+        } catch (RealmException e) {
+          e.printStackTrace();
+        }
+
+        PlacesRVAdapter mAdapter = new PlacesRVAdapter();
+        mAdapter.notifyDataSetChanged();
+
         return true;
 
       default:

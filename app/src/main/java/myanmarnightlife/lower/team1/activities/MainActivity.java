@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity
                             .beginTransaction()
                             .replace(R.id.fl_container, homeFragment,"home")
                             .commit();
-                    toolbar.setTitle("Myanmar Night Out");
+                    toolbar.setTitle("Myanmar Night Life");
 
                 } else if (id == R.id.nav_favourite) {
 

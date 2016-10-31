@@ -41,6 +41,9 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
     inflater = LayoutInflater.from(MyanmarNightLifeApp.getContext());
   }
 
+  public PlacesRVAdapter() {
+  }
+
   @Override public PlcacesShopViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View rootView = inflater.inflate(R.layout.beer_card_item, parent, false);
 
@@ -137,7 +140,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
           .centerCrop()
           .crossFade()
           .error(R.drawable.night)
-          .placeholder(R.drawable.night)
+          .placeholder(R.drawable.placeholder)
           .into((imgShop));
     }
 
@@ -145,4 +148,5 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
       if (itemClickListener != null) itemClickListener.onTapShop(places, imgShop);
     }
   }
+
 }

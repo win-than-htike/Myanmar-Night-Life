@@ -11,7 +11,7 @@
 	<application
 			android:name=".MyanmarNightLifeApp"
 			android:allowBackup="true"
-			android:icon="@mipmap/ic_launcher"
+			android:icon="@drawable/logo"
 			android:label="@string/app_name"
 			android:supportsRtl="true"
 			android:theme="@style/AppTheme"
@@ -19,7 +19,8 @@
 		<activity
 				android:name=".activities.WelcomeActivity"
 				android:label="@string/app_name"
-				android:theme="@style/Splash">
+				android:theme="@style/Splash"
+				android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 
@@ -28,12 +29,13 @@
 		</activity>
 		<activity
 				android:name=".activities.ShopActivity"
-				android:theme="@style/AppTheme.NoActionBar"/>
+				android:theme="@style/AppTheme.NoActionBar"
+				android:screenOrientation="portrait"/>
 		<activity
 				android:name=".activities.DetailPagerActivity"
 				android:launchMode="singleTask"
 				android:parentActivityName=".activities.ShopActivity"
-				android:theme="@style/AppTheme.NoActionBar"
+				android:theme="@style/detail_dialog"
 				android:screenOrientation="portrait"
 				android:configChanges="orientation">
 			<!--android:theme="@style/detail_dialog"-->
@@ -44,13 +46,16 @@
 		</activity>
 		<activity
 				android:name=".activities.MainActivity"
-				android:theme="@style/AppTheme.NoActionBar"/>
+				android:theme="@style/AppTheme.NoActionBar"
+				android:screenOrientation="portrait"/>
 		<activity
 				android:name=".activities.AboutUsActivity"
-				android:theme="@style/AppTheme.NoActionBar"></activity>
+				android:theme="@style/AppTheme.NoActionBar"
+				android:screenOrientation="portrait"></activity>
 		<activity
 				android:name=".activities.TaxiServiceActivity"
-				android:label="Taxi Service"/>
+				android:label="Taxi Service"
+				android:screenOrientation="portrait"/>
 
 		<service
 				android:name=".services.NotificationService">

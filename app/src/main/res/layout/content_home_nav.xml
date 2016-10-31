@@ -190,7 +190,7 @@
 						<ImageView
 								android:layout_width="100dp"
 								android:layout_height="100dp"
-								app:srcCompat="@drawable/ic_whiskey_one"
+								app:srcCompat="@drawable/bar"
 								android:layout_marginTop="@dimen/margin_medium_3"
 								android:layout_gravity="center"/>
 
@@ -277,7 +277,7 @@
 						<ImageView
 								android:layout_width="100dp"
 								android:layout_height="100dp"
-								app:srcCompat="@drawable/ic_pizzeria"
+								app:srcCompat="@drawable/restaurant"
 								android:layout_marginTop="@dimen/margin_medium_3"
 								android:layout_gravity="center"/>
 

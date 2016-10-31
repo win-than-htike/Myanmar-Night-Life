@@ -36,6 +36,8 @@ public class FavouriteFragment extends Fragment {
 
     private List<Places> mPlaces;
 
+    private PlacesRVAdapter mAdapter;
+
 
     private ItemClickListener itemClickListener;
 
@@ -70,10 +72,15 @@ public class FavouriteFragment extends Fragment {
             mPlaces = helper.getFavouriteList();
         }
 
-        PlacesRVAdapter mAdapter = new PlacesRVAdapter(mPlaces,itemClickListener,(AppCompatActivity)getActivity());
+        mAdapter = new PlacesRVAdapter(mPlaces,itemClickListener,(AppCompatActivity)getActivity());
         rvFavourite.setAdapter(mAdapter);
 
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
 }

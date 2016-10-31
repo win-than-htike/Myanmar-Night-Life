@@ -9,6 +9,7 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rengwuxian.materialedittext/library/2.0.3/6e81618cc2722e95dfd74d6d9e30045c608bde87/library-2.0.3-sources.jar!/" />
       <root url="jar://$APPLICATION_HOME_DIR$/gradle/wrapper/dists/gradle-2.4-all/caches/modules-2/files-2.1/com.rengwuxian.materialedittext/library/2.0.3/6e81618cc2722e95dfd74d6d9e30045c608bde87/library-2.0.3-sources.jar!/" />
     </SOURCES>
   </library>

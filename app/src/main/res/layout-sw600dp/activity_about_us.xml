@@ -82,7 +82,7 @@
 
         </com.github.florent37.diagonallayout.DiagonalLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/avatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
