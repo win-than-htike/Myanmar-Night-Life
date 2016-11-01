@@ -1,355 +1,366 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:weightSum="4"
-    android:background="@color/colorPrimary"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
 
-    <RelativeLayout
-        xmlns:diagonal="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-        android:background="@color/colorPrimary">
+	<data>
 
-        <com.github.florent37.diagonallayout.DiagonalLayout
-            android:id="@+id/diagonalLayout"
-            android:layout_width="match_parent"
-            android:layout_height="266dp"
-            diagonal:diagonal_angle="10"
-            android:elevation="10dp"
-            android:paddingBottom="16dp"
-            diagonal:diagonal_gravity="left"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            >
+		<import type="myanmarnightlife.lower.team1.adapters.FontAdapter"/>
+	</data>
 
-            <com.flaviofaria.kenburnsview.KenBurnsView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/aboutbackground"
-                />
+	<LinearLayout
+			xmlns:app="http://schemas.android.com/apk/res-auto"
+			xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:weightSum="4"
+			android:background="@color/colorPrimary">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Myanmar Night Life"
-                android:textColor="@android:color/white"
-                android:layout_gravity="top|left"
-                android:fontFamily="sans-serif-light"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="70dp"
-                android:textSize="25sp"
-                />
+		<RelativeLayout
+				xmlns:diagonal="http://schemas.android.com/apk/res-auto"
+				xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+				android:id="@+id/activity_main"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="3"
+				android:background="@color/colorPrimary">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="105dp"
-                >
+			<com.github.florent37.diagonallayout.DiagonalLayout
+					android:id="@+id/diagonalLayout"
+					android:layout_width="match_parent"
+					android:layout_height="266dp"
+					diagonal:diagonal_angle="10"
+					android:elevation="10dp"
+					android:paddingBottom="16dp"
+					diagonal:diagonal_gravity="left"
+					android:layout_alignParentTop="true"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentStart="true"
+					>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Version"
-                    android:textColor="@android:color/white"
-                    android:layout_gravity="top|left"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textSize="14sp"
-                    />
+				<com.flaviofaria.kenburnsview.KenBurnsView
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:scaleType="centerCrop"
+						android:src="@drawable/aboutbackground"
+						/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1.0"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:layout_gravity="top|left"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="14sp"
-                    />
-            </LinearLayout>
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Myanmar Night Life"
+						android:textColor="@android:color/white"
+						android:layout_gravity="top|left"
+						android:fontFamily="sans-serif-light"
+						android:layout_marginLeft="30dp"
+						android:layout_marginTop="70dp"
+						android:textSize="25sp"
+						/>
 
-        </com.github.florent37.diagonallayout.DiagonalLayout>
+				<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="30dp"
+						android:orientation="horizontal"
+						android:layout_marginTop="105dp"
+						>
 
-        <ImageView
-            android:id="@+id/avatar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="190dp"
-            android:elevation="15dp"
-            android:src="@drawable/logo"/>
+					<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Version"
+							android:textColor="@android:color/white"
+							android:layout_gravity="top|left"
+							android:textStyle="bold"
+							android:fontFamily="sans-serif-condensed"
+							android:textSize="14sp"
+							/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4"
-            android:layout_marginTop="230dp"
-            >
+					<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="1.0"
+							android:textStyle="bold"
+							android:textColor="@android:color/white"
+							android:layout_gravity="top|left"
+							android:fontFamily="sans-serif-condensed"
+							android:layout_marginLeft="10dp"
+							android:textSize="14sp"
+							/>
+				</LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+			</com.github.florent37.diagonallayout.DiagonalLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+			<ImageView
+					android:id="@+id/avatar"
+					android:layout_width="100dp"
+					android:layout_height="100dp"
+					android:layout_marginLeft="40dp"
+					android:layout_marginTop="190dp"
+					android:elevation="15dp"
+					android:src="@drawable/logo"/>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/diagonalLayout"
-                android:layout_weight="1"
-                android:orientation="vertical">
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:weightSum="4"
+					android:layout_marginTop="230dp"
+					>
 
-                <info.hoang8f.widget.FButton
-                    android:id="@+id/btn_facebook"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Facebook"
-                    android:textColor="#fff"
-                    fbutton:buttonColor="@color/facebook"
-                    fbutton:shadowColor="@color/facebook_dark"
-                    fbutton:shadowEnabled="true"
-                    fbutton:shadowHeight="6dp"
-                    fbutton:cornerRadius="6dp"
-                    android:background="@color/bg"/>
+				<View
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"/>
 
-            </LinearLayout>
+				<View
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"/>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/diagonalLayout"
-                android:layout_weight="1"
-                android:orientation="vertical">
+				<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_below="@+id/diagonalLayout"
+						android:layout_weight="1"
+						android:orientation="vertical">
 
-                <info.hoang8f.widget.FButton
-                    android:id="@+id/btn_googleplus"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Google Plus"
-                    android:textColor="#fff"
-                    fbutton:buttonColor="@color/googleplus"
-                    fbutton:shadowColor="@color/googleplus_dark"
-                    fbutton:shadowEnabled="true"
-                    fbutton:shadowHeight="6dp"
-                    fbutton:cornerRadius="6dp"
-                    android:background="@color/bg"/>
+					<info.hoang8f.widget.FButton
+							android:id="@+id/btn_facebook"
+							android:layout_width="100dp"
+							android:layout_height="wrap_content"
+							android:text="Facebook"
+							android:textColor="#fff"
+							fbutton:buttonColor="@color/facebook"
+							fbutton:shadowColor="@color/facebook_dark"
+							fbutton:shadowEnabled="true"
+							fbutton:shadowHeight="6dp"
+							fbutton:cornerRadius="6dp"
+							android:background="@color/bg"/>
 
+				</LinearLayout>
 
-            </LinearLayout>
+				<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_below="@+id/diagonalLayout"
+						android:layout_weight="1"
+						android:orientation="vertical">
 
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="320dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:text="Descripton"/>
-
-        <TextView
-            android:id="@+id/desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:textColor="#fff"
-            android:lineSpacingMultiplier="1.3"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:textSize="20sp"
-            android:layout_below="@+id/tv_desc"
-            android:text="@string/desc"/>
-
-        <!--<View-->
-            <!--android:layout_below="@+id/desc"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="1dp"-->
-            <!--android:layout_marginTop="@dimen/margin_medium_2"-->
-            <!--android:layout_marginLeft="@dimen/margin_medium_3"-->
-            <!--android:layout_marginRight="@dimen/margin_medium_3"-->
-            <!--android:background="#000"/>-->
+					<info.hoang8f.widget.FButton
+							android:id="@+id/btn_googleplus"
+							android:layout_width="120dp"
+							android:layout_height="wrap_content"
+							android:text="Google Plus"
+							android:textColor="#fff"
+							fbutton:buttonColor="@color/googleplus"
+							fbutton:shadowColor="@color/googleplus_dark"
+							fbutton:shadowEnabled="true"
+							fbutton:shadowHeight="6dp"
+							fbutton:cornerRadius="6dp"
+							android:background="@color/bg"/>
 
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+				</LinearLayout>
 
-    </RelativeLayout>
+			</LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:background="@color/colorPrimary"
-        android:layout_marginBottom="@dimen/margin_medium_3"
-        android:layout_weight="1">
+			<TextView
+					android:id="@+id/tv_desc"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="320dp"
+					android:layout_marginLeft="30dp"
+					android:layout_marginRight="30dp"
+					android:textColor="#fff"
+					app:bind_font='@{"bold"}'
+					android:textSize="30sp"
+					android:text="Descripton"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+			<TextView
+					android:id="@+id/desc"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="30dp"
+					android:layout_marginRight="30dp"
+					android:textColor="#fff"
+					android:lineSpacingMultiplier="1.3"
+					android:layout_marginTop="@dimen/margin_medium"
+					android:textSize="20sp"
+					android:layout_below="@+id/tv_desc"
+					app:bind_font='@{"thin"}'
+					android:text="@string/desc"/>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/winthan"/>
+			<!--<View-->
+			<!--android:layout_below="@+id/desc"-->
+			<!--android:layout_width="match_parent"-->
+			<!--android:layout_height="1dp"-->
+			<!--android:layout_marginTop="@dimen/margin_medium_2"-->
+			<!--android:layout_marginLeft="@dimen/margin_medium_3"-->
+			<!--android:layout_marginRight="@dimen/margin_medium_3"-->
+			<!--android:background="#000"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:textSize="20sp"
-                android:text="Win Than Htike"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textStyle="italic"
-                android:paddingBottom="@dimen/margin_medium"
-                android:textSize="20sp"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:text="Coder"/>
+			<android.support.v7.widget.Toolbar
+					android:id="@+id/toolbar"
+					android:visibility="gone"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					/>
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/btn_winthanhtike"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Contact Me"
-                android:textColor="#fff"
-                android:layout_marginTop="@dimen/margin_small"
-                fbutton:buttonColor="@color/facebook"
-                fbutton:shadowColor="@color/facebook_dark"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="6dp"
-                fbutton:cornerRadius="6dp"
-                android:background="@color/bg"/>
+		</RelativeLayout>
 
-        </LinearLayout>
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:orientation="horizontal"
+				android:weightSum="3"
+				android:background="@color/colorPrimary"
+				android:layout_marginBottom="@dimen/margin_medium_3"
+				android:layout_weight="1">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+			<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/aungkhantwai"/>
+				<de.hdodenhof.circleimageview.CircleImageView
+						android:layout_width="100dp"
+						android:layout_height="100dp"
+						android:src="@drawable/winthan"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:textSize="20sp"
-                android:text="Aung Khant Wai"/>
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="#fff"
+						android:textStyle="bold"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:textSize="20sp"
+						android:text="Win Than Htike"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textStyle="italic"
-                android:textSize="20sp"
-                android:paddingBottom="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:text="Business"/>
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="#fff"
+						app:bind_font='@{"regular"}'
+						android:paddingBottom="@dimen/margin_medium"
+						android:textSize="20sp"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:text="Coder"/>
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/btn_aungkhantwai"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Contact Me"
-                android:textColor="#fff"
-                android:layout_marginTop="@dimen/margin_small"
-                fbutton:buttonColor="@color/facebook"
-                fbutton:shadowColor="@color/facebook_dark"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="6dp"
-                fbutton:cornerRadius="6dp"
-                android:background="@color/bg"/>
+				<info.hoang8f.widget.FButton
+						android:id="@+id/btn_winthanhtike"
+						android:layout_width="120dp"
+						android:layout_height="wrap_content"
+						android:text="Contact Me"
+						android:textColor="#fff"
+						android:layout_marginTop="@dimen/margin_small"
+						fbutton:buttonColor="@color/facebook"
+						fbutton:shadowColor="@color/facebook_dark"
+						fbutton:shadowEnabled="true"
+						fbutton:shadowHeight="6dp"
+						fbutton:cornerRadius="6dp"
+						android:background="@color/bg"/>
 
-        </LinearLayout>
+			</LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+			<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/aungmyothu"/>
+				<de.hdodenhof.circleimageview.CircleImageView
+						android:layout_width="100dp"
+						android:layout_height="100dp"
+						android:src="@drawable/aungkhantwai"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:textSize="20sp"
-                android:text="Aung Myo Thu"/>
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="#fff"
+						android:textStyle="bold"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:textSize="20sp"
+						android:text="Aung Khant Wai"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textStyle="italic"
-                android:textSize="20sp"
-                android:paddingBottom="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:text="Data"/>
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="#fff"
+						app:bind_font='@{"regular"}'
+						android:textSize="20sp"
+						android:paddingBottom="@dimen/margin_medium"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:text="Business"/>
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/btn_aungmyothu"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Contact Me"
-                android:textColor="#fff"
-                android:layout_marginTop="@dimen/margin_small"
-                fbutton:buttonColor="@color/facebook"
-                fbutton:shadowColor="@color/facebook_dark"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="6dp"
-                fbutton:cornerRadius="6dp"
-                android:background="@color/bg"/>
+				<info.hoang8f.widget.FButton
+						android:id="@+id/btn_aungkhantwai"
+						android:layout_width="120dp"
+						android:layout_height="wrap_content"
+						android:text="Contact Me"
+						android:textColor="#fff"
+						android:layout_marginTop="@dimen/margin_small"
+						fbutton:buttonColor="@color/facebook"
+						fbutton:shadowColor="@color/facebook_dark"
+						fbutton:shadowEnabled="true"
+						fbutton:shadowHeight="6dp"
+						fbutton:cornerRadius="6dp"
+						android:background="@color/bg"/>
 
-        </LinearLayout>
+			</LinearLayout>
 
-    </LinearLayout>
+			<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:orientation="vertical">
 
-</LinearLayout>
+				<de.hdodenhof.circleimageview.CircleImageView
+						android:layout_width="100dp"
+						android:layout_height="100dp"
+						android:src="@drawable/aungmyothu"/>
+
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="#fff"
+						android:textStyle="bold"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:textSize="20sp"
+						android:text="Aung Myo Thu"/>
+
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="#fff"
+						app:bind_font='@{"regular"}'
+						android:textSize="20sp"
+						android:paddingBottom="@dimen/margin_medium"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:text="Data"/>
+
+				<info.hoang8f.widget.FButton
+						android:id="@+id/btn_aungmyothu"
+						android:layout_width="120dp"
+						android:layout_height="wrap_content"
+						android:text="Contact Me"
+						android:textColor="#fff"
+						android:layout_marginTop="@dimen/margin_small"
+						fbutton:buttonColor="@color/facebook"
+						fbutton:shadowColor="@color/facebook_dark"
+						fbutton:shadowEnabled="true"
+						fbutton:shadowHeight="6dp"
+						fbutton:cornerRadius="6dp"
+						android:background="@color/bg"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+</layout>

@@ -6,8 +6,8 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.florent37/diagonallayout/1.0.2/7d1a8832c3fc83bbaab8615308a4e9e3f973da2c/diagonallayout-1.0.2-sources.jar!/" />
       <root url="jar://$APPLICATION_HOME_DIR$/gradle/wrapper/dists/gradle-2.4-all/caches/modules-2/files-2.1/com.github.florent37/diagonallayout/1.0.2/7d1a8832c3fc83bbaab8615308a4e9e3f973da2c/diagonallayout-1.0.2-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.florent37/diagonallayout/1.0.2/7d1a8832c3fc83bbaab8615308a4e9e3f973da2c/diagonallayout-1.0.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
