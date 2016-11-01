@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity
 
     static String sate;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

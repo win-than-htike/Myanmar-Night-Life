@@ -36,7 +36,6 @@
                     android:paddingLeft="@dimen/margin_medium_2"
                     android:text="Rating"
                     android:textColor="@android:color/primary_text_dark"
-
                     android:textSize="@dimen/text_heading_1x"
                     app:bind_font='@{"bold"}' />
 

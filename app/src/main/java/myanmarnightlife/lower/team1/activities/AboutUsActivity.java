@@ -2,6 +2,7 @@ package myanmarnightlife.lower.team1.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,10 +32,11 @@ public class AboutUsActivity extends AppCompatActivity {
     @BindView(R.id.btn_googleplus)
     Button btnGooglePlus;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
         ButterKnife.bind(this,this);
 
         btnWinthan.setOnClickListener(new View.OnClickListener() {

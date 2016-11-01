@@ -1,79 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="2dp"
-    app:cardCornerRadius="2dp"
-    android:layout_marginTop="2dp"
-    android:layout_marginRight="2dp"
-    android:layout_marginLeft="2dp"
-    app:cardBackgroundColor="@color/bg"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#182634"
-        android:orientation="vertical">
+	<data>
 
-        <FrameLayout
-            android:id="@+id/fav_container"
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+		<import type="myanmarnightlife.lower.team1.adapters.FontAdapter"/>
+	</data>
 
-            <ImageView
-                android:id="@+id/iv_beer_shop"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/night"
-                android:scaleType="centerCrop"
-                android:transitionName="@string/share_image_transition"/>
+	<android.support.v7.widget.CardView
+			xmlns:app="http://schemas.android.com/apk/res-auto"
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:cardElevation="4dp"
+			app:cardCornerRadius="2dp"
+			app:cardBackgroundColor="#182634">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/iv_fav"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:layout_gravity="right|top"
-                android:layout_marginRight="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_medium_2"/>
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#182634"
+				android:orientation="vertical">
 
-        </FrameLayout>
+			<FrameLayout
+					android:id="@+id/fav_container"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_shop_name"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="#fff"
-                android:fontFamily="sans-serif"
-                android:layout_marginTop="@dimen/margin_medium_2"
-                android:layout_marginBottom="@dimen/margin_medium_2"
-                android:text="Beer Shop"/>
+				<ImageView
+						android:id="@+id/iv_beer_shop"
+						android:layout_width="match_parent"
+						android:layout_height="150dp"
+						android:src="@drawable/night"
+						android:scaleType="centerCrop"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/margin_medium_2"
-            android:layout_marginRight="@dimen/margin_medium_2"
-            android:background="#fff"/>
+				<android.support.v7.widget.AppCompatImageView
+						android:id="@+id/iv_fav"
+						android:layout_width="24dp"
+						android:layout_height="24dp"
+						android:layout_weight="1"
+						android:layout_gravity="right|top"
+						android:layout_marginRight="@dimen/margin_medium"
+						android:layout_marginTop="@dimen/margin_medium"
+						android:layout_marginBottom="@dimen/margin_medium_2"/>
 
-        <RatingBar
-            android:id="@+id/rate_beer_shop"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:isIndicator="true"
-            android:layout_marginBottom="@dimen/margin_medium_2"
-            android:layout_marginTop="@dimen/margin_medium_2"/>
+			</FrameLayout>
 
 
-    </LinearLayout>
+			<TextView
+					android:id="@+id/tv_shop_name"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textSize="18sp"
+					android:gravity="center"
+					android:layout_marginTop="@dimen/activity_vertical_margin"
+					android:layout_gravity="center"
+					android:textColor="#fff"
+					app:bind_font='@{"thin"}'
+					android:maxLines="2"
+					android:minLines="2"
+					android:layout_marginLeft="@dimen/activity_horizontal_margin"
+					android:layout_marginRight="@dimen/activity_horizontal_margin"
+					android:layout_marginBottom="5dp"
+					android:text="Beer Shop"/>
 
-</android.support.v7.widget.CardView>
+
+			<RatingBar
+					android:id="@+id/rate_beer_shop"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:numStars="5"
+					android:isIndicator="true"
+					android:layout_marginBottom="@dimen/margin_medium_2"
+					style="?android:attr/ratingBarStyleSmall"
+					android:layout_gravity="center"/>
+
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+</layout>
