@@ -139,7 +139,7 @@
                 android:orientation="vertical">
 
                 <info.hoang8f.widget.FButton
-                    android:id="@+id/btn_gmail"
+                    android:id="@+id/btn_googleplus"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Google Plus"
