@@ -11,12 +11,15 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -67,6 +70,12 @@ public class DetailFragment extends Fragment {
   @BindView(R.id.tv_rating) RatingBar ratingBar;
 
   @BindView(R.id.collapsing_toolbar) CollapsingToolbarLayout collapsingToolbarLayout;
+
+  @BindView(R.id.btn_user_review)
+  Button btnUserReview;
+
+  @BindView(R.id.et_user_review)
+  EditText etUserReview;
 
   private Places mPlaces;
 
@@ -145,6 +154,18 @@ public class DetailFragment extends Fragment {
         .into(ivShopImage);
 
 
+    btnUserReview.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_EMAIL  , new String[]{"myanmarnightlifewwa@gmail.com"});
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Comment");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,etUserReview.getText().toString());
+        startActivity(Intent.createChooser(shareIntent, "Comment"));
+      }
+    });
+
 
     return view;
   }
@@ -185,11 +206,14 @@ public class DetailFragment extends Fragment {
     switch (item.getItemId()) {
 
       case android.R.id.home:
-        getActivity().onBackPressed();
+          getActivity().onBackPressed();
         return true;
 
       case R.id.action_share:
-        Toast.makeText(MyanmarNightLifeApp.getContext(), "Share", Toast.LENGTH_SHORT).show();
+          Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+          sharingIntent.setType("text/plain");
+          sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, mPlaces.getShopName() + "\n\n" + mPlaces.getShopReview() + "\n\n" + mPlaces.getShopPhoneNumber() + "\n\n" + mPlaces.getShopTime() + "\n\n" + mPlaces.getShopAddress());
+          startActivity(Intent.createChooser(sharingIntent,"Share using"));
         return true;
 
       case R.id.action_fav:

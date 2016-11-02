@@ -81,6 +81,6 @@ public class FavouriteFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        mAdapter.notifyDataSetChanged();
     }
 }

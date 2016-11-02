@@ -2,14 +2,14 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="?android:actionBarSize"
-    android:background="@color/bg"
+    android:background="#9E9E9E"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg"
+        android:background="#9E9E9E"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -33,7 +33,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColorHint="@android:color/white"
+                android:textColorHint="#000"
                 android:hint="Shop Name"
                 android:inputType="textPersonName" />
 

@@ -94,7 +94,7 @@ public class SuggestFragment extends Fragment {
             public void onClick(View view) {
 
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+                shareIntent.putExtra(Intent.EXTRA_EMAIL  , new String[]{"myanmarnightlifewwa@gmail.com"});
                 shareIntent.putExtra(Intent.EXTRA_TEXT,"Shop Name : " + etShopName.getText().toString()+"\n"+"Shop Phone : "+etShopPhone.getText().toString()+"\n"+"Shop Open Hour : "+etShopOpenTime.getText().toString()+"\n"+"Shop Address : "+etAddress.getText().toString()+"\n"+"Shop Type : "+spShopType.getSelectedItem().toString());
                 shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
                 shareIntent.setType("image/*");

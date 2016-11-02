@@ -76,7 +76,6 @@
                     android:paddingLeft="@dimen/margin_medium_2"
                     android:text="Review"
                     android:textColor="@android:color/primary_text_dark"
-
                     android:textSize="@dimen/text_heading_1x"
                     app:bind_font='@{"bold"}' />
 
@@ -116,8 +115,7 @@
                     android:fontFamily="sans-serif"
                     android:paddingLeft="@dimen/margin_medium_2"
                     android:text="Phone"
-                    android:textColor="@android:color/secondary_text_dark"
-
+                    android:textColor="@android:color/primary_text_dark"
                     android:textSize="@dimen/text_heading_1x"
                     app:bind_font='@{"bold"}' />
 
@@ -261,13 +259,14 @@
                     android:focusableInTouchMode="true"
                     android:fontFamily="sans-serif"
                     android:paddingLeft="@dimen/margin_medium_2"
-                    android:text="Your Opinion"
+                    android:text="Comment"
                     android:textColor="@android:color/primary_text_dark"
                     android:textSize="@dimen/text_heading_1x"
                     app:bind_font='@{"bold"}' />
 
 
                 <EditText
+                    android:id="@+id/et_user_review"
                     android:layout_width="fill_parent"
                     android:layout_height="150dp"
                     android:layout_marginBottom="10dp"
@@ -277,30 +276,30 @@
                     android:breakStrategy="balanced"
                     android:fitsSystemWindows="true"
                     android:gravity="top"
-                    android:hint="Your Opinion"
+                    android:hint="Comment"
                     android:inputType="textMultiLine"
                     android:padding="5dp"
                     android:singleLine="false"
                     android:textColor="@android:color/secondary_text_dark"
                     android:textColorHint="@android:color/secondary_text_dark" />
 
-
                 <info.hoang8f.widget.FButton
-                    android:id="@+id/btn_ambulance"
+                    android:id="@+id/btn_user_review"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
+                    android:text="POST"
+                    android:textColor="#fff"
                     android:layout_marginBottom="@dimen/margin_medium_2"
                     android:layout_marginRight="@dimen/margin_medium_2"
-                    android:layout_marginTop="@dimen/margin_medium_2"
-                    android:background="@color/bg"
-                    android:text="Post"
-                    android:textColor="#fff"
                     fbutton:buttonColor="@color/post"
-                    fbutton:cornerRadius="6dp"
                     fbutton:shadowColor="@color/post_dark"
                     fbutton:shadowEnabled="true"
-                    fbutton:shadowHeight="6dp" />
+                    fbutton:shadowHeight="6dp"
+                    fbutton:cornerRadius="6dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:background="@color/bg"/>
+
 
             </LinearLayout>
 

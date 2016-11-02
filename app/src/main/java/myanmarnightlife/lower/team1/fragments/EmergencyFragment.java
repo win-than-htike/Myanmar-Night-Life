@@ -72,7 +72,7 @@ public class EmergencyFragment extends Fragment {
         btnAmbulance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionPhoneCall("111");
+                actionPhoneCall("5000005");
             }
         });
 
