@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+import com.piotrek.customspinner.CustomSpinner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -62,7 +62,7 @@ public class SuggestFragment extends Fragment {
     EditText etAddress;
 
     @BindView(R.id.sp_shop_type)
-    Spinner spShopType;
+    CustomSpinner spShopType;
 
     public SuggestFragment() {
         // Required empty public constructor
@@ -79,8 +79,7 @@ public class SuggestFragment extends Fragment {
 
         ((MainActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(), R.layout.spinner_item, type);
-        spShopType.setAdapter(arrayAdapter);
+        spShopType.initializeStringValues(type);
 
         btnChooseShopImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +99,10 @@ public class SuggestFragment extends Fragment {
                 shareIntent.setType("image/*");
                 shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 startActivity(Intent.createChooser(shareIntent, "Share..."));
-
+                etShopName.setText("");
+                etShopPhone.setText("");
+                etShopOpenTime.setText("");
+                etAddress.setText("");
             }
         });
 

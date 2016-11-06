@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fbutton="http://schemas.android.com/tools"
     android:layout_marginTop="?android:actionBarSize"
-    android:background="#9E9E9E"
+    android:background="@color/bg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9E9E9E"
+        android:background="@color/bg"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -26,15 +27,17 @@
             android:id="@+id/full_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:textColorHint="#fff"
+            android:layout_marginTop="16dp">
 
             <EditText
                 android:id="@+id/et_shop_name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColorHint="#000"
+                android:textColorHint="#fff"
                 android:hint="Shop Name"
+                android:textColor="#fff"
                 android:inputType="textPersonName" />
 
         </android.support.design.widget.TextInputLayout>
@@ -43,29 +46,34 @@
             android:id="@+id/email_address"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:textColorHint="#fff"
+            android:layout_marginTop="16dp">
 
             <EditText
                 android:id="@+id/et_shop_phone"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textColor="#fff"
                 android:textColorHint="@android:color/white"
                 android:hint="Shop Phone"
                 android:inputType="text" />
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:textColorHint="#fff"
+            android:layout_marginTop="16dp">
 
             <EditText
                 android:id="@+id/et_shop_open_time"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textColor="#fff"
                 android:textColorHint="@android:color/white"
                 android:hint="Shop Open Hours (eg.8AM-10PM)"
                 android:inputType="text" />
@@ -76,7 +84,8 @@
             android:id="@+id/address"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:textColorHint="#fff"
+            android:layout_marginTop="16dp">
 
             <EditText
                 android:id="@+id/et_address"
@@ -85,18 +94,19 @@
                 android:ems="10"
                 android:textColorHint="@android:color/white"
                 android:hint="Shop Address"
+                android:textColor="#fff"
                 android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
-        <Spinner
+        <com.piotrek.customspinner.CustomSpinner
             android:id="@+id/sp_shop_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:hint="Choose Shop Type"
-            android:textColor="@android:color/black"
-            android:textColorHint="#05ab9a"/>
+            android:layout_marginLeft="4dp"
+            android:background="#fff"/>
 
         <Button
             android:id="@+id/btn_choose_shop_image"
@@ -113,15 +123,21 @@
             android:scaleType="fitCenter"
             android:layout_marginTop="@dimen/margin_medium"/>
 
-        <Button
+
+        <info.hoang8f.widget.FButton
             android:id="@+id/btn_send_mail"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#dc4e41"
-            android:text="Send Suggestion"
+            android:text="Send"
+            android:layout_gravity="center"
+            android:textColor="#fff"
+            fbutton:buttonColor="@color/color_concrete"
+            fbutton:shadowColor="@color/color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="6dp"
+            fbutton:cornerRadius="6dp"
             android:layout_marginTop="@dimen/margin_medium_2"
-            android:textAllCaps="false"
-            android:textColor="#fff" />
+            android:background="@color/bg"/>
 
 
 

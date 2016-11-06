@@ -1,6 +1,8 @@
 package myanmarnightlife.lower.team1.fragments;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,10 +44,14 @@ import myanmarnightlife.lower.team1.utils.Constants;
 
 import org.parceler.Parcels;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DetailFragment extends Fragment {
+  private static final int REQUEST_CODE = 200;
   FragmentDetailBinding fragmentDetailBinding;
   private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
   private static final String PLACES = "PLACES";
@@ -113,6 +120,7 @@ public class DetailFragment extends Fragment {
 
     Bundle bundle = getArguments();
     mPlaces = Parcels.unwrap(bundle.getParcelable(PLACES));
+    Log.i("Save",mPlaces.getIsSaved()+"");
 
     ((DetailPagerActivity) getActivity()).setSupportActionBar(toolbar);
 
@@ -162,12 +170,26 @@ public class DetailFragment extends Fragment {
         shareIntent.putExtra(Intent.EXTRA_EMAIL  , new String[]{"myanmarnightlifewwa@gmail.com"});
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Comment");
         shareIntent.putExtra(Intent.EXTRA_TEXT,etUserReview.getText().toString());
-        startActivity(Intent.createChooser(shareIntent, "Comment"));
+        startActivityForResult(Intent.createChooser(shareIntent, "Comment"),REQUEST_CODE);
       }
     });
 
 
     return view;
+  }
+
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (resultCode == REQUEST_CODE || requestCode == REQUEST_CODE) {
+
+        etUserReview.setText("");
+
+    }else{
+      etUserReview.setText(etUserReview.getText().toString());
+    }
+
   }
 
   protected void navigateInMap(String uriToOpen) {
@@ -186,17 +208,6 @@ public class DetailFragment extends Fragment {
 
     inflater.inflate(R.menu.detail_menu, menu);
 
-    this.menu = menu;
-
-    if (mPlaces.getIsSaved() == Constants.SAVED) {
-
-      menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_favorite_white_24dp));
-
-    } else {
-
-      menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_white_24dp));
-
-    }
 
     super.onCreateOptionsMenu(menu, inflater);
   }
@@ -214,33 +225,6 @@ public class DetailFragment extends Fragment {
           sharingIntent.setType("text/plain");
           sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, mPlaces.getShopName() + "\n\n" + mPlaces.getShopReview() + "\n\n" + mPlaces.getShopPhoneNumber() + "\n\n" + mPlaces.getShopTime() + "\n\n" + mPlaces.getShopAddress());
           startActivity(Intent.createChooser(sharingIntent,"Share using"));
-        return true;
-
-      case R.id.action_fav:
-        try {
-
-          realm = Realm.getDefaultInstance();
-
-          realm.beginTransaction();
-
-          if (mPlaces.getIsSaved() == Constants.SAVED) {
-            mPlaces.setIsSaved(Constants.UNSAVED);
-            item.setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_white_24dp));
-          } else {
-            mPlaces.setIsSaved(Constants.SAVED);
-            item.setIcon(getResources().getDrawable(R.drawable.ic_favorite_white_24dp));
-          }
-
-          realm.copyToRealmOrUpdate(mPlaces);
-
-          realm.commitTransaction();
-        } catch (RealmException e) {
-          e.printStackTrace();
-        }
-
-        PlacesRVAdapter mAdapter = new PlacesRVAdapter();
-        mAdapter.notifyDataSetChanged();
-
         return true;
 
       default:
