@@ -1,68 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-	<data>
+    <data>
 
-		<import type="myanmarnightlife.lower.team1.adapters.FontAdapter"/>
-	</data>
+        <import type="myanmarnightlife.lower.team1.adapters.FontAdapter" />
+    </data>
 
-	<android.support.design.widget.CoordinatorLayout
-			xmlns:android="http://schemas.android.com/apk/res/android"
-			xmlns:app="http://schemas.android.com/apk/res-auto"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:background="@color/bg"
-			android:fitsSystemWindows="true">
-
-		<android.support.design.widget.AppBarLayout
-				android:layout_width="match_parent"
-				android:layout_height="275dp"
-				android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-			<android.support.design.widget.CollapsingToolbarLayout
-					android:id="@+id/collapsing_toolbar"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:fitsSystemWindows="true"
-					app:contentScrim="@color/colorPrimary"
-					app:layout_scrollFlags="enterAlways">
-
-				<RelativeLayout
-						android:layout_width="match_parent"
-						android:layout_height="match_parent">
-
-					<com.daimajia.slider.library.SliderLayout
-							android:id="@+id/pager_shop_images"
-							android:layout_width="match_parent"
-							android:layout_height="match_parent"
-							android:fitsSystemWindows="true"
-							app:layout_collapseMode="parallax"/>
-
-					<com.daimajia.slider.library.Indicators.PagerIndicator
-							android:id="@+id/pi_shop_image_slider"
-							style="@style/AndroidImageSlider_Corner_Oval_Orange"
-							android:layout_centerHorizontal="true"
-							android:layout_alignParentBottom="true"
-							android:layout_height="match_parent"
-							android:layout_width="match_parent"/>
-
-				</RelativeLayout>
-
-			</android.support.design.widget.CollapsingToolbarLayout>
-
-		</android.support.design.widget.AppBarLayout>
-
-		<android.support.v4.widget.NestedScrollView
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-			<include
-					android:id="@+id/content"
-					layout="@layout/content_home_nav"/>
-
-		</android.support.v4.widget.NestedScrollView>
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:fitsSystemWindows="true">
 
 
-	</android.support.design.widget.CoordinatorLayout>
+        <include
+            android:id="@+id/content"
+            layout="@layout/content_home_nav" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

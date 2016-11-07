@@ -6,7 +6,6 @@
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/bg"
-    android:layout_marginTop="?android:actionBarSize"
     tools:context="myanmarnightlife.lower.team1.fragments.EmergencyFragment">
 
 

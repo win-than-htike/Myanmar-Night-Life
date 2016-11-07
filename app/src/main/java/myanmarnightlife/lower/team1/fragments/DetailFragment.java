@@ -51,6 +51,7 @@ import java.io.InputStream;
  * A simple {@link Fragment} subclass.
  */
 public class DetailFragment extends Fragment {
+
   private static final int REQUEST_CODE = 200;
   FragmentDetailBinding fragmentDetailBinding;
   private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 100;
