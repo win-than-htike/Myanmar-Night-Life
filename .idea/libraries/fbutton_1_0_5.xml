@@ -7,7 +7,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/info.hoang8f/fbutton/1.0.5/164d5d1e301245a37e6f889d708fcb9466e39620/fbutton-1.0.5-sources.jar!/" />
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/wrapper/dists/gradle-2.4-all/caches/modules-2/files-2.1/info.hoang8f/fbutton/1.0.5/164d5d1e301245a37e6f889d708fcb9466e39620/fbutton-1.0.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

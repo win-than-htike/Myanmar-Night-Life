@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +16,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +41,11 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+//    @BindView(R.id.tv_email)
+//    TextView mEmail;
+
+    private static final int RC_SIGN_IN = 0;
+
     static String sate;
 
     @Override
@@ -42,6 +55,9 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
+
+
+
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -114,6 +130,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN){
+
+            if (resultCode == RESULT_OK){
+
+//                mEmail.setText(mAuth.getCurrentUser().getDisplayName());
+
+            }
+
+        }
+
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -130,6 +162,16 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_taxi) {
             startActivity(new Intent(this,TaxiServiceActivity.class));
+        }
+
+        if (id == R.id.action_logout){
+            AuthUI.getInstance().signOut(this)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            finish();
+                        }
+                    });
         }
 
         return super.onOptionsItemSelected(item);
@@ -199,7 +241,5 @@ public class MainActivity extends AppCompatActivity
         super.onSaveInstanceState(outState);
         outState.putString("state",toolbar.getTitle().toString());
     }
-
-
 
 }

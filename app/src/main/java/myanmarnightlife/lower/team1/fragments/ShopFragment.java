@@ -4,6 +4,7 @@ package myanmarnightlife.lower.team1.fragments;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.RealmList;
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.activities.MainActivity;
@@ -60,6 +62,7 @@ public class ShopFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         itemClickListener = (ItemClickListener) context;
+
     }
 
     @Override
@@ -67,9 +70,10 @@ public class ShopFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shop, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
 
-        if (this.getActivity().getIntent().getExtras() != null){
+
+        if (this.getActivity().getIntent().getExtras() != null) {
 
             TYPE = this.getActivity().getIntent().getStringExtra(IE_TYPE);
 
@@ -78,22 +82,36 @@ public class ShopFragment extends Fragment {
         rvBeerShop.setHasFixedSize(true);
 
         int gridColumn = getResources().getInteger(R.integer.list_grid);
-        rvBeerShop.setLayoutManager(new GridLayoutManager(MyanmarNightLifeApp.getContext(),gridColumn));
+        rvBeerShop.setLayoutManager(new GridLayoutManager(MyanmarNightLifeApp.getContext(), gridColumn));
 
+        rvBeerShop.setItemAnimator(new SlideInLeftAnimator());
+        rvBeerShop.getItemAnimator().setAddDuration(3000);
+
+
+        return view;
+    }
+
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         PlacesRealmHelper helper = PlacesRealmHelper.getInstance();
 
 
         mPlaces = helper.getBarList(TYPE);
 
-        if (mPlaces.size() <= 0){
+        if (mPlaces.size() <= 0) {
             PlacesData.getData();
             mPlaces = helper.getBarList(TYPE);
         }
 
-        mAdapter = new PlacesRVAdapter(mPlaces, itemClickListener,(AppCompatActivity)getActivity());
+
+        mAdapter = new PlacesRVAdapter(itemClickListener, (AppCompatActivity) getActivity());
         rvBeerShop.setAdapter(mAdapter);
+        for (Places places : mPlaces) {
+            mAdapter.addItem(places);
+        }
 
-        return view;
+
     }
-
 }

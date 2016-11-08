@@ -40,9 +40,7 @@ dependencies {
         exclude module: 'support-v4'
     }
 
-
-
-
+    //firebase
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
@@ -60,16 +58,18 @@ dependencies {
     compile 'jp.wasabeef:recyclerview-animators:2.2.4'
     compile 'com.github.florent37:diagonallayout:1.0.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile "com.andkulikov:transitionseverywhere:1.7.0"
     compile 'com.flaviofaria:kenburnsview:1.0.7'
     compile 'com.github.piotrek1543:CustomSpinner:0.1'
     compile 'com.balysv:material-ripple:1.0.2'
 
-    //firebase
+    compile 'jp.wasabeef:recyclerview-animators:2.2.4'
     compile 'com.google.firebase:firebase-database:9.4.0'
     compile 'com.google.firebase:firebase-core:9.4.0'
     compile 'com.google.firebase:firebase-messaging:9.4.0'
     compile 'com.google.firebase:firebase-auth:9.4.0'
-    compile 'com.firebaseui:firebase-ui-database:0.4.0'
+    compile 'com.firebaseui:firebase-ui-auth:0.5.3'
+    compile 'com.firebaseui:firebase-ui-database:0.5.3'
 }
 
 apply plugin: 'realm-android'

@@ -4,8 +4,6 @@
       <root url="jar://$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/baseLibrary/2.1.0/baseLibrary-2.1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/wrapper/dists/gradle-2.4-all/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/2.1.0/64e4170bf3ec7442ae462921a3650e5e0ece9a02/baseLibrary-2.1.0-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
