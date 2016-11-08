@@ -53,8 +53,6 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.0'
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
-    compile 'com.google.firebase:firebase-core:9.4.0'
-    compile 'com.google.firebase:firebase-messaging:9.4.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.squareup.picasso:picasso:2.3.2'
@@ -65,6 +63,13 @@ dependencies {
     compile 'com.flaviofaria:kenburnsview:1.0.7'
     compile 'com.github.piotrek1543:CustomSpinner:0.1'
     compile 'com.balysv:material-ripple:1.0.2'
+
+    //firebase
+    compile 'com.google.firebase:firebase-database:9.4.0'
+    compile 'com.google.firebase:firebase-core:9.4.0'
+    compile 'com.google.firebase:firebase-messaging:9.4.0'
+    compile 'com.google.firebase:firebase-auth:9.4.0'
+    compile 'com.firebaseui:firebase-ui-database:0.4.0'
 }
 
 apply plugin: 'realm-android'
