@@ -7,7 +7,7 @@
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_black_24dp"
         android:orderInCategory="90"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="Share"
         tools:ignore="AppCompatResource"/>
 

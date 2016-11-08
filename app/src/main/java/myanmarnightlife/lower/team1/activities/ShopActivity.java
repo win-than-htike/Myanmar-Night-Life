@@ -12,13 +12,10 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
@@ -30,10 +27,8 @@ import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
-import myanmarnightlife.lower.team1.data.PlacesData;
 import myanmarnightlife.lower.team1.fragments.SearchFragment;
 import myanmarnightlife.lower.team1.fragments.ShopFragment;
-import myanmarnightlife.lower.team1.helper.PlacesRealmHelper;
 import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 
 public class ShopActivity extends AppCompatActivity implements ItemClickListener {
@@ -135,7 +130,7 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
 
     @Override
     public void onTapShop(Places places, ImageView imageView) {
-        Intent intent = DetailPagerActivity.newInstance(places,TYPE);
+        Intent intent = DetailActivity.newInstance(places,TYPE);
         ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this,new Pair(imageView,getString(R.string.share_image_transition)));
         ActivityCompat.startActivity(this,intent,activityOptions.toBundle());
     }

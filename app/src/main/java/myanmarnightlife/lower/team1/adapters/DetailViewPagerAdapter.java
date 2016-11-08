@@ -21,12 +21,21 @@ public class DetailViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return fragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return fragmentList.size();
     }
 
+    public void addFragment(Fragment fragment, String title) {
+        fragmentList.add(fragment);
+        titleLists.add(title);
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titleLists.get(position);
+    }
 }

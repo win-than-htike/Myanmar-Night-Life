@@ -32,7 +32,7 @@
 				android:theme="@style/AppTheme.NoActionBar"
 				android:screenOrientation="portrait"/>
 		<activity
-				android:name=".activities.DetailPagerActivity"
+				android:name=".activities.DetailActivity"
 				android:launchMode="singleTask"
 				android:parentActivityName=".activities.ShopActivity"
 				android:theme="@style/AppTheme.NoActionBar"
