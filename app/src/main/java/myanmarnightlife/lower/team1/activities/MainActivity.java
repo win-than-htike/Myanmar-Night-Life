@@ -15,9 +15,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
 import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,12 +47,14 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-//    @BindView(R.id.tv_email)
-//    TextView mEmail;
-
-    private static final int RC_SIGN_IN = 0;
-
     static String sate;
+
+    private TextView mEmail;
+
+    private static final int RC_SIGN_IN = 1;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +64,22 @@ public class MainActivity extends AppCompatActivity
 
         setSupportActionBar(toolbar);
 
+        mAuth = FirebaseAuth.getInstance();
 
+        if (mAuth.getCurrentUser() != null){
 
+            FragmentMain fragmentMain = new FragmentMain();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,fragmentMain,"home").commit();
+
+        }else {
+            startActivityForResult(AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setProviders(
+                            AuthUI.FACEBOOK_PROVIDER,
+                            AuthUI.EMAIL_PROVIDER,
+                            AuthUI.GOOGLE_PROVIDER)
+                    .build(), RC_SIGN_IN);
+        }
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -74,6 +96,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+        mEmail = (TextView)header.findViewById(R.id.tv_email);
 
         if (savedInstanceState != null){
 
@@ -137,13 +161,15 @@ public class MainActivity extends AppCompatActivity
 
             if (resultCode == RESULT_OK){
 
-//                mEmail.setText(mAuth.getCurrentUser().getDisplayName());
+                mEmail.setText(mAuth.getCurrentUser().getDisplayName());
 
             }
 
         }
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -165,13 +191,12 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.action_logout){
-            AuthUI.getInstance().signOut(this)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            finish();
-                        }
-                    });
+            AuthUI.getInstance().signOut(MainActivity.this).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    startActivity(new Intent(MainActivity.this,MainActivity.class));
+                }
+            });
         }
 
         return super.onOptionsItemSelected(item);

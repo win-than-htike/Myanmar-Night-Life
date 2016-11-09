@@ -26,7 +26,7 @@
             android:textAppearance="?android:textAppearanceLarge" />
 
         <ImageView
-            android:id="@+id/iv_stock_photo"
+            android:id="@+id/iv_event_photo"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop"

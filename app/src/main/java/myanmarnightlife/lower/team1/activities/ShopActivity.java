@@ -143,6 +143,8 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             onBackPressed();
+        }else if (id == R.id.action_add){
+            startActivity(new Intent(ShopActivity.this,AddEventActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

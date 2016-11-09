@@ -2,6 +2,10 @@ package myanmarnightlife.lower.team1;
 
 import android.app.Application;
 import android.content.Context;
+
+import com.firebase.client.Firebase;
+import com.google.firebase.FirebaseApp;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import myanmarnightlife.lower.team1.font.CustomFont;
@@ -17,6 +21,8 @@ public class MyanmarNightLifeApp extends Application {
     super.onCreate();
 
     context = getApplicationContext();
+
+    Firebase.setAndroidContext(context);
 
     RealmConfiguration realmConfiguration =
         new RealmConfiguration.Builder(MyanmarNightLifeApp.getContext()).name(

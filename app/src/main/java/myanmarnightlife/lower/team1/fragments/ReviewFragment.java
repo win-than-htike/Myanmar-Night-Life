@@ -35,7 +35,7 @@ public class ReviewFragment extends Fragment {
     @BindView(R.id.et_user_review)
     EditText mUserReview;
 
-    private DatabaseReference mDatabase;
+//    private DatabaseReference mDatabase;
 
     public ReviewFragment() {
         // Required empty public constructor
@@ -55,12 +55,12 @@ public class ReviewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_review, container, false);
         ButterKnife.bind(this,view);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("User_Review");
+//        mDatabase = FirebaseDatabase.getInstance().getReference().child("User_Review");
 
         mReviewSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitReview();
+//                submitReview();
             }
         });
 
@@ -68,16 +68,16 @@ public class ReviewFragment extends Fragment {
         return view;
     }
 
-    private void submitReview() {
-
-        String review = mUserReview.getText().toString();
-
-        if (!TextUtils.isEmpty(review)){
-
-
-
-        }
-
-    }
+//    private void submitReview() {
+//
+//        String review = mUserReview.getText().toString();
+//
+//        if (!TextUtils.isEmpty(review)){
+//
+//
+//
+//        }
+//
+//    }
 
 }
