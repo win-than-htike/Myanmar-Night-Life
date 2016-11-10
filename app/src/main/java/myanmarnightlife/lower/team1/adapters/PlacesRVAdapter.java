@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
 import io.realm.Realm;
 import io.realm.exceptions.RealmException;
+import java.util.ArrayList;
 import java.util.List;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
@@ -29,7 +30,7 @@ import myanmarnightlife.lower.team1.utils.Constants;
 public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.PlcacesShopViewHolder> {
 
   private LayoutInflater inflater;
-  private List<Places> mPlacesLists;
+  private List<Places> mPlacesLists=new ArrayList<>();
   private ItemClickListener itemClickListener;
   private Context context;
 
@@ -41,11 +42,26 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
     inflater = LayoutInflater.from(MyanmarNightLifeApp.getContext());
   }
 
+  public  PlacesRVAdapter(ItemClickListener itemClickListener,Context context) {
+    this.itemClickListener = itemClickListener;
+
+    this.context = context;
+    inflater = LayoutInflater.from(MyanmarNightLifeApp.getContext());
+  }
+
+
+  public void addItem(Places place) {
+    //if (!mPlacesLists.contains(place)) {
+      mPlacesLists.add(place);
+      notifyItemInserted(mPlacesLists.size());
+    //}
+  }
+
   public PlacesRVAdapter() {
   }
 
   @Override public PlcacesShopViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View rootView = inflater.inflate(R.layout.beer_card_item, parent, false);
+    View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.beer_card_item, parent, false);
 
     return new PlcacesShopViewHolder(rootView, itemClickListener);
   }
@@ -53,7 +69,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
   @Override public void onBindViewHolder(PlcacesShopViewHolder holder, int position) {
 
     Places places = mPlacesLists.get(position);
-    holder.setData(places);
+    holder.setData(places,position);
 
     if (places.getIsSaved() == Constants.SAVED) {
 
@@ -98,7 +114,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
       itemView.setOnClickListener(this);
     }
 
-    public void setData(final Places places) {
+    public void setData(final Places places,final int position) {
 
       this.places = places;
 
@@ -131,7 +147,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
             e.printStackTrace();
           }
 
-          notifyDataSetChanged();
+          //notifyItemChanged(position);
         }
       });
 
@@ -148,5 +164,4 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
       if (itemClickListener != null) itemClickListener.onTapShop(places, imgShop);
     }
   }
-
 }
