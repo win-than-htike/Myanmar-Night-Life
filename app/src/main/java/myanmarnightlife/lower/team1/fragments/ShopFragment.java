@@ -2,6 +2,7 @@ package myanmarnightlife.lower.team1.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -87,13 +88,21 @@ public class ShopFragment extends Fragment {
     mAdapter = new PlacesRVAdapter(itemClickListener, (AppCompatActivity) getActivity());
     rvBeerShop.setAdapter(mAdapter);
 
-    setList(mPlaces);
+    new Handler().post(new Runnable() {
+      @Override public void run() {
+        setList(mPlaces);
+      }
+    });
   }
+
+
 
   public void setList(List<Places> list) {
     for (Places places : list) {
 
-      mAdapter.addItem(places);
+        mAdapter.addItem(places);
+
+
     }
   }
 }
