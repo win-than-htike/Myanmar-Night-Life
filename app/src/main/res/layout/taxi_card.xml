@@ -28,7 +28,7 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="165dp">
+                    android:layout_height="250dp">
 
                     <com.flaviofaria.kenburnsview.KenBurnsView
                         android:id="@+id/iv_taxiapp_bg"
@@ -39,14 +39,14 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="165dp"
+                        android:layout_height="250dp"
                         android:background="#63000000"/>
 
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/iv_taxiapp_logo"
                         android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/margin_medium_2"
                         android:src="@drawable/oway" />
@@ -58,34 +58,81 @@
                     android:id="@+id/tv_taxiapp_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginLeft="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium_2"
                     android:lineSpacingMultiplier="1.3"
-                    android:textSize="14sp"
                     android:text="@string/owaydesc"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#fff" />
 
-                <info.hoang8f.widget.FButton
-                    android:id="@+id/btn_oway"
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="right"
-                    android:background="@color/bg"
-                    android:text="Go"
-                    android:layout_marginBottom="@dimen/margin_medium"
-                    android:layout_marginRight="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:textColor="#fff"
-                    fbutton:buttonColor="@color/post"
-                    fbutton:cornerRadius="6dp"
-                    fbutton:shadowColor="@color/post_dark"
-                    fbutton:shadowEnabled="true"
-                    fbutton:shadowHeight="6dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium_2">
+
+                    <info.hoang8f.widget.FButton
+                        android:id="@+id/btn_website"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="right"
+                        android:background="@color/bg"
+                        android:text="Website"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:textColor="#fff"
+                        fbutton:buttonColor="@color/color_concrete"
+                        fbutton:cornerRadius="6dp"
+                        fbutton:shadowColor="@color/color_asbestos"
+                        fbutton:shadowEnabled="true"
+                        fbutton:shadowHeight="6dp" />
+
+                    <info.hoang8f.widget.FButton
+                        android:id="@+id/btn_app"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="right"
+                        android:background="@color/bg"
+                        android:text="Application"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:textColor="#fff"
+                        fbutton:buttonColor="@color/website"
+                        fbutton:cornerRadius="6dp"
+                        fbutton:shadowColor="@color/website_dark"
+                        fbutton:shadowEnabled="true"
+                        fbutton:shadowHeight="6dp" />
+
+                    <info.hoang8f.widget.FButton
+                        android:id="@+id/btn_go"
+                        android:layout_width="120dp"
+                        android:layout_weight="1"
+                        android:layout_height="60dp"
+                        android:layout_gravity="right"
+                        android:background="@color/bg"
+                        android:text="Phone"
+                        android:textColor="#fff"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        fbutton:buttonColor="@color/post"
+                        fbutton:cornerRadius="6dp"
+                        fbutton:shadowColor="@color/post_dark"
+                        fbutton:shadowEnabled="true"
+                        fbutton:shadowHeight="6dp" />
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
+
 
     </LinearLayout>
 

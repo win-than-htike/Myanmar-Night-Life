@@ -13,6 +13,9 @@
 			android:layout_height="wrap_content"
 			app:cardElevation="4dp"
 			app:cardCornerRadius="2dp"
+			android:layout_marginRight="@dimen/margin_small"
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginTop="@dimen/margin_medium"
 			app:cardBackgroundColor="#182634">
 
 		<LinearLayout

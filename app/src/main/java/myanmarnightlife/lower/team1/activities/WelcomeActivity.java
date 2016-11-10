@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.daimajia.androidanimations.library.Techniques;
+import com.firebase.ui.auth.AuthUI;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
@@ -22,6 +23,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
         finish();
+
 
     }
 
