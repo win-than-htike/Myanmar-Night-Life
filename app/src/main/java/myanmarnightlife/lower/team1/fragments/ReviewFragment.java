@@ -2,6 +2,8 @@ package myanmarnightlife.lower.team1.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.data.Review;
+import myanmarnightlife.lower.team1.views.ReviewViewHolder;
+
 import org.parceler.Parcels;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +42,12 @@ public class ReviewFragment extends Fragment {
 
   @BindView(R.id.et_user_review) EditText mUserReview;
 
+  @BindView(R.id.rv_review)
+  RecyclerView rvReview;
+
   private DatabaseReference mDatabase;
+
+  List<Review> reviews;
 
   public ReviewFragment() {
     // Required empty public constructor
@@ -66,12 +83,15 @@ public class ReviewFragment extends Fragment {
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     // Inflate the layout for this fragment
-    View view = inflater.inflate(R.layout.fragment_review, container, false);
+    final View view = inflater.inflate(R.layout.fragment_review, container, false);
     ButterKnife.bind(this, view);
     Bundle bundle = getArguments();
     final Places mPlaces = Parcels.unwrap(bundle.getParcelable("places"));
 
     mDatabase = FirebaseDatabase.getInstance().getReference("reviews");
+
+    rvReview.setHasFixedSize(true);
+    rvReview.setLayoutManager(new LinearLayoutManager(MyanmarNightLifeApp.getContext()));
 
     mReviewSubmit.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
@@ -88,6 +108,7 @@ public class ReviewFragment extends Fragment {
                    * Here do logic in complete
                    */
 
+
                 }
               });
         } else {
@@ -102,18 +123,25 @@ public class ReviewFragment extends Fragment {
       }
     });
 
+    FirebaseRecyclerAdapter<Review, ReviewViewHolder> mReviewAdapter = new FirebaseRecyclerAdapter<Review, ReviewViewHolder>(
+            Review.class,
+            R.layout.review_card,
+            ReviewViewHolder.class,
+            mDatabase
+    ) {
+      @Override
+      protected void populateViewHolder(ReviewViewHolder viewHolder, Review model, int position) {
+
+        viewHolder.setReview(model.getReview());
+
+      }
+    };
+
+    rvReview.setAdapter(mReviewAdapter);
+
     return view;
   }
 
-  //    private void submitReview() {
-  //
-  //        String review = mUserReview.getText().toString();
-  //
-  //        if (!TextUtils.isEmpty(review)){
-  //
-  //
-  //
-  //        }
-  //
-  //    }
+
+
 }
