@@ -18,14 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.adapters.DetailViewPagerAdapter;
@@ -33,9 +30,7 @@ import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.databinding.ActivityDetailBinding;
 import myanmarnightlife.lower.team1.fragments.OverViewFragment;
 import myanmarnightlife.lower.team1.fragments.ReviewFragment;
-
 import org.parceler.Parcels;
-import org.w3c.dom.Text;
 
 /**
  * Created by winthanhtike on 10/12/16.
@@ -138,7 +133,7 @@ public class DetailActivity extends AppCompatActivity {
 
         DetailViewPagerAdapter mAdapter = new DetailViewPagerAdapter(getSupportFragmentManager());
         mAdapter.addFragment(OverViewFragment.newInstance(mPlaces), "Overview");
-        mAdapter.addFragment(ReviewFragment.newInstance(), "Review");
+        mAdapter.addFragment(ReviewFragment.newInstance(mPlaces), "Review");
         viewPager.setAdapter(mAdapter);
 
     }

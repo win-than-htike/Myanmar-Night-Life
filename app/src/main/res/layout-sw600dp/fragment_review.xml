@@ -13,6 +13,7 @@
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginRight="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
+        android:id="@+id/et_user_review"
         android:hint="Write Your Review"
         android:background="@drawable/input_outline"/>
 
