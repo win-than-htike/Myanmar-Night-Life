@@ -71,6 +71,7 @@ public class OverViewFragment extends Fragment {
 
         tvReview.setText(mPlaces.getShopReview());
         tvPhone.setText(mPlaces.getShopPhoneNumber());
+
         tvTime.setText(mPlaces.getShopTime());
         tvAddress.setText(mPlaces.getShopAddress());
         ratingBar.setRating(Float.parseFloat(mPlaces.getRating()));

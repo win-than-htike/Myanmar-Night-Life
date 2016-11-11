@@ -1,13 +1,43 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     tools:context="myanmarnightlife.lower.team1.fragments.ReviewFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="100dp"
+        android:paddingLeft="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:id="@+id/et_user_review"
+        android:hint="Write Your Review"
+        android:background="@drawable/input_outline"/>
 
-</FrameLayout>
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btn_review_submit"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:layout_gravity="right"
+        android:textColor="#fff"
+        fbutton:buttonColor="@color/post"
+        fbutton:shadowColor="@color/post_dark"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="6dp"
+        fbutton:cornerRadius="6dp"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:background="@color/bg"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"/>
+
+</LinearLayout>
