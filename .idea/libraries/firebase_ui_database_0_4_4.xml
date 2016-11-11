@@ -6,7 +6,7 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/wrapper/dists/gradle-2.4-all/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/0.4.4/d51bc8e52aaddef440152fec4ccffdbd684ec14e/firebase-ui-database-0.4.4-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/0.4.4/d51bc8e52aaddef440152fec4ccffdbd684ec14e/firebase-ui-database-0.4.4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

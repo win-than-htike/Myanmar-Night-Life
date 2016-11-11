@@ -6,11 +6,14 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import java.util.List;
@@ -30,6 +33,9 @@ public class ShopFragment extends Fragment {
 
   @BindView(R.id.rv_shop_list) RecyclerView rvBeerShop;
 
+  @BindView(R.id.sp_township)
+  AppCompatSpinner spTownship;
+
   private static String TYPE;
 
   private List<Places> mPlaces;
@@ -37,6 +43,8 @@ public class ShopFragment extends Fragment {
   private ItemClickListener itemClickListener;
 
   private static final String IE_TYPE = "TYPE";
+
+  String[] township = {"Haling Township","Haling Township","Haling Township","Haling Township","Haling Township","Haling Township"};
 
   public ShopFragment() {
     // Required empty public constructor
@@ -61,6 +69,9 @@ public class ShopFragment extends Fragment {
 
       TYPE = this.getActivity().getIntent().getStringExtra(IE_TYPE);
     }
+
+    ArrayAdapter<String> spAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(),android.R.layout.simple_spinner_dropdown_item,township);
+    spTownship.setAdapter(spAdapter);
 
     return view;
   }

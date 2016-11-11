@@ -5,70 +5,70 @@ package myanmarnightlife.lower.team1.data;
  */
 public class Event {
 
-    private String eventName;
-    private String eventImageUrl;
-    private String eventTime;
-    private String eventLocation;
-    private String eventType;
-    private String eventInfo;
-    private String eventGPS;
+    private String name;
+    private String image_url;
+    private String time;
+    private String location;
+    private String type;
+    private String information;
+    private String gps;
 
     public Event() {
     }
 
-    public String getEventName() {
-        return eventName;
+    public String getName() {
+        return name;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEventImageUrl() {
-        return eventImageUrl;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setEventImageUrl(String eventImageUrl) {
-        this.eventImageUrl = eventImageUrl;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
-    public String getEventTime() {
-        return eventTime;
+    public String getTime() {
+        return time;
     }
 
-    public void setEventTime(String eventTime) {
-        this.eventTime = eventTime;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public String getEventLocation() {
-        return eventLocation;
+    public String getLocation() {
+        return location;
     }
 
-    public void setEventLocation(String eventLocation) {
-        this.eventLocation = eventLocation;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getEventType() {
-        return eventType;
+    public String getType() {
+        return type;
     }
 
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getEventInfo() {
-        return eventInfo;
+    public String getInformation() {
+        return information;
     }
 
-    public void setEventInfo(String eventInfo) {
-        this.eventInfo = eventInfo;
+    public void setInformation(String information) {
+        this.information = information;
     }
 
-    public String getEventGPS() {
-        return eventGPS;
+    public String getGps() {
+        return gps;
     }
 
-    public void setEventGPS(String eventGPS) {
-        this.eventGPS = eventGPS;
+    public void setGps(String gps) {
+        this.gps = gps;
     }
 }

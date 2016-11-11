@@ -10,8 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +51,9 @@ public class AddEventActivity extends AppCompatActivity {
 
     private ProgressDialog pDialog;
 
+    int i = -1;
+    int j;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +64,19 @@ public class AddEventActivity extends AppCompatActivity {
 
         pDialog = new ProgressDialog(this);
 
+
+
         btnSubmitEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addEvent();
+                etEventName.setText("");
+                etImageURL.setText("");
+                etEventTime.setText("");
+                etEventLocation.setText("");
+                etEventType.setText("");
+                etEventInfo.setText("");
+                etEventGPS.setText("");
             }
         });
 
@@ -81,7 +97,9 @@ public class AddEventActivity extends AppCompatActivity {
 
         if (!TextUtils.isEmpty(eventName) && !TextUtils.isEmpty(eventImageUrl) && !TextUtils.isEmpty(eventTime) && !TextUtils.isEmpty(eventLocation) && !TextUtils.isEmpty(eventType) && !TextUtils.isEmpty(eventInfo) && !TextUtils.isEmpty(eventGPS)) {
 
-            DatabaseReference newEvent = mDatabase.push();
+            j = i+1;
+
+            DatabaseReference newEvent = mDatabase.child(j +"");
             newEvent.child("name").setValue(eventName);
             newEvent.child("image_url").setValue(eventImageUrl);
             newEvent.child("time").setValue(eventTime);
@@ -91,6 +109,8 @@ public class AddEventActivity extends AppCompatActivity {
             newEvent.child("information").setValue(eventInfo);
 
             pDialog.dismiss();
+
+            startActivity(new Intent(AddEventActivity.this,EventActivity.class));
 
         } else {
 

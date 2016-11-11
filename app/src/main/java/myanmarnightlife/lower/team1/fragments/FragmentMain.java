@@ -20,6 +20,7 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import java.util.HashMap;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.activities.EventActivity;
 import myanmarnightlife.lower.team1.activities.MainActivity;
 import myanmarnightlife.lower.team1.activities.ShopActivity;
 import myanmarnightlife.lower.team1.databinding.FragmentMainBinding;
@@ -44,6 +45,9 @@ public class FragmentMain extends Fragment
   @BindView(R.id.massage) CardView massageCard;
 
   @BindView(R.id.restaurant) CardView restaurantCard;
+
+  @BindView(R.id.event)
+  CardView eventCard;
 
   private String[] images = {
       "http://myanmarbeer.com/wp-content/uploads/2016/07/Home-Banner-New2.jpg",
@@ -70,6 +74,7 @@ public class FragmentMain extends Fragment
     barCard.setOnClickListener(this);
     massageCard.setOnClickListener(this);
     restaurantCard.setOnClickListener(this);
+    eventCard.setOnClickListener(this);
 
     HashMap<String, String> url_maps = new HashMap<String, String>();
     url_maps.put("Fuse Bar",
@@ -133,6 +138,10 @@ public class FragmentMain extends Fragment
       case R.id.restaurant:
         Intent restaurantIntent = ShopActivity.newInstance("Restaurant");
         startActivity(restaurantIntent);
+        break;
+
+      case R.id.event:
+        startActivity(new Intent(MyanmarNightLifeApp.getContext(), EventActivity.class));
         break;
     }
   }

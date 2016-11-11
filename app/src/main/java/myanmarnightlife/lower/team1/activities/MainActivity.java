@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity
     static String sate;
 
     private TextView mEmail;
+    private ImageView ivProfile;
 
     private static final int RC_SIGN_IN = 1;
 
@@ -78,6 +81,8 @@ public class MainActivity extends AppCompatActivity
                             AuthUI.FACEBOOK_PROVIDER,
                             AuthUI.EMAIL_PROVIDER,
                             AuthUI.GOOGLE_PROVIDER)
+                    .setTheme(R.style.DarkTheme)
+                    .setLogo(R.drawable.logo)
                     .build(), RC_SIGN_IN);
         }
 
@@ -98,6 +103,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
         mEmail = (TextView)header.findViewById(R.id.tv_email);
+        ivProfile = (ImageView)header.findViewById(R.id.iv_profile);
 
         if (savedInstanceState != null){
 
@@ -162,6 +168,13 @@ public class MainActivity extends AppCompatActivity
             if (resultCode == RESULT_OK){
 
                 mEmail.setText(mAuth.getCurrentUser().getDisplayName());
+                Glide.with(MyanmarNightLifeApp.getContext())
+                        .load(mAuth.getCurrentUser().getPhotoUrl())
+                        .centerCrop()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .placeholder(R.drawable.placeholder)
+                        .error(R.drawable.logo)
+                        .into(ivProfile);
 
             }
 

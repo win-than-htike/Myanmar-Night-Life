@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatSpinner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,7 @@ public class SuggestFragment extends Fragment {
     EditText etAddress;
 
     @BindView(R.id.sp_shop_type)
-    CustomSpinner spShopType;
+    AppCompatSpinner spShopType;
 
     public SuggestFragment() {
         // Required empty public constructor
@@ -79,7 +80,8 @@ public class SuggestFragment extends Fragment {
 
         ((MainActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
 
-        spShopType.initializeStringValues(type);
+        ArrayAdapter<String> spAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(),android.R.layout.simple_spinner_dropdown_item,type);
+        spShopType.setAdapter(spAdapter);
 
         btnChooseShopImage.setOnClickListener(new View.OnClickListener() {
             @Override

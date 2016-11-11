@@ -20,36 +20,60 @@ import myanmarnightlife.lower.team1.data.Event;
  */
 public class EventViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.tv_event_title)
-    TextView tvEventTitle;
-
-    @BindView(R.id.tv_event_desc)
-    TextView tvEventDesc;
-
-    @BindView(R.id.iv_event_photo)
-    ImageView ivEventPhoto;
-
-    @BindView(R.id.tv_event_time)
-    TextView tvEventTime;
+    View mView;
 
     public EventViewHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this,itemView);
+
+        mView = itemView;
 
     }
 
-    public void setEventData(Event event){
+    public void setEventTitle(String name){
 
-        tvEventTitle.setText(event.getEventName());
-        tvEventDesc.setText(event.getEventInfo());
-        tvEventTime.setText(event.getEventTime());
+        TextView tvEventName = (TextView)mView.findViewById(R.id.tv_event_title);
+        tvEventName.setText(name);
+
+    }
+
+    public void setEventPhoto(String imageUrl){
+
+        ImageView ivEventPhoto = (ImageView)mView.findViewById(R.id.iv_event_photo);
 
         Glide.with(MyanmarNightLifeApp.getContext())
-                .load(event.getEventImageUrl())
+                .load(imageUrl)
                 .placeholder(R.drawable.placeholder)
                 .error(R.drawable.night)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(ivEventPhoto);
+
+    }
+
+    public void setEventDesc(String eventDesc){
+
+        TextView tvEventDesc = (TextView)mView.findViewById(R.id.tv_event_desc);
+        tvEventDesc.setText(eventDesc);
+
+    }
+
+    public void setEventTime(String time){
+
+        TextView tvEventTime = (TextView)mView.findViewById(R.id.tv_event_time);
+        tvEventTime.setText(time);
+
+    }
+
+    public void setEventType(String type){
+
+        TextView tvEventType = (TextView)mView.findViewById(R.id.tv_event_type);
+        tvEventType.setText(type);
+
+    }
+
+    public void setEventLocation(String location){
+
+        TextView tvEventLocation = (TextView)mView.findViewById(R.id.tv_event_location);
+        tvEventLocation.setText(location);
 
     }
 
