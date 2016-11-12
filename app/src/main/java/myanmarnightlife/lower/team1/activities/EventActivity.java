@@ -43,13 +43,11 @@ public class EventActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Query query = mDatabase.orderByChild("timestamp");
-
         FirebaseRecyclerAdapter<Event, EventViewHolder> mAdapter = new FirebaseRecyclerAdapter<Event, EventViewHolder>(
                 Event.class,
                 R.layout.event_card,
                 EventViewHolder.class,
-                query
+                mDatabase
         ) {
             @Override
             protected void populateViewHolder(EventViewHolder viewHolder, Event model, int position) {

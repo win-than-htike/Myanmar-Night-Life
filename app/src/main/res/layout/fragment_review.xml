@@ -7,13 +7,20 @@
     tools:context="myanmarnightlife.lower.team1.fragments.ReviewFragment">
 
     <EditText
+        android:id="@+id/et_user_review"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:paddingLeft="@dimen/margin_medium"
+        android:layout_height="120dp"
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginRight="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
-        android:id="@+id/et_user_review"
+        android:inputType="textMultiLine"
+        android:backgroundTint="@color/colorPrimary"
+        android:breakStrategy="balanced"
+        android:padding="@dimen/margin_small"
+        android:fitsSystemWindows="true"
+        android:singleLine="false"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textColorHint="@android:color/secondary_text_dark"
         android:hint="Write Your Review"
         android:background="@drawable/input_outline"/>
 

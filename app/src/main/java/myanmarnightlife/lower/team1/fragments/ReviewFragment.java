@@ -142,6 +142,11 @@ public class ReviewFragment extends Fragment {
     return view;
   }
 
+  @Override
+  public void onStart() {
+    super.onStart();
 
 
+
+  }
 }

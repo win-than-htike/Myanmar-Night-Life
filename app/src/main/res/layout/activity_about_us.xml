@@ -10,7 +10,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:fbutton="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
 
 
         <LinearLayout
@@ -31,7 +32,7 @@
                 <com.github.florent37.diagonallayout.DiagonalLayout
                     android:id="@+id/diagonalLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="266dp"
+                    android:layout_height="200dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -93,14 +94,14 @@
                     android:layout_width="80dp"
                     android:layout_height="100dp"
                     android:layout_marginLeft="40dp"
-                    android:layout_marginTop="190dp"
+                    android:layout_marginTop="120dp"
                     android:elevation="15dp"
                     android:src="@drawable/logo" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="230dp"
+                    android:layout_marginTop="160dp"
                     android:orientation="horizontal"
                     android:weightSum="4">
 
@@ -123,10 +124,11 @@
 
                         <info.hoang8f.widget.FButton
                             android:id="@+id/btn_facebook"
-                            android:layout_width="80dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@color/bg"
                             android:text="Facebook"
+                            android:layout_marginRight="@dimen/margin_small"
                             android:textAllCaps="false"
                             android:textColor="#fff"
                             fbutton:buttonColor="@color/facebook"
@@ -146,8 +148,9 @@
 
                         <info.hoang8f.widget.FButton
                             android:id="@+id/btn_googleplus"
-                            android:layout_width="80dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/margin_small"
                             android:background="@color/bg"
                             android:text="Google +"
                             android:textColor="#fff"
@@ -169,10 +172,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:layout_marginTop="320dp"
+                    android:layout_marginTop="240dp"
                     android:text="Descripton"
                     android:textColor="#fff"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     app:bind_font='@{"bold"}' />
 
                 <TextView
@@ -186,7 +189,7 @@
                     android:lineSpacingMultiplier="1.3"
                     android:text="@string/desc"
                     android:textColor="#fff"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:bind_font='@{"thin"}' />
 
                 <!--<View-->
@@ -231,11 +234,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_small"
                         android:text="Win Than Htike"
                         android:textColor="#fff"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="14sp"
+                        app:bind_font='@{"bold"}'/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -244,18 +247,19 @@
                         android:paddingBottom="@dimen/margin_medium"
                         android:text="Coder"
                         android:textColor="#fff"
-                        android:textSize="20sp"
+                        android:textSize="14sp"
                         app:bind_font='@{"regular"}' />
 
                     <info.hoang8f.widget.FButton
                         android:id="@+id/btn_winthanhtike"
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:background="@color/bg"
                         android:text="Contact Me"
                         android:textAllCaps="false"
                         android:textColor="#fff"
+                        android:textSize="12sp"
                         fbutton:buttonColor="@color/facebook"
                         fbutton:cornerRadius="6dp"
                         fbutton:shadowColor="@color/facebook_dark"
@@ -279,11 +283,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_small"
                         android:text="Aung Khant Wai"
                         android:textColor="#fff"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="14sp"
+                        app:bind_font='@{"bold"}'/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -292,16 +296,17 @@
                         android:paddingBottom="@dimen/margin_medium"
                         android:text="Business"
                         android:textColor="#fff"
-                        android:textSize="20sp"
+                        android:textSize="14sp"
                         app:bind_font='@{"regular"}' />
 
                     <info.hoang8f.widget.FButton
                         android:id="@+id/btn_aungkhantwai"
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:background="@color/bg"
                         android:textAllCaps="false"
+                        android:textSize="12sp"
                         android:text="Contact Me"
                         android:textColor="#fff"
                         fbutton:buttonColor="@color/facebook"
@@ -327,30 +332,31 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_small"
                         android:text="Aung Myo Thu"
                         android:textColor="#fff"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="14sp"
+                        app:bind_font='@{"bold"}'/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:paddingBottom="@dimen/margin_medium"
-                        android:text="Data"
+                        android:text="Content"
                         android:textColor="#fff"
-                        android:textSize="20sp"
+                        android:textSize="14sp"
                         app:bind_font='@{"regular"}' />
 
                     <info.hoang8f.widget.FButton
                         android:id="@+id/btn_aungmyothu"
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_small"
                         android:background="@color/bg"
                         android:textAllCaps="false"
                         android:text="Contact Me"
+                        android:textSize="12sp"
                         android:textColor="#fff"
                         fbutton:buttonColor="@color/facebook"
                         fbutton:cornerRadius="6dp"

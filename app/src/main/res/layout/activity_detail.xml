@@ -19,7 +19,7 @@
 			<android.support.design.widget.CollapsingToolbarLayout
 					android:id="@+id/collapsing_toolbar"
 					android:layout_width="match_parent"
-					android:layout_height="270dp"
+					android:layout_height="256dp"
 					android:fitsSystemWindows="true"
 					app:contentScrim="?attr/colorPrimary"
 					app:expandedTitleMarginEnd="@dimen/margin_medium_2"
@@ -67,20 +67,7 @@
 
 		</android.support.design.widget.AppBarLayout>
 
-		<android.support.v4.widget.NestedScrollView
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-			<include
-					android:id="@+id/content"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					layout="@layout/content_detail"/>
-
-		</android.support.v4.widget.NestedScrollView>
-
-		<android.support.v4.view.ViewPager
+			<android.support.v4.view.ViewPager
 				android:id="@+id/detail_viewpager"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
