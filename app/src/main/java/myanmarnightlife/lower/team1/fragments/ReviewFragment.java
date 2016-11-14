@@ -117,7 +117,7 @@ public class ReviewFragment extends Fragment {
 
     FirebaseRecyclerAdapter<Review, ReviewViewHolder> mReviewAdapter =
         new FirebaseRecyclerAdapter<Review, ReviewViewHolder>(Review.class, R.layout.review_card,
-            ReviewViewHolder.class, mDatabase.child(mPlaces.get_id())) {
+            ReviewViewHolder.class, mDatabase.child(mPlaces.get_id()+"")) {
           @Override protected void populateViewHolder(ReviewViewHolder viewHolder, Review model,
               int position) {
 
