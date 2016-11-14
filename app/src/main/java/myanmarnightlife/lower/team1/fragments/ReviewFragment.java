@@ -89,8 +89,7 @@ public class ReviewFragment extends Fragment {
     mReviewSubmit.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-          Review review = new Review(mUserReview.getText().toString(),
-              FirebaseAuth.getInstance().getCurrentUser(), Integer.toString(mPlaces.get_id()));
+          Review review = new Review(mUserReview.getText().toString(), Integer.toString(mPlaces.get_id()));
           String key = mDatabase.push().getKey();
           mDatabase.child(mPlaces.get_id() + "").child(key)
 
