@@ -11,30 +11,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
+import java.util.List;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.data.Review;
 import myanmarnightlife.lower.team1.views.ReviewViewHolder;
-
 import org.parceler.Parcels;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ReviewFragment extends Fragment {
-
 
   public static ReviewFragment INSTANCE;
 
@@ -42,8 +35,7 @@ public class ReviewFragment extends Fragment {
 
   @BindView(R.id.et_user_review) EditText mUserReview;
 
-  @BindView(R.id.rv_review)
-  RecyclerView rvReview;
+  @BindView(R.id.rv_review) RecyclerView rvReview;
 
   private DatabaseReference mDatabase;
 
@@ -81,7 +73,8 @@ public class ReviewFragment extends Fragment {
    * mReviewListener.addValueEventListener(postListener);
    */
 
-  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
+      Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     final View view = inflater.inflate(R.layout.fragment_review, container, false);
     ButterKnife.bind(this, view);
@@ -108,7 +101,6 @@ public class ReviewFragment extends Fragment {
                    * Here do logic in complete
                    */
 
-
                 }
               });
         } else {
@@ -123,30 +115,22 @@ public class ReviewFragment extends Fragment {
       }
     });
 
-    FirebaseRecyclerAdapter<Review, ReviewViewHolder> mReviewAdapter = new FirebaseRecyclerAdapter<Review, ReviewViewHolder>(
-            Review.class,
-            R.layout.review_card,
-            ReviewViewHolder.class,
-            mDatabase
-    ) {
-      @Override
-      protected void populateViewHolder(ReviewViewHolder viewHolder, Review model, int position) {
+    FirebaseRecyclerAdapter<Review, ReviewViewHolder> mReviewAdapter =
+        new FirebaseRecyclerAdapter<Review, ReviewViewHolder>(Review.class, R.layout.review_card,
+            ReviewViewHolder.class, mDatabase.child(mPlaces.get_id())) {
+          @Override protected void populateViewHolder(ReviewViewHolder viewHolder, Review model,
+              int position) {
 
-        viewHolder.setReview(model.getReview());
-
-      }
-    };
+            viewHolder.setReview(model.getReview());
+          }
+        };
 
     rvReview.setAdapter(mReviewAdapter);
 
     return view;
   }
 
-  @Override
-  public void onStart() {
+  @Override public void onStart() {
     super.onStart();
-
-
-
   }
 }
