@@ -3,6 +3,7 @@ package myanmarnightlife.lower.team1;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.FacebookSdk;
 import com.firebase.client.Firebase;
 import com.google.firebase.FirebaseApp;
 
@@ -23,6 +24,7 @@ public class MyanmarNightLifeApp extends Application {
     context = getApplicationContext();
 
     Firebase.setAndroidContext(context);
+    FacebookSdk.sdkInitialize(context);
 
     RealmConfiguration realmConfiguration =
         new RealmConfiguration.Builder(MyanmarNightLifeApp.getContext()).name(

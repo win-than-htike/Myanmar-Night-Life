@@ -8,13 +8,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/sp_township"
-        android:layout_width="265dp"
-        android:popupBackground="@color/colorPrimaryDark"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_shop_list"
         android:layout_width="match_parent"

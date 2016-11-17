@@ -69,23 +69,6 @@ public class MainActivity extends AppCompatActivity
 
         mAuth = FirebaseAuth.getInstance();
 
-        if (mAuth.getCurrentUser() != null){
-
-            FragmentMain fragmentMain = new FragmentMain();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,fragmentMain,"home").commit();
-
-        }else {
-            startActivityForResult(AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setProviders(
-                            AuthUI.FACEBOOK_PROVIDER,
-                            AuthUI.EMAIL_PROVIDER,
-                            AuthUI.GOOGLE_PROVIDER)
-                    .setTheme(R.style.DarkTheme)
-                    .setLogo(R.drawable.logo)
-                    .build(), RC_SIGN_IN);
-        }
-
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
@@ -128,6 +111,22 @@ public class MainActivity extends AppCompatActivity
             toolbar.setTitle("Myanmar Night Life");
         }
 
+        if (mAuth.getCurrentUser() != null){
+
+            mEmail.setText(mAuth.getCurrentUser().getDisplayName());
+
+            Glide.with(MyanmarNightLifeApp.getContext())
+                    .load(mAuth.getCurrentUser().getPhotoUrl().toString())
+                    .crossFade()
+                    .placeholder(R.drawable.placeholder)
+                    .into(ivProfile);
+
+        }else {
+
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+
+        }
+
 
 
     }
@@ -158,30 +157,6 @@ public class MainActivity extends AppCompatActivity
 
 
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == RC_SIGN_IN){
-
-            if (resultCode == RESULT_OK){
-
-                mEmail.setText(mAuth.getCurrentUser().getDisplayName());
-                Glide.with(MyanmarNightLifeApp.getContext())
-                        .load(mAuth.getCurrentUser().getPhotoUrl())
-                        .centerCrop()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(R.drawable.placeholder)
-                        .error(R.drawable.logo)
-                        .into(ivProfile);
-
-            }
-
-        }
-
-    }
-
 
 
     @Override

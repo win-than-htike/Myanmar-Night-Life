@@ -4,13 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_favourite"
+        android:icon="@drawable/ic_favorite_border_white_24dp"
+        android:orderInCategory="90"
+        app:showAsAction="always"
+        android:title="Share"
+        tools:ignore="AppCompatResource"/>
+
+    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share_black_24dp"
         android:orderInCategory="90"
         app:showAsAction="always"
         android:title="Share"
         tools:ignore="AppCompatResource"/>
-
 
 
 </menu>

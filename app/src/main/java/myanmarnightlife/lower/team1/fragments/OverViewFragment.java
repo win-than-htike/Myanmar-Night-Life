@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,9 @@ import org.parceler.Parcels;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.adapters.MenuRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 
 /**
@@ -43,6 +47,9 @@ public class OverViewFragment extends Fragment {
 
     @BindView(R.id.tv_rating)
     RatingBar ratingBar;
+
+    @BindView(R.id.rv_menu)
+    RecyclerView rvMenu;
 
     private Places mPlaces;
 
@@ -81,6 +88,12 @@ public class OverViewFragment extends Fragment {
                 makeCall(mPlaces.getShopPhoneNumber());
             }
         });
+
+        rvMenu.setHasFixedSize(true);
+        rvMenu.setLayoutManager(new LinearLayoutManager(MyanmarNightLifeApp.getContext()));
+
+        MenuRVAdapter mAdapter = new MenuRVAdapter(mPlaces.getRecommendMenus());
+        rvMenu.setAdapter(mAdapter);
 
         return view;
     }

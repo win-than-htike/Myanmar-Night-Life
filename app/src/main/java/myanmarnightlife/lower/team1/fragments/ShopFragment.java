@@ -31,10 +31,8 @@ import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
  */
 public class ShopFragment extends Fragment {
 
+  private static final String ARG_TWS = "ARG_TWS";
   @BindView(R.id.rv_shop_list) RecyclerView rvBeerShop;
-
-  @BindView(R.id.sp_township)
-  AppCompatSpinner spTownship;
 
   private static String TYPE;
 
@@ -44,7 +42,15 @@ public class ShopFragment extends Fragment {
 
   private static final String IE_TYPE = "TYPE";
 
-  String[] township = {"Haling Township","Haling Township","Haling Township","Haling Township","Haling Township","Haling Township"};
+  String township;
+
+  public static ShopFragment newInstance(String township){
+    ShopFragment fragment = new ShopFragment();
+    Bundle args = new Bundle();
+    args.putString(ARG_TWS,township);
+    fragment.setArguments(args);
+    return fragment;
+  }
 
   public ShopFragment() {
     // Required empty public constructor
@@ -68,10 +74,11 @@ public class ShopFragment extends Fragment {
     if (this.getActivity().getIntent().getExtras() != null) {
 
       TYPE = this.getActivity().getIntent().getStringExtra(IE_TYPE);
+
     }
 
-    ArrayAdapter<String> spAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(),android.R.layout.simple_spinner_dropdown_item,township);
-    spTownship.setAdapter(spAdapter);
+    township = getArguments().getString(ARG_TWS);
+
 
     return view;
   }
@@ -87,11 +94,12 @@ public class ShopFragment extends Fragment {
 
     PlacesRealmHelper helper = PlacesRealmHelper.getInstance();
 
-    mPlaces = helper.getBarList(TYPE);
+
+    mPlaces = helper.getBarListByTownship(TYPE,township);
 
     if (mPlaces.size() <= 0) {
       PlacesData.getData();
-      mPlaces = helper.getBarList(TYPE);
+      mPlaces = helper.getBarListByTownship(TYPE,township);
     }
     SlideInUpAnimator slideInUpAnimator = new SlideInUpAnimator();
     slideInUpAnimator.setAddDuration(500);
@@ -104,6 +112,9 @@ public class ShopFragment extends Fragment {
         setList(mPlaces);
       }
     });
+
+    mAdapter.notifyDataSetChanged();
+
   }
 
 

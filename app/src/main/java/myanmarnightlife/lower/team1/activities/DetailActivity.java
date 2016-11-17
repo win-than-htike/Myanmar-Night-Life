@@ -12,6 +12,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,13 +25,20 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import io.realm.Realm;
+import io.realm.exceptions.RealmException;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.adapters.DetailViewPagerAdapter;
+import myanmarnightlife.lower.team1.adapters.MenuRVAdapter;
+import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.databinding.ActivityDetailBinding;
 import myanmarnightlife.lower.team1.fragments.OverViewFragment;
 import myanmarnightlife.lower.team1.fragments.ReviewFragment;
+import myanmarnightlife.lower.team1.utils.Constants;
+
 import org.parceler.Parcels;
 
 /**
@@ -43,6 +52,9 @@ public class DetailActivity extends AppCompatActivity {
 
     private static String TYPE;
 
+    private Realm realm;
+
+    private Menu menu;
 
     @BindView(R.id.iv_col_shop)
     ImageView ivShopImage;
@@ -125,6 +137,8 @@ public class DetailActivity extends AppCompatActivity {
                 .error(R.drawable.night)
                 .into(ivShopImage);
 
+
+
         tabLayout.setupWithViewPager(viewPager);
 
     }
@@ -161,6 +175,34 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
                 return true;
 
+            case R.id.action_favourite:
+
+                try {
+
+                    realm = Realm.getDefaultInstance();
+
+                    realm.beginTransaction();
+
+                    if (mPlaces.getIsSaved() == Constants.SAVED) {
+                        mPlaces.setIsSaved(Constants.UNSAVED);
+                        item.setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_white_24dp));
+                    } else {
+                        mPlaces.setIsSaved(Constants.SAVED);
+                        item.setIcon(getResources().getDrawable(R.drawable.ic_favorite_white_24dp));
+                    }
+
+                    realm.copyToRealmOrUpdate(mPlaces);
+
+                    realm.commitTransaction();
+                } catch (RealmException e) {
+                    e.printStackTrace();
+                }
+
+                PlacesRVAdapter mAdapter = new PlacesRVAdapter();
+                mAdapter.notifyDataSetChanged();
+
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -169,6 +211,19 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_menu, menu);
+
+        this.menu = menu;
+
+        if (mPlaces.getIsSaved() == Constants.SAVED) {
+
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_favorite_white_24dp));
+
+        } else {
+
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_white_24dp));
+
+        }
+
         return true;
     }
 

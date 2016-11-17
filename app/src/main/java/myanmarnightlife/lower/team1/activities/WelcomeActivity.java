@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+        startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
         finish();
 
 

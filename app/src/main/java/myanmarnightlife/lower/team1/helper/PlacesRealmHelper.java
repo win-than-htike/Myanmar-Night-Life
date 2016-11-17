@@ -69,6 +69,36 @@ public class PlacesRealmHelper {
         return placesLists;
     }
 
+    public List<Places> getBarListByTownship(String type,String township){
+
+        List<Places> placesLists = new ArrayList<>();
+
+        try {
+
+            RealmResults<Places> results;
+
+            if (township.equals("Select Township")){
+              results  = mRealm.where(Places.class)
+                        .equalTo("shopType",type)
+                        .findAll();
+            }else {
+
+                results  = mRealm.where(Places.class)
+                        .equalTo("shopType",type)
+                        .equalTo("township",township)
+                        .findAll();
+
+            }
+
+            placesLists = results;
+
+        }catch (RealmException e){
+            e.printStackTrace();
+        }
+
+        return placesLists;
+    }
+
     public List<Places> getFavouriteList(){
 
         List<Places> placesLists = new ArrayList<>();
@@ -103,6 +133,35 @@ public class PlacesRealmHelper {
                     .or()
                     .equalTo("shopType",type)
                     .contains("shopName",upperString, Case.INSENSITIVE)
+                    .findAll();
+
+            placesList = results;
+
+        }catch (RealmException e){
+            e.printStackTrace();
+        }
+
+        return placesList;
+
+    }
+
+    public List<Places> queryed(String placeQuery,String type,String township) {
+
+        List<Places> placesList = new ArrayList<>();
+
+        String upperString = placeQuery.substring(0,1).toUpperCase() + placeQuery.substring(1);
+
+        try {
+
+            RealmResults<Places> results = mRealm.where(Places.class)
+                    .equalTo("shopType",type)
+                    .contains("shopCity",upperString,Case.INSENSITIVE)
+                    .or()
+                    .equalTo("shopType",type)
+                    .contains("shopName",upperString, Case.INSENSITIVE)
+                    .or()
+                    .equalTo("shopType",type)
+                    .equalTo("township",township)
                     .findAll();
 
             placesList = results;

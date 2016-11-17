@@ -31,7 +31,7 @@ public class PlacesModel {
     }
 
     private PlacesModel(){
-        mPlacesList = initializeStrengthHeroList();
+        mPlacesList = initializePlacesList();
     }
 
     public List<Places> placesList() {
@@ -45,7 +45,7 @@ public class PlacesModel {
         return mPlacesList;
     }
 
-    private List<Places> initializeStrengthHeroList(){
+    private List<Places> initializePlacesList(){
 
         List<Places> places = new ArrayList<>();
 

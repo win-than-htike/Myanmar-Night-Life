@@ -78,6 +78,7 @@ dependencies {
     compile 'com.firebaseui:firebase-ui:0.4.4'
 
     compile 'com.firebase:firebase-client-android:2.0.3+'
+    compile 'com.facebook.android:facebook-android-sdk:4.1.0'
 
 }
 

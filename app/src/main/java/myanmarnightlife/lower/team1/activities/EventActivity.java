@@ -57,7 +57,7 @@ public class EventActivity extends AppCompatActivity {
                 viewHolder.setEventPhoto(model.getImage_url());
                 viewHolder.setEventTime(model.getTime());
                 viewHolder.setEventLocation(model.getLocation());
-                viewHolder.setEventType(model.getType());
+//                viewHolder.setEventType(model.getType());
 
             }
         };

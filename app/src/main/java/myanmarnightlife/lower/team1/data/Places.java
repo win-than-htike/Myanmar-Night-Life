@@ -5,8 +5,13 @@ import com.google.gson.annotations.SerializedName;
 import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 import org.parceler.ParcelProperty;
+import org.parceler.ParcelPropertyConverter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.realm.PlacesRealmProxy;
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -54,13 +59,20 @@ public class Places extends RealmObject {
 
     @SerializedName("rating")
     String rating;
+
+    @SerializedName("tsp")
+    String township;
+
+    @SerializedName("menu")
+    RealmList<RecommendMenu> recommendMenus;
+
     int isSaved;
 
     public Places() {
     }
 
     @ParcelConstructor
-    public Places(int _id, @ParcelProperty("shopName") String shopName, String shopImage, String shopReview, String shopPhoneNumber, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType, String rating) {
+    public Places(int _id, @ParcelProperty("shopName") String shopName, String shopImage, String shopReview, String shopPhoneNumber, String shopAddress, String shopTime, String shopRoute, String shopCity, String shopType, String rating,@ParcelProperty("township") String township,@ParcelPropertyConverter(MenuListParcelConverter.class)RealmList<RecommendMenu> recommendMenus) {
         this._id = _id;
         this.shopName = shopName;
         this.shopImage = shopImage;
@@ -72,9 +84,18 @@ public class Places extends RealmObject {
         this.shopCity = shopCity;
         this.shopType = shopType;
         this.rating = rating;
+        this.township = township;
+        this.recommendMenus = recommendMenus;
     }
 
+    public RealmList<RecommendMenu> getRecommendMenus() {
+        return recommendMenus;
+    }
 
+    @ParcelProperty("township")
+    public String getTownship() {
+        return township;
+    }
 
     public int get_id() {
         return _id;

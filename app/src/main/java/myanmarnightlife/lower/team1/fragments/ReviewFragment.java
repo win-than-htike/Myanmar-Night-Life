@@ -9,8 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.firebase.client.Firebase;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +45,7 @@ public class ReviewFragment extends Fragment {
   @BindView(R.id.rv_review) RecyclerView rvReview;
 
   private DatabaseReference mDatabase;
+  private FirebaseAuth mAuth;
 
   List<Review> reviews;
 
@@ -82,6 +90,7 @@ public class ReviewFragment extends Fragment {
     final Places mPlaces = Parcels.unwrap(bundle.getParcelable("places"));
 
     mDatabase = FirebaseDatabase.getInstance().getReference("reviews");
+    mAuth = FirebaseAuth.getInstance();
 
     rvReview.setHasFixedSize(true);
     rvReview.setLayoutManager(new LinearLayoutManager(MyanmarNightLifeApp.getContext()));
@@ -89,7 +98,7 @@ public class ReviewFragment extends Fragment {
     mReviewSubmit.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-          Review review = new Review(mUserReview.getText().toString(), Integer.toString(mPlaces.get_id()));
+          Review review = new Review(mUserReview.getText().toString(),mAuth.getCurrentUser().getDisplayName(), Integer.toString(mPlaces.get_id()));
           String key = mDatabase.push().getKey();
           mDatabase.child(mPlaces.get_id() + "").child(key)
 
@@ -99,6 +108,7 @@ public class ReviewFragment extends Fragment {
                   /**
                    * Here do logic in complete
                    */
+                  mUserReview.setText("");
 
                 }
               });
@@ -121,6 +131,14 @@ public class ReviewFragment extends Fragment {
               int position) {
 
             viewHolder.setReview(model.getReview());
+
+            if (mAuth.getCurrentUser() != null){
+
+              viewHolder.setUserName(model.getUser());
+//              viewHolder.setProfilePicture(mAuth.getCurrentUser().getPhotoUrl().toString());
+
+            }
+
           }
         };
 

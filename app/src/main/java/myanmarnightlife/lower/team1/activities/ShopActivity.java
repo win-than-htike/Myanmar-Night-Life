@@ -12,11 +12,15 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import java.util.List;
@@ -43,9 +47,14 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
     private PlacesRVAdapter mAdapter;
     String state;
 
+    @BindView(R.id.sp_township)
+    AppCompatSpinner spTownship;
+
     private static String TYPE;
 
     private static final String IE_TYPE = "TYPE";
+
+    String[] township = {"Select Township","Botatung","Haling Township","Haling Township","Haling Township","Haling Township","Haling Township"};
 
     private boolean isSearchResultFragmentLoaded = false;
     public static FragmentManager fragmentManager;
@@ -71,6 +80,9 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
 
         Window window = this.getWindow();
 
+        ArrayAdapter<String> spAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(),android.R.layout.simple_spinner_dropdown_item,township);
+        spTownship.setAdapter(spAdapter);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.setStatusBarColor(getResources().getColor(R.color.status_bar_color));
         }
@@ -79,8 +91,20 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
 
         }
 
-        ShopFragment shopFragment = new ShopFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fl_shop, shopFragment).commit();
+        spTownship.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ShopFragment shopFragment = ShopFragment.newInstance(spTownship.getSelectedItem().toString());
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_shop, shopFragment).commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
 
         fragmentManager = getSupportFragmentManager();
 
@@ -201,11 +225,13 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
     private class SearchQueryListener implements SearchView.OnQueryTextListener {
 
         @Override public boolean onQueryTextSubmit(String s) {
+
             if (isSearchResultFragmentLoaded) {
                 fragmentManager.popBackStackImmediate();
             }
+
             fragmentManager.beginTransaction()
-                    .add(R.id.fl_shop, SearchFragment.newInstance(s))
+                    .add(R.id.fl_shop, SearchFragment.newInstance(s,spTownship.getSelectedItem().toString()))
                     .addToBackStack("result")
                     .commit();
             isSearchResultFragmentLoaded = true;

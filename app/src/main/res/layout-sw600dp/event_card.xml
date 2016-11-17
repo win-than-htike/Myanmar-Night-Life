@@ -25,15 +25,15 @@
             android:layout_marginBottom="@dimen/margin_medium"
             android:textAppearance="?android:textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/tv_event_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="#fff"
-            android:text="Music Fastival"
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:textAppearance="?android:textAppearanceSmall" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_event_type"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:fontFamily="sans-serif-condensed"-->
+            <!--android:textColor="#fff"-->
+            <!--android:text="Music Fastival"-->
+            <!--android:layout_marginBottom="@dimen/margin_medium"-->
+            <!--android:textAppearance="?android:textAppearanceSmall" />-->
 
         <ImageView
             android:id="@+id/iv_event_photo"

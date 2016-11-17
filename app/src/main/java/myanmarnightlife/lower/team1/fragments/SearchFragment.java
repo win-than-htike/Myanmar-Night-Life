@@ -31,6 +31,7 @@ import myanmarnightlife.lower.team1.interfaces.ItemClickListener;
 public class SearchFragment extends Fragment {
 
     private static String ARG_QUERY = "ARG_QUERY";
+    private static String ARG_TWS = "ARG_TWS";
 
     public SearchFragment() {
         // Required empty public constructor
@@ -43,7 +44,7 @@ public class SearchFragment extends Fragment {
     TextView tvEmpty;
 
     private static String TYPE;
-    private String query;
+    private String query,township;
     private List<Places> mPlaces;
     private PlacesRVAdapter mAdapter;
     private ItemClickListener itemClickListener;
@@ -56,10 +57,11 @@ public class SearchFragment extends Fragment {
         itemClickListener = (ItemClickListener) context;
     }
 
-    public static SearchFragment newInstance(String query){
+    public static SearchFragment newInstance(String query,String township){
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
         args.putString(ARG_QUERY,query);
+        args.putString(ARG_TWS,township);
         fragment.setArguments(args);
         return fragment;
     }
@@ -78,6 +80,8 @@ public class SearchFragment extends Fragment {
         }
 
         query = getArguments().getString(ARG_QUERY);
+
+        township = getArguments().getString(ARG_TWS);
 
         rvBeerShop.setHasFixedSize(true);
 
