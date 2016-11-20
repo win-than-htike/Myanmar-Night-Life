@@ -1,7 +1,5 @@
 package myanmarnightlife.lower.team1.data;
 
-import com.google.firebase.auth.FirebaseUser;
-
 /**
  * Created by user on 11/11/16.
  */

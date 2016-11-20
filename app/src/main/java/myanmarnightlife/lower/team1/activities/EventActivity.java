@@ -32,6 +32,9 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
         ButterKnife.bind(this,this);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Events");
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Events");
 
         rvEvent.setHasFixedSize(true);
@@ -68,7 +71,6 @@ public class EventActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -80,8 +82,6 @@ public class EventActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             onBackPressed();
-        }else if (id == R.id.action_add){
-            startActivity(new Intent(EventActivity.this,AddEventActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

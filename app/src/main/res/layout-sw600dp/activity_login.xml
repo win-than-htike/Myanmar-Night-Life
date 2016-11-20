@@ -39,13 +39,16 @@
         android:layout_below="@+id/application_name"
         android:layout_marginTop="@dimen/margin_xlarge"/>
 
-    <ImageView
-        android:id="@+id/btn_login_with_facebook"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="@string/sign_in_with_google"
-        android:src="@drawable/facebook"
-        android:layout_below="@+id/btn_login_with_google"
-        android:layout_marginTop="@dimen/margin_xlarge"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/btn_login_with_facebook"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:text="@string/sign_in_with_facebook"-->
+            <!--android:src="@drawable/facebook"-->
+            <!--android:layout_below="@+id/btn_login_with_google"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_gravity="center" />-->
+
 
 </RelativeLayout>

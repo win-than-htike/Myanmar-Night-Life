@@ -161,7 +161,7 @@ public class PlacesRVAdapter extends RecyclerView.Adapter<PlacesRVAdapter.Plcace
     }
 
     @Override public void onClick(View view) {
-      if (itemClickListener != null) itemClickListener.onTapShop(places, imgShop);
+      if (itemClickListener != null) itemClickListener.onTapShop(view,places, imgShop);
     }
   }
 }

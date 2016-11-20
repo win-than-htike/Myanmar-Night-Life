@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Myanmar Night Life</string>
 
-    <string name="facebook_application_id" translatable="false">1264816736873376</string>
+    <string name="facebook_app_id" translatable="false">1264816736873376</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -32,5 +32,48 @@ SAVE MONEY
 Passengers set fares by themselves! They decide which fare is affordable and reasonable for their rides. Usually the average cost of rides with inDriver is 30-50% cheaper than when taking traditional taxi cabs.
 
 </string>
+
+    <string-array name="township">
+        <item>Select Township</item>
+        <item>Ahlone</item>
+        <item>Bahan</item>
+        <item>Botahtaung</item>
+        <item>Dagon</item>
+        <item>Dala</item>
+        <item>Dawbon</item>
+        <item>Dagon Seikkan</item>
+        <item>East Dagon</item>
+        <item>Hlaing</item>
+        <item>Hlaingthaya</item>
+        <item>Insein</item>
+        <item>Kamayut</item>
+        <item>Kyimyindaing</item>
+        <item>Kyaukdata</item>
+        <item>Lanmadaw</item>
+        <item>Latha</item>
+        <item>Mayangon</item>
+        <item>Mingala Don</item>
+        <item>Mingala Taungyunt</item>
+        <item>North Dagon</item>
+        <item>North Okkalapa</item>
+        <item>Pabedan</item>
+        <item>Pazundaung</item>
+        <item>Sanchaung</item>
+        <item>South Okkalapa</item>
+        <item>South Dagon</item>
+        <item>Shwepyitha</item>
+        <item>Seikkan</item>
+        <item>Seikkyi Kanaungto</item>
+        <item>Thaketa</item>
+        <item>Tamwe</item>
+        <item>Thingangyun</item>
+        <item>Yankin</item>
+    </string-array>
+
+    <string-array name="hotel_type">
+        <item>Select Hotel Type</item>
+        <item>Motel</item>
+        <item>Guest House</item>
+    </string-array>
 
 </resources>

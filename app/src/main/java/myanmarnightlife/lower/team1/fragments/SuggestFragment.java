@@ -20,8 +20,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.piotrek.customspinner.CustomSpinner;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;

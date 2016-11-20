@@ -12,19 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_medium"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_event_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="#fff"
-            android:text="Hardware Product Design Workshop"
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:textAppearance="?android:textAppearanceLarge" />
-
         <!--<TextView-->
             <!--android:id="@+id/tv_event_type"-->
             <!--android:layout_width="wrap_content"-->
@@ -43,6 +31,18 @@
             android:src="@drawable/night"/>
 
         <TextView
+            android:id="@+id/tv_event_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#fff"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="Hardware Product Design Workshop"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <TextView
             android:id="@+id/tv_event_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             android:textColor="#fff"
             android:fontFamily="sans-serif-light"
             android:lineSpacingMultiplier="1.2"
-            android:maxLines="4"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/margin_medium"
             android:text="Are you interested in learning about how to design a physical product, starting from the idea, to the prototype, all the way to finalizing it? Ko Tun Min Soe, who works as product designer and creative director in the US, and also helped run our Hardware Hack Week in 2015, will be teaching a Workshop on 'Designing Hardware Products' on Friday, Feb 26th, 1-5 PM."
             android:textAppearance="?android:textAppearanceMedium" />
@@ -97,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#fff"
+                android:layout_marginBottom="@dimen/margin_medium"
                 android:layout_marginLeft="@dimen/margin_medium_2"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Yangon Myanmar"/>

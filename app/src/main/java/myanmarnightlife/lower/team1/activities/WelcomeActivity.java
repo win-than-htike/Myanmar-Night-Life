@@ -6,14 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.firebase.ui.auth.AuthUI;
-import com.viksaa.sssplash.lib.activity.AwesomeSplash;
-import com.viksaa.sssplash.lib.cnst.Flags;
-import com.viksaa.sssplash.lib.model.ConfigSplash;
-
-import myanmarnightlife.lower.team1.R;
-
 public class WelcomeActivity extends AppCompatActivity {
 
 
@@ -21,7 +13,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
+        startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
         finish();
 
 

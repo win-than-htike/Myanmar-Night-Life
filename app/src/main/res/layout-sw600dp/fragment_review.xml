@@ -15,6 +15,8 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:id="@+id/et_user_review"
         android:hint="Write Your Review"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/secondary_text_dark"
         android:background="@drawable/input_outline"/>
 
     <info.hoang8f.widget.FButton

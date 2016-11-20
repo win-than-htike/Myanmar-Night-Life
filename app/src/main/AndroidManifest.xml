@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="myanmarnightlife.lower.team1">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -16,6 +17,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.WelcomeActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Splash">
@@ -70,8 +72,23 @@
             android:resource="@color/colorAccent" />
 
         <activity android:name=".activities.AddEventActivity" />
-        <activity android:name=".activities.EventActivity" />
-        <activity android:name=".activities.LoginActivity"></activity>
+
+        <activity android:name=".activities.EventActivity" android:screenOrientation="portrait"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace="android:theme" />
+
+        <activity android:name=".activities.HotelActivity" android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

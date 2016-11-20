@@ -25,6 +25,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.kogitune.activity_transition.ActivityTransition;
+import com.kogitune.activity_transition.ExitActivityTransition;
 
 import io.realm.Realm;
 import io.realm.exceptions.RealmException;
@@ -79,6 +81,8 @@ public class DetailActivity extends AppCompatActivity {
 
     private Places mPlaces;
 
+    private ExitActivityTransition exitTransition;
+
 
     public static Intent newInstance(Places places, String type) {
 
@@ -98,6 +102,9 @@ public class DetailActivity extends AppCompatActivity {
         ActivityDetailBinding activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
         ButterKnife.bind(this, this);
 
+        ActivityTransition.with(getIntent()).to(ivShopImage).start(savedInstanceState);
+        exitTransition = ActivityTransition.with(getIntent()).to(ivShopImage).start(savedInstanceState);
+
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
@@ -111,10 +118,6 @@ public class DetailActivity extends AppCompatActivity {
             Bundle bundle = getIntent().getExtras();
             mPlaces = Parcels.unwrap(bundle.getParcelable(PLACES));
             TYPE = bundle.getString(IE_TYPE);
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ivShopImage.setTransitionName(getString(R.string.share_image_transition));
         }
 
         setupViewPager(viewPager);
@@ -141,6 +144,12 @@ public class DetailActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(viewPager);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        exitTransition.exit(this);
     }
 
     private void setupViewPager(ViewPager viewPager) {

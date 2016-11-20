@@ -23,6 +23,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
+import com.kogitune.activity_transition.ActivityTransitionLauncher;
+
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,6 +33,7 @@ import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
 import myanmarnightlife.lower.team1.adapters.PlacesRVAdapter;
+import myanmarnightlife.lower.team1.data.Hotel;
 import myanmarnightlife.lower.team1.data.Places;
 import myanmarnightlife.lower.team1.fragments.SearchFragment;
 import myanmarnightlife.lower.team1.fragments.ShopFragment;
@@ -54,8 +58,6 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
 
     private static final String IE_TYPE = "TYPE";
 
-    String[] township = {"Select Township","Botatung","Haling Township","Haling Township","Haling Township","Haling Township","Haling Township"};
-
     private boolean isSearchResultFragmentLoaded = false;
     public static FragmentManager fragmentManager;
     private SearchView searchView;
@@ -79,6 +81,8 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
         setSupportActionBar(toolbar);
 
         Window window = this.getWindow();
+
+        String[] township = getResources().getStringArray(R.array.township);
 
         ArrayAdapter<String> spAdapter = new ArrayAdapter<String>(MyanmarNightLifeApp.getContext(),android.R.layout.simple_spinner_dropdown_item,township);
         spTownship.setAdapter(spAdapter);
@@ -153,10 +157,18 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
 
 
     @Override
-    public void onTapShop(Places places, ImageView imageView) {
+    public void onTapShop(View v, Places places, ImageView imageView) {
         Intent intent = DetailActivity.newInstance(places,TYPE);
-        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this,new Pair(imageView,getString(R.string.share_image_transition)));
-        ActivityCompat.startActivity(this,intent,activityOptions.toBundle());
+//        startActivity(intent);
+        ActivityTransitionLauncher
+                .with(ShopActivity.this)
+                .from(v)
+                .launch(intent);
+    }
+
+    @Override
+    public void onTapHotel(Hotel hotel, ImageView imageView) {
+
     }
 
     @Override
@@ -167,8 +179,6 @@ public class ShopActivity extends AppCompatActivity implements ItemClickListener
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
             onBackPressed();
-        }else if (id == R.id.action_add){
-            startActivity(new Intent(ShopActivity.this,AddEventActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

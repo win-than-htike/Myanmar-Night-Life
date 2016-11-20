@@ -20,23 +20,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.facebook.AccessToken;
-import com.facebook.FacebookSdk;
-import com.facebook.login.LoginManager;
+import com.facebook.AccessTokenTracker;
 import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import myanmarnightlife.lower.team1.MyanmarNightLifeApp;
 import myanmarnightlife.lower.team1.R;
+import myanmarnightlife.lower.team1.data.Hotel;
 import myanmarnightlife.lower.team1.data.Places;
+import myanmarnightlife.lower.team1.data.Review;
 import myanmarnightlife.lower.team1.fragments.EmergencyFragment;
 import myanmarnightlife.lower.team1.fragments.FavouriteFragment;
 import myanmarnightlife.lower.team1.fragments.FragmentMain;
@@ -58,6 +55,8 @@ public class MainActivity extends AppCompatActivity
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
+    private AccessTokenTracker mAccessTokenTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,16 +114,14 @@ public class MainActivity extends AppCompatActivity
 
             mEmail.setText(mAuth.getCurrentUser().getDisplayName());
 
-            Glide.with(MyanmarNightLifeApp.getContext())
-                    .load(mAuth.getCurrentUser().getPhotoUrl().toString())
-                    .crossFade()
-                    .placeholder(R.drawable.placeholder)
-                    .into(ivProfile);
+//            Glide.with(MyanmarNightLifeApp.getContext())
+//                    .load(mAuth.getCurrentUser().getPhotoUrl().toString())
+//                    .crossFade()
+//                    .placeholder(R.drawable.placeholder)
+//                    .into(ivProfile);
 
         }else {
-
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
-
+            mEmail.setText("Myanmar Night Life");
         }
 
 
@@ -179,12 +176,8 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.action_logout){
-            AuthUI.getInstance().signOut(MainActivity.this).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    startActivity(new Intent(MainActivity.this,MainActivity.class));
-                }
-            });
+            mAuth.signOut();
+            mEmail.setText("Myanmar Night Life");
         }
 
         return super.onOptionsItemSelected(item);
@@ -242,11 +235,15 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
     @Override
-    public void onTapShop(Places places, ImageView imageView) {
+    public void onTapShop(View v, Places places, ImageView imageView) {
         Intent intent = DetailActivity.newInstance(places,places.getShopType());
         startActivity(intent);
+    }
+
+    @Override
+    public void onTapHotel(Hotel hotel, ImageView imageView) {
+
     }
 
     @Override

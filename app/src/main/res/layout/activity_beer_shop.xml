@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#0C8399">
+    android:background="@color/colorPrimary">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,9 +18,10 @@
 
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/sp_township"
-        android:layout_width="265dp"
+        android:layout_width="match_parent"
         android:popupBackground="@color/colorPrimaryDark"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/margin_medium"/>
 
     <FrameLayout
